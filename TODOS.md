@@ -2,6 +2,9 @@
 
 ## Raw notes for possible improvements to the code for point 4
 
+* Using _terminal_ for terminating the episode
+* Use the real reward (not R = Q(St,At)) to train the _Actor_
+* Do the thing above and remove the _Critic_ Network
 * Try different activation functions for _Actor_ and _Critic_ classes
 * Try different architectures for _Actor_ and _Critic_, such as ResNet-18
 * Stack more than 1 images together to use it as input for _Actor_ and _Critic_
@@ -14,10 +17,5 @@
 
 ## Must TODOs
 
-* Cleaning the code and comment the code
-* Create two folders: PPO and Pixels
 * Delete `Agent.py` file
-* Github:
-  * Create 1 main branch + 3 branches(Marco, Fabiola, Samu) for experiments
-* Create a Plot Folder
 * PLOTS AND DATAs, PLOTS AND DATAs, PLOTS and DATAs!!!!!!!!!!!
