@@ -9,6 +9,7 @@ from env_utils import *
 from Model.Actor import Policy
 from Model.Critic import StateValue
 from utils import OrnsteinUhlenbeckActionNoise, replayBuffer, subplot, obs_processing
+from contextlib import redirect_stdout
 
 from torch import nn 
 import torch.nn.functional as F 
@@ -18,8 +19,7 @@ import random
 from copy import copy, deepcopy
 from collections import deque
 import numpy as np
-
-
+print("Using torch version: {}".format(torch.__version__))
 
 
 def parse_args():
@@ -45,7 +45,7 @@ def main():
     H2=300   #neurons of 2nd layers TODO: Deprecated
 
     MAX_EPISODES=5000 #number of episodes of the training
-    MAX_STEPS=200    #max steps to finish an episode. An episode breaks early if some break conditions are met (like too much
+    MAX_STEPS=500    #max steps to finish an episode. An episode breaks early if some break conditions are met (like too much
                     #amplitude of the joints angles or if a failure occurs). In the case of pendulum there is no break 
                     #condition, hence no environment reset,  so we just put 1 step per episode. 
     buffer_start = 100 #initial warmup without training
@@ -56,10 +56,9 @@ def main():
                         #to zero. TODO: set to 0
     PRINT_EVERY = 2 #Print info about average reward every PRINT_EVERY
 
-    # env = gym.make('CustomHopper-source-v0')
 
     # Observation from Environment will be a dictionary containg the pixel obsarvation associated to the key `pixels`
-    # The actual shape of env['pixels'] is (500, 500, 3) TODO
+    # The actual shape of env['pixels'] is (500, 500, 3)
     env = PixelObservationWrapper(make_env(domain="source", render_mode='rgb_array'))
     # env = make_env(domain="source", render_mode='rgb_array')
 
@@ -92,8 +91,7 @@ def main():
     
     # Frame shape dimension (used to create the input for the nn)
     state_dim = s.shape
-    # state_dim = env.observation_space.shape[0] ##################################
-
+    
     # Action dimension (used to create the input for the nn)
     action_dim = env.action_space.shape[0]
 
@@ -130,7 +128,11 @@ def main():
     # Memory Buffer Definition -> to make TODO: mettere arxIv di Playing Atari Games with deep rl
     memory = replayBuffer(BUFFER_SIZE)
 
-    device = args.device
+    #set GPU for faster training
+    cuda = torch.cuda.is_available() #check for CUDA
+    device   = torch.device("cuda" if cuda else "cpu")
+
+    print("Job will run on {}".format(device))
 
     # Plot lists
     plot_reward = []
@@ -146,12 +148,15 @@ def main():
     global_step = 0
     #s = deepcopy(env.reset())
 
-    actor.train()
-    critic.train()
+    # actor.train()
+    # critic.train()
 
     # Training Loop
     for episode in range(MAX_EPISODES):
-        print(episode)
+        
+        with open('out.txt', 'a') as f:
+            with redirect_stdout(f):
+                print(episode)
 
         #print(episode)
 
@@ -159,13 +164,13 @@ def main():
         s, _ = env.reset()
 
         # Domain Randomization For Training
-        env.set_random_parameters()
+        # env.set_random_parameters()
 
         # Copy the state
         s = deepcopy(s)
 
         # Reset the noise
-        noise.reset()
+        # noise.reset()
 
         # Reset the variables
         ep_reward = 0.
@@ -200,12 +205,11 @@ def main():
 
             # Memory addition of St,At,Rt (if performing the action), done, St+1 
             memory.add(s, a, reward, terminal, obs_processing(s2['pixels']))
-            # memory.add(s, a, reward, terminal, s2)
 
             #keep adding experiences to the memory until there are at least minibatch size samples
             if memory.count() > buffer_start:
 
-                # Sampling St, At, Rt, terminal, St+1 
+                # Sampling BATCH_SIZE (= 64 items) of St, At, Rt, terminal, St+1 
                 s_batch, a_batch, r_batch, t_batch, s2_batch = memory.sample(BATCH_SIZE)
 
                 s_batch = torch.FloatTensor(s_batch).to(device)
@@ -228,7 +232,6 @@ def main():
                 q_optimizer.zero_grad()
 
                 q_loss = MSE(q, y) #detach to avoid updating target
-                # q_loss = ((y - q )**2).mean() #detach to avoid updating target
                 q_loss.backward()
                 q_optimizer.step()
 
@@ -238,9 +241,10 @@ def main():
                 # the reward predicted by the Critic Network. The '-' is needed because the `.backward()` can perform
                 # only minimization problem. 
                 policy_loss =  - critic(s_batch, actor(s_batch))
+                ''' 2° Tentativo'''
+                # policy_loss =  - y
                 policy_loss = policy_loss.mean()
                 policy_loss.backward()
-
                 policy_optimizer.step()
                 
                 
@@ -260,74 +264,73 @@ def main():
             s = deepcopy(s2)
             
             ep_reward += reward
-            #if terminal:
+            if terminal:
             #    noise.reset()
-            #    break
-        # print("avg = ", ep_reward)
+               break
+
         try:
             # Plot values
-            plot_reward.append([ep_reward, episode+1])
-            plot_policy.append([policy_loss.cpu().item(), episode+1])
-            plot_q.append([q_loss.cpu().item(), episode+1])
-            plot_steps.append([step+1, episode+1])
+            if (episode + 1)%50 == 0:
+                plot_reward.append([ep_reward, episode+1])
+                plot_policy.append([policy_loss.cpu().data, episode+1])
+                plot_q.append([q_loss.cpu().data, episode+1])
+                plot_steps.append([step+1, episode+1])
+
         except:
             continue
 
+        # Average Run reward -> run corresponds to `PRINT_EVERY` episodes
         average_reward += ep_reward
+
+        # Average episode reward
+        average_ep_reward = ep_reward/step
         
         # Saving the model with the best rewaed in episode
-        if ep_reward > best_reward:
-            torch.save(actor.state_dict(), 'best_model_hopper.pkl') #Save the actor model for future testing
-            best_reward = ep_reward
-            saved_reward = ep_reward
+        if average_ep_reward > best_reward:
+            torch.save(actor.state_dict(), 'models_saved/best_model.pkl') #Save the actor model for future testing
+            best_reward = average_ep_reward
+            saved_reward = average_ep_reward
             saved_ep = episode+1
-
-            for episode in range(20):
-                episode_reward = 0
-                done = False
-                state, _ = env.reset()
-
-                while not done:
-                    # action = actor.get_action(state)
-                    action = actor.get_action(obs_processing(state['pixels']))
-                    state, reward, done, _  = env.step(action=action)
-                    env.render()
-
-                    episode_reward += reward
-                print(f"Episode: {episode} | Return: {episode_reward}")
-
             print("Last best model saved with reward: {:.2f}, at episode {}.".format(saved_reward, saved_ep))
-        
-        # Saving the latest model every 50 episode
-        if (episode + 1) % 50 == 0:
-            for episode in range(10):
-                episode_reward = 0
-                done = False
-                state, _ = env.reset()
-
-                while not done:
-                    action = actor.get_action(obs_processing(state['pixels']))
-                    state, reward, done, _  = env.step(action=action)
-                    env.render()
-
-                    episode_reward += reward
-                print(f"Episode: {episode} | Return: {episode_reward}")
-            torch.save(actor.state_dict(), 'model_hopper.pkl')
-            saved_reward = ep_reward
-            saved_ep = episode+1
-            print("Model saved with reward: {:.2f}, at episode {}.".format(saved_reward, saved_ep))
 
         # Plot Section
         if (episode % PRINT_EVERY) == (PRINT_EVERY-1):    # print every print_every episodes
-            subplot(plot_reward, plot_policy, plot_q, plot_steps, show = False)            
-            print('[%6d episode, %8d total steps] average reward for past {} iterations: %.3f'.format(PRINT_EVERY) %
-                (episode + 1, global_step, average_reward / PRINT_EVERY))
+            torch.save(actor.state_dict(), f'models_saved/model{episode + 1}.pkl') #Save the actor model for future testing
             
-            print("Last model saved with reward: {:.2f}, at episode {}.".format(saved_reward, saved_ep))
-            average_reward = 0 #reset average reward
+            # Testing
+            for episode in range(10):
+                    episode_reward = 0
+                    done = False
+                    state, _ = env.reset()
 
-    # subplot(plot_reward.cpu(), plot_policy.cpu(), plot_q.cpu(), plot_steps.cpu(), show = True)
+                    while not done:
+                        action = actor.get_action(obs_processing(state['pixels']))
+                        state, reward, done, _  = env.step(action=action)
+        
+
+                        episode_reward += reward
+
+                    with open('out.txt', 'a') as f:
+                        with redirect_stdout(f):
+                            print(f"Episode: {episode} | Return: {episode_reward}")
+            
+            # Plot
+            subplot(plot_reward, plot_policy, plot_q, plot_steps)
+
+            with open('out.txt', 'a') as f:
+                with redirect_stdout(f):
+                    print('[%6d episode, %8d total steps] average reward for past {} iterations: %.3f'.format(PRINT_EVERY) %
+                        (episode + 1, global_step, average_reward / PRINT_EVERY))
+                    print("Last best model saved with reward: {:.2f}, at episode {}.".format(saved_reward, saved_ep))
+            average_reward = 0 #reset average reward
     
+        if (episode + 1) % 1000 == 0:
+            print("-------Backup Saved-------")
+            torch.save(actor.state_dict(), f'actor_critic_backup/actor.pkl')
+            torch.save(target_actor.state_dict(), f'actor_critic_backup/target_actor.pkl')
+            torch.save(critic.state_dict(), f'actor_critic_backup/critic.pkl')
+            torch.save(target_critic.state_dict(), f'actor_critic_backup/target_critic.pkl')
+
 
 if __name__ == '__main__':
 	main()

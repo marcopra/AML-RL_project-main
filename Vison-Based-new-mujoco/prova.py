@@ -334,9 +334,9 @@ for episode in range(MAX_EPISODES):
         ep_reward += reward
 
 
-        #if terminal:
+        if terminal:
         #    noise.reset()
-        #    break
+           break
 
     try:
         if (episode + 1)%50 == 0:
@@ -358,6 +358,7 @@ for episode in range(MAX_EPISODES):
     
     if (episode % PRINT_EVERY) == (PRINT_EVERY-1):    # print every print_every episodes
         torch.save(actor.state_dict(), f'models_saved/model{episode + 1}.pkl') #Save the actor model for future testing
+
         for episode in range(10):
                 episode_reward = 0
                 done = False
@@ -369,15 +370,13 @@ for episode in range(MAX_EPISODES):
     
 
                     episode_reward += reward
-                from contextlib import redirect_stdout
 
                 with open('out.txt', 'a') as f:
                     with redirect_stdout(f):
                         print(f"Episode: {episode} | Return: {episode_reward}")
+
         subplot(plot_reward, plot_policy, plot_q, plot_steps)
-        # r = list(zip(*plot_reward))
-        # plt.plot(list(r[1]), list(r[0]), 'r') #row=0, col=0
-        # plt.show()
+
         with open('out.txt', 'a') as f:
             with redirect_stdout(f):
                 print('[%6d episode, %8d total steps] average reward for past {} iterations: %.3f'.format(PRINT_EVERY) %
