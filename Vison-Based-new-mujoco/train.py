@@ -44,7 +44,7 @@ def main():
     H1=400   #neurons of 1st layers TODO: Deprecated
     H2=300   #neurons of 2nd layers TODO: Deprecated
 
-    MAX_EPISODES=5000 #number of episodes of the training
+    MAX_EPISODES=30000 #number of episodes of the training
     MAX_STEPS=500    #max steps to finish an episode. An episode breaks early if some break conditions are met (like too much
                     #amplitude of the joints angles or if a failure occurs). In the case of pendulum there is no break 
                     #condition, hence no environment reset,  so we just put 1 step per episode. 
@@ -54,11 +54,13 @@ def main():
                         #complex tasks like Hopper; epsilon is a decay for the exploration and noise applied to the action is 
                         #weighted by this decay. In more complex tasks we need the exploration to not vanish so we set the decay
                         #to zero. TODO: set to 0
-    PRINT_EVERY = 2 #Print info about average reward every PRINT_EVERY
+    PRINT_EVERY = 500 #Print info and plots about average reward every PRINT_EVERY
+    BACKUP_EVERY = 1000 #Backup of Critic, Target_Critic, Actor and Target_Actor every BACKUP_EVERY episodes
+    POINT_DISTANCE = 50 # Distance of points for plot is of POINT_DISTANCE episodes 
 
 
     # Observation from Environment will be a dictionary containg the pixel obsarvation associated to the key `pixels`
-    # The actual shape of env['pixels'] is (500, 500, 3)
+    # The actual shape of env['pixels'] is (500, 500, 3) TODO forrse 480 +x 480
     env = PixelObservationWrapper(make_env(domain="source", render_mode='rgb_array'))
     # env = make_env(domain="source", render_mode='rgb_array')
 
@@ -264,13 +266,14 @@ def main():
             s = deepcopy(s2)
             
             ep_reward += reward
+            
             if terminal:
             #    noise.reset()
                break
 
         try:
             # Plot values
-            if (episode + 1)%50 == 0:
+            if ((episode + 1)%POINT_DISTANCE) == 0:
                 plot_reward.append([ep_reward, episode+1])
                 plot_policy.append([policy_loss.cpu().data, episode+1])
                 plot_q.append([q_loss.cpu().data, episode+1])
@@ -282,14 +285,12 @@ def main():
         # Average Run reward -> run corresponds to `PRINT_EVERY` episodes
         average_reward += ep_reward
 
-        # Average episode reward
-        average_ep_reward = ep_reward/step
         
         # Saving the model with the best rewaed in episode
-        if average_ep_reward > best_reward:
+        if ep_reward > best_reward:
             torch.save(actor.state_dict(), 'models_saved/best_model.pkl') #Save the actor model for future testing
-            best_reward = average_ep_reward
-            saved_reward = average_ep_reward
+            best_reward = ep_reward
+            saved_reward = ep_reward
             saved_ep = episode+1
             print("Last best model saved with reward: {:.2f}, at episode {}.".format(saved_reward, saved_ep))
 
@@ -324,7 +325,28 @@ def main():
                     print("Last best model saved with reward: {:.2f}, at episode {}.".format(saved_reward, saved_ep))
             average_reward = 0 #reset average reward
     
-        if (episode + 1) % 1000 == 0:
+        # Plot Section
+        if (episode % 50) == (50-1):    # print every print_every episodes
+    
+            # Testing
+            for episode in range(10):
+                    episode_reward = 0
+                    done = False
+                    state, _ = env.reset()
+
+                    while not done:
+                        action = actor.get_action(obs_processing(state['pixels']))
+                        state, reward, done, _  = env.step(action=action)
+        
+
+                        episode_reward += reward
+
+                    with open('out.txt', 'a') as f:
+                        with redirect_stdout(f):
+                            print(f"Episode: {episode} | Return: {episode_reward}")
+            
+    
+        if ((episode + 1) % BACKUP_EVERY) == 0:
             print("-------Backup Saved-------")
             torch.save(actor.state_dict(), f'actor_critic_backup/actor.pkl')
             torch.save(target_actor.state_dict(), f'actor_critic_backup/target_actor.pkl')

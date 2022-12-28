@@ -51,7 +51,9 @@ epsilon_decay = 1./100000 #this is ok for a simple task like inverted pendulum, 
                      #complex tasks like Hopper; epsilon is a decay for the exploration and noise applied to the action is 
                      #weighted by this decay. In more complex tasks we need the exploration to not vanish so we set the decay
                      #to zero.
-PRINT_EVERY = 500 #Print info about average reward every PRINT_EVERY
+PRINT_EVERY = 50 #Print info about average reward every PRINT_EVERY
+BACKUP_EVERY = 1000 #Backup of Critic, Target_Critic, Actor and Target_Actor every N episodes
+POINT_DISTANCE = 40 # Distance of points for plot is of N episodes 
 
 ENV_NAME = "CustomHopper-source-v0" # Put here the gym env name you want to play with
 #check other environments to play with at https://gym.openai.com/envs/#mujoco

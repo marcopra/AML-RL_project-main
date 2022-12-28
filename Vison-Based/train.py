@@ -273,17 +273,14 @@ def main():
         # Average Run reward -> run corresponds to `PRINT_EVERY` episodes
         average_reward += ep_reward
 
-        # Average episode reward
-        average_ep_reward = ep_reward/step
-        
-        # Saving the model with the best rewaed in episode
-        if average_ep_reward > best_reward:
+       # Saving the model with the best rewaed in episode
+        if ep_reward > best_reward:
             torch.save(actor.state_dict(), 'models_saved/best_model.pkl') #Save the actor model for future testing
-            best_reward = average_ep_reward
-            saved_reward = average_ep_reward
+            best_reward = ep_reward
+            saved_reward = ep_reward
             saved_ep = episode+1
             print("Last best model saved with reward: {:.2f}, at episode {}.".format(saved_reward, saved_ep))
-
+            
         # Plot Section
         if (episode % PRINT_EVERY) == (PRINT_EVERY-1):    # print every print_every episodes
             torch.save(actor.state_dict(), f'models_saved/model{episode + 1}.pkl') #Save the actor model for future testing
