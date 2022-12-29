@@ -16,15 +16,20 @@ class Policy(torch.nn.Module):
 
         self.conv = nn.Sequential(
             nn.Conv2d(state_space[0], 32, kernel_size=8, stride=4),
+            nn.BatchNorm2d(32),
             nn.ReLU(),
             nn.Conv2d(32, 64, kernel_size=4, stride=2),
+            nn.BatchNorm2d(64),
             nn.ReLU(),
             nn.Conv2d(64, 64, kernel_size=2, stride=1),
+            nn.BatchNorm2d(64),
             nn.ReLU()
         )
 
         self.fc = nn.Sequential(
-            nn.Linear(4096, 512),
+            nn.Linear(4096, 1024),
+            nn.ReLU(),
+            nn.Linear(1024, 512),
             nn.ReLU(),
             nn.Linear(512, action_space)
         )
@@ -32,8 +37,11 @@ class Policy(torch.nn.Module):
         # self.init_weights(init_w)
 
     def init_weights(self, init_w):
+        self.conv[0].weight.data = fanin_(self.conv[0].weight.data.size())
+        self.conv[1].weight.data = fanin_(self.conv[1].weight.data.size())
+        self.conv[2].weight.data = fanin_(self.conv[2].weight.data.size())
         self.fc[0].weight.data = fanin_(self.fc[0].weight.data.size())
-        self.fc[1].weight.data .uniform_(-init_w, init_w)
+        self.fc[1].weight.data.uniform_(-init_w, init_w)
 
     def forward(self, x):
 
