@@ -198,6 +198,7 @@ def main():
         ep_q_value = 0.
         step=0
 
+        q_loss = None
         # Single Episode Loop
         for step in range(MAX_STEPS):
             #loss=0
@@ -314,7 +315,7 @@ def main():
 
         if ALTERNATE_TRAINING is True:
             # If the q_loss is below a certain threshold, increment the counter of the time the q_loss is low
-            if q_loss.cpu().data <= THRESHOLD:
+            if q_loss is not None and q_loss.cpu().data <= THRESHOLD:
                 critic_low_loss += 1
 
             else:
