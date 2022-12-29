@@ -16,15 +16,20 @@ class Policy(torch.nn.Module):
 
         self.conv = nn.Sequential(
             nn.Conv2d(state_space[0], 32, kernel_size=8, stride=4),
+            nn.BatchNorm2d(32),
             nn.ReLU(),
             nn.Conv2d(32, 64, kernel_size=4, stride=2),
+            nn.BatchNorm2d(64),
             nn.ReLU(),
             nn.Conv2d(64, 64, kernel_size=2, stride=1),
+            nn.BatchNorm2d(64),
             nn.ReLU()
         )
 
         self.fc = nn.Sequential(
-            nn.Linear(4096, 512),
+            nn.Linear(4096, 1024),
+            nn.ReLU(),
+            nn.Linear(1024, 512),
             nn.ReLU(),
             nn.Linear(512, action_space)
         )

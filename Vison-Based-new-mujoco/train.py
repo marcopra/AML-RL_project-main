@@ -36,7 +36,7 @@ args = parse_args()
 def main():
 
     BUFFER_SIZE=1000000
-    BATCH_SIZE=64
+    BATCH_SIZE=128
     GAMMA=0.99
     TAU=0.001       #Target Network HyperParameters Update rate
     LRA=0.0001      #LEARNING RATE ACTOR
@@ -48,14 +48,14 @@ def main():
     MAX_STEPS=500    #max steps to finish an episode. An episode breaks early if some break conditions are met (like too much
                     #amplitude of the joints angles or if a failure occurs). In the case of pendulum there is no break 
                     #condition, hence no environment reset,  so we just put 1 step per episode. 
-    buffer_start = 100 #initial warmup without training
+    buffer_start = 200 #initial warmup without training
     epsilon = 1
     epsilon_decay = 1./100000 #this is ok for a simple task like inverted pendulum, but maybe this would be set to zero for more
                         #complex tasks like Hopper; epsilon is a decay for the exploration and noise applied to the action is 
                         #weighted by this decay. In more complex tasks we need the exploration to not vanish so we set the decay
                         #to zero. TODO: set to 0
     PRINT_EVERY = 500 #Print info and plots about average reward every PRINT_EVERY
-    BACKUP_EVERY = 1000 #Backup of Critic, Target_Critic, Actor and Target_Actor every BACKUP_EVERY episodes
+    BACKUP_EVERY = 999 #Backup of Critic, Target_Critic, Actor and Target_Actor every BACKUP_EVERY episodes
     POINT_DISTANCE = 50 # Distance of points for plot is of POINT_DISTANCE episodes 
 
 
@@ -158,7 +158,8 @@ def main():
         
         with open('out.txt', 'a') as f:
             with redirect_stdout(f):
-                print(episode)
+                if (episode+1) % 100 == 0:
+                    print(episode+1)
 
         #print(episode)
 
@@ -172,7 +173,7 @@ def main():
         s = deepcopy(s)
 
         # Reset the noise
-        # noise.reset()
+        noise.reset()
 
         # Reset the variables
         ep_reward = 0.
@@ -244,7 +245,7 @@ def main():
                 # only minimization problem. 
                 policy_loss =  - critic(s_batch, actor(s_batch))
                 ''' 2° Tentativo'''
-                # policy_loss =  - y
+                # policy_loss =  - (r_batch + (1.0 - t_batch) * GAMMA * target_q)
                 policy_loss = policy_loss.mean()
                 policy_loss.backward()
                 policy_optimizer.step()
@@ -346,7 +347,7 @@ def main():
                             print(f"Episode: {episode} | Return: {episode_reward}")
             
     
-        if ((episode + 1) % BACKUP_EVERY) == 0:
+        if (episode % BACKUP_EVERY) == 0:
             print("-------Backup Saved-------")
             torch.save(actor.state_dict(), f'actor_critic_backup/actor.pkl')
             torch.save(target_actor.state_dict(), f'actor_critic_backup/target_actor.pkl')
