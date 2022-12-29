@@ -37,8 +37,11 @@ class Policy(torch.nn.Module):
         # self.init_weights(init_w)
 
     def init_weights(self, init_w):
+        self.conv[0].weight.data = fanin_(self.conv[0].weight.data.size())
+        self.conv[1].weight.data = fanin_(self.conv[1].weight.data.size())
+        self.conv[2].weight.data = fanin_(self.conv[2].weight.data.size())
         self.fc[0].weight.data = fanin_(self.fc[0].weight.data.size())
-        self.fc[1].weight.data .uniform_(-init_w, init_w)
+        self.fc[1].weight.data.uniform_(-init_w, init_w)
 
     def forward(self, x):
 

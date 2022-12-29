@@ -1,9 +1,10 @@
 # List of TODOs
 
-## Raw notes for possible improvements to the code for point 4
+## Raw notes for possible improvements in the code for point 4
 
 * Using _terminal_ for terminating the episode
 * Use the real reward (not R = Q(St,At)) to train the _Actor_
+* Fare training alterno
 * Do the thing above and remove the _Critic_ Network
 * Try different activation functions for _Actor_ and _Critic_ classes
 * Try different architectures for _Actor_ and _Critic_, such as ResNet-18
