@@ -45,7 +45,7 @@ def main():
     H2=300   #neurons of 2nd layers TODO: Deprecated
 
     MAX_EPISODES=30000 #number of episodes of the training
-    MAX_STEPS=500    #max steps to finish an episode. An episode breaks early if some break conditions are met (like too much
+    MAX_STEPS=200    #max steps to finish an episode. An episode breaks early if some break conditions are met (like too much
                     #amplitude of the joints angles or if a failure occurs). In the case of pendulum there is no break 
                     #condition, hence no environment reset,  so we just put 1 step per episode. 
     buffer_start = 200 #initial warmup without training
@@ -61,14 +61,15 @@ def main():
 
     ALTERNATE_TRAINING = True # Choose if alternate the training of the Networks. If False simoultaneous training, if Trure alternate training 
     CRITIC_TRAINING = True # The training of the Actor and Criting is not simultaneous
-    THRESHOLD = 2.0 # Threshold for loss for Critic Network
-    N_EPISODES_IN_A_ROW = 500 # Minumum amount of episodes in a row in which the critic loss is below THESHOLD needed to stop the Critic Training  
+    THRESHOLD = 0.04 # Threshold for loss for Critic Network
+    N_EPISODES_IN_A_ROW = 500 # Minumum amount of episodes in a row in which the critic loss is below THESHOLD needed to stop the Critic Training 
+    MINIMUM_STEPS = 25 
 
     CONTINUE_TRAINING = False # Continue training from Backup
 
 
     # Observation from Environment will be a dictionary containg the pixel obsarvation associated to the key `pixels`
-    # The actual shape of env['pixels'] is (500, 500, 3) TODO forrse 480 +x 480
+    # The actual shape of env['pixels'] is (480, 480, 3)
     env = PixelObservationWrapper(make_env(domain="source", render_mode='rgb_array'))
     # env = make_env(domain="source", render_mode='rgb_array')
 
@@ -251,28 +252,54 @@ def main():
                 q = critic(s_batch, a_batch)
                     
                 # Trainong for the Critic Network
-                if ALTERNATE_TRAINING is False or CRITIC_TRAINING is True :
+                if ALTERNATE_TRAINING is True:
+
+                    if CRITIC_TRAINING is True:
+                        # Q-Network (Critic): Loss computation and backward (training of Q-Network)
+                        q_optimizer.zero_grad()
+
+                        q_loss = MSE(q, y) #detach to avoid updating target
+                        q_loss.backward()
+                        q_optimizer.step()
+
+                        #Soft update of the frozen target networks
+                        for target_param, param in zip(target_critic.parameters(), critic.parameters()):
+                            target_param.data.copy_(
+                                target_param.data * (1.0 - TAU) + param.data * TAU
+                            )
+                    
+                    else:
+
+                        q_loss = MSE(q, y) #detach to avoid updating target
+                        # Actor Network: Loss computation and backward (training of Actor Network)
+                        policy_optimizer.zero_grad()
+                        # The aim is to maximize the reward of the chosen action, so the loss of the Actor corresponds to
+                        # the reward predicted by the Critic Network. The '-' is needed because the `.backward()` can perform
+                        # only minimization problem. 
+                        a2 = actor(s_batch)
+
+                        policy_loss =  - critic(s_batch, a2)
+                        ''' 2° Tentativo'''
+                        # policy_loss =  - (r_batch + (1.0 - t_batch) * GAMMA * target_q)
+                        policy_loss = policy_loss.mean()
+                        policy_loss.backward()
+                        policy_optimizer.step()
+                    
+                        #Soft update of the frozen target networks
+                        for target_param, param in zip(target_actor.parameters(), actor.parameters()):
+                            target_param.data.copy_(
+                                target_param.data * (1.0 - TAU) + param.data * TAU
+                            )
+
+                else:
+                    
+                    q_loss = MSE(q, y) #detach to avoid updating target
 
                     # Q-Network (Critic): Loss computation and backward (training of Q-Network)
                     q_optimizer.zero_grad()
-
-                    q_loss = MSE(q, y) #detach to avoid updating target
                     q_loss.backward()
                     q_optimizer.step()
 
-                    #Soft update of the frozen target networks
-                    for target_param, param in zip(target_critic.parameters(), critic.parameters()):
-                        target_param.data.copy_(
-                            target_param.data * (1.0 - TAU) + param.data * TAU
-                        )
-
-                else:
-                    q_loss = MSE(q, y) #detach to avoid updating target
-
-                # Training for the Actor network
-                if ALTERNATE_TRAINING is False or CRITIC_TRAINING is False:
-
-                    # Actor Network: Loss computation and backward (training of Actor Network)
                     policy_optimizer.zero_grad()
                     # The aim is to maximize the reward of the chosen action, so the loss of the Actor corresponds to
                     # the reward predicted by the Critic Network. The '-' is needed because the `.backward()` can perform
@@ -280,15 +307,26 @@ def main():
                     policy_loss =  - critic(s_batch, actor(s_batch))
                     ''' 2° Tentativo'''
                     # policy_loss =  - (r_batch + (1.0 - t_batch) * GAMMA * target_q)
+                    policy_optimizer.zero_grad()
                     policy_loss = policy_loss.mean()
                     policy_loss.backward()
                     policy_optimizer.step()
+
                 
+                    #Soft update of the frozen target networks
+                    for target_param, param in zip(target_critic.parameters(), critic.parameters()):
+                        target_param.data.copy_(
+                            target_param.data * (1.0 - TAU) + param.data * TAU
+                        )
+
                     #Soft update of the frozen target networks
                     for target_param, param in zip(target_actor.parameters(), actor.parameters()):
                         target_param.data.copy_(
                             target_param.data * (1.0 - TAU) + param.data * TAU
                         )
+
+
+                    
                 
             # St+1 becomes St
             s = deepcopy(s2)
@@ -315,7 +353,7 @@ def main():
 
         if ALTERNATE_TRAINING is True:
             # If the q_loss is below a certain threshold, increment the counter of the time the q_loss is low
-            if q_loss is not None and q_loss.cpu().data <= THRESHOLD:
+            if q_loss is not None and (q_loss.cpu().data <= THRESHOLD):
                 critic_low_loss += 1
 
             else:
@@ -323,7 +361,11 @@ def main():
             
             # If the q_loss is below a certain threshold for a certain number of episodes in a row, 
             # we can stop the Critic Training and we can start with the Actor training 
-            if critic_low_loss >= N_EPISODES_IN_A_ROW:
+            if CRITIC_TRAINING is True and critic_low_loss >= N_EPISODES_IN_A_ROW:
+                with open('out.txt', 'a') as f:
+                        with redirect_stdout(f):
+                            print(f"-----SWITCH at ep n°{episode}------")
+                print(f"-----SWITCH at ep n°{episode}------")
                 CRITIC_TRAINING = False
                 plot_policy = []
 
@@ -333,11 +375,12 @@ def main():
         
         # Saving the model with the best rewaed in episode
         if ep_reward > best_reward:
-            torch.save(actor.state_dict(), 'models_saved/best_model.pkl') #Save the actor model for future testing
-            best_reward = ep_reward
-            saved_reward = ep_reward
-            saved_ep = episode+1
-            print("Last best model saved with reward: {:.2f}, at episode {}.".format(saved_reward, saved_ep))
+            if ALTERNATE_TRAINING is False or CRITIC_TRAINING is False:
+                torch.save(actor.state_dict(), 'models_saved/best_model.pkl') #Save the actor model for future testing
+                best_reward = ep_reward
+                saved_reward = ep_reward
+                saved_ep = episode+1
+                print("Last best model saved with reward: {:.2f}, at episode {}.".format(saved_reward, saved_ep))
 
         # Plot Section
         if (episode % PRINT_EVERY) == (PRINT_EVERY-1):    # print every print_every episodes

@@ -59,12 +59,14 @@ def main():
     BACKUP_EVERY = 999 #Backup of Critic, Target_Critic, Actor and Target_Actor every BACKUP_EVERY episodes
     POINT_DISTANCE = 50 # Distance of points for plot is of POINT_DISTANCE episodes 
 
-    ALTERNATE_TRAINING = False # Choose if alternate the training of the Networks. If False simoultaneous training, if Trure alternate training 
+    ALTERNATE_TRAINING = True # Choose if alternate the training of the Networks. If False simoultaneous training, if Trure alternate training 
     CRITIC_TRAINING = True # The training of the Actor and Criting is not simultaneous
     THRESHOLD = 2.0 # Threshold for loss for Critic Network
-    N_EPISODES_IN_A_ROW = 500 # Minumum amount of episodes in a row in which the critic loss is below THESHOLD needed to stop the Critic Training  
+    N_EPISODES_IN_A_ROW = 500 # Minumum amount of episodes in a row in which the critic loss is below THESHOLD needed to stop the Critic Training 
+    MINIMUM_STEPS = 25 
 
     CONTINUE_TRAINING = False # Continue training from Backup
+
 
 
 
@@ -307,9 +309,8 @@ def main():
             pass
 
         if ALTERNATE_TRAINING is True:
-
             # If the q_loss is below a certain threshold, increment the counter of the time the q_loss is low
-            if q_loss is not None and q_loss.cpu().data <= THRESHOLD:
+            if q_loss is not None and (q_loss.cpu().data <= THRESHOLD and step >= MINIMUM_STEPS):
                 critic_low_loss += 1
 
             else:
@@ -317,20 +318,26 @@ def main():
             
             # If the q_loss is below a certain threshold for a certain number of episodes in a row, 
             # we can stop the Critic Training and we can start with the Actor training 
-            if critic_low_loss >= N_EPISODES_IN_A_ROW:
+            if CRITIC_TRAINING is True and critic_low_loss >= N_EPISODES_IN_A_ROW:
+                with open('out.txt', 'a') as f:
+                        with redirect_stdout(f):
+                            print(f"-----SWITCH at ep n°{episode}------")
+                print(f"-----SWITCH at ep n°{episode}------")
                 CRITIC_TRAINING = False
                 plot_policy = []
+
         # Average Run reward -> run corresponds to `PRINT_EVERY` episodes
         average_reward += ep_reward
 
         
         # Saving the model with the best rewaed in episode
         if ep_reward > best_reward:
-            torch.save(actor.state_dict(), 'models_saved/best_model.pkl') #Save the actor model for future testing
-            best_reward = ep_reward
-            saved_reward = ep_reward
-            saved_ep = episode+1
-            print("Last best model saved with reward: {:.2f}, at episode {}.".format(saved_reward, saved_ep))
+            if ALTERNATE_TRAINING is False or CRITIC_TRAINING is False:
+                torch.save(actor.state_dict(), 'models_saved/best_model.pkl') #Save the actor model for future testing
+                best_reward = ep_reward
+                saved_reward = ep_reward
+                saved_ep = episode+1
+                print("Last best model saved with reward: {:.2f}, at episode {}.".format(saved_reward, saved_ep))
 
         # Plot Section
         if (episode % PRINT_EVERY) == (PRINT_EVERY-1):    # print every print_every episodes
@@ -343,7 +350,7 @@ def main():
                     state, _ = env.reset()
 
                     while not done:
-                        action = actor.get_action(obs_processing(state['pixels']))
+                        action = actor.get_action(state)
                         state, reward, done, _  = env.step(action=action)
         
 
@@ -373,7 +380,7 @@ def main():
                     state, _ = env.reset()
 
                     while not done:
-                        action = actor.get_action(obs_processing(state['pixels']))
+                        action = actor.get_action(state)
                         state, reward, done, _  = env.step(action=action)
         
 

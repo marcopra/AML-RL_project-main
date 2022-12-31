@@ -34,14 +34,17 @@ class Policy(torch.nn.Module):
             nn.Linear(512, action_space)
         )
         
-        # self.init_weights(init_w)
+        self.init_weights(init_w)
 
     def init_weights(self, init_w):
+        
         self.conv[0].weight.data = fanin_(self.conv[0].weight.data.size())
-        self.conv[1].weight.data = fanin_(self.conv[1].weight.data.size())
-        self.conv[2].weight.data = fanin_(self.conv[2].weight.data.size())
+        self.conv[3].weight.data = fanin_(self.conv[3].weight.data.size())
+        self.conv[6].weight.data = fanin_(self.conv[6].weight.data.size())
         self.fc[0].weight.data = fanin_(self.fc[0].weight.data.size())
-        self.fc[1].weight.data.uniform_(-init_w, init_w)
+        self.fc[2].weight.data = fanin_(self.fc[2].weight.data.size())
+        self.fc[4].weight.data.uniform_(-init_w, init_w)
+        
 
     def forward(self, x):
 
@@ -58,8 +61,13 @@ class Policy(torch.nn.Module):
 
     def get_action(self, state):
         #(n_samples, channels, height, width)
-        state  = torch.FloatTensor(np.float32(state)).unsqueeze(0).cuda()
-        action = self.forward(state)
+        self.conv.eval()
+        self.fc.eval()
+        with torch.no_grad():
+            state  = torch.FloatTensor(np.float32(state)).unsqueeze(0).cuda()
+            action = self.forward(state)
+        self.conv.train()
+        self.fc.train()
         return action.detach().cpu().numpy()[0]
 
 # # FIRST TRY

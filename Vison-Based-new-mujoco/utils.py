@@ -74,7 +74,6 @@ def subplot(R, P, Q, S, show = False):
     if show:
         plt.show()
 
-    # TODO Test the saving update
     fig.savefig(f"plot/subplot_ep_{r[1][-1]}.jpg")
     
     
@@ -163,8 +162,10 @@ class replayBuffer(object):
     def sample(self, batch_size):
         if self.num_exp < batch_size:
             batch=random.sample(self.buffer, self.num_exp)
+            self.num_exp -= self.num_exp
         else:
             batch=random.sample(self.buffer, batch_size)
+            self.num_exp -= batch_size
 
         s, a, r, t, s2 = map(np.stack, zip(*batch))
 

@@ -1,0 +1,32 @@
+100
+Episode: 0 | Return: 85.63517405687703
+Episode: 1 | Return: 93.65210940875379
+Episode: 2 | Return: 81.90801316532364
+Episode: 3 | Return: 52.1053678893338
+Episode: 4 | Return: 77.66858316262814
+Episode: 5 | Return: 86.33775506472263
+Episode: 6 | Return: 77.84304440088559
+Episode: 7 | Return: 90.81399061785633
+Episode: 8 | Return: 81.13532786563118
+Episode: 9 | Return: 81.34138253770492
+Episode: 0 | Return: 76.82892985171944
+Episode: 1 | Return: 50.668197329354555
+Episode: 2 | Return: 74.14242024999307
+Episode: 3 | Return: 70.51012855510118
+Episode: 4 | Return: 75.75191379331098
+Episode: 5 | Return: 75.56476484202433
+Episode: 6 | Return: 75.41961413201649
+Episode: 7 | Return: 69.7228784679046
+Episode: 8 | Return: 72.9037836413605
+Episode: 9 | Return: 70.19738695432672
+200
+Episode: 0 | Return: 44.65020794362737
+Episode: 1 | Return: 47.84277589185889
+Episode: 2 | Return: 65.63279547484336
+Episode: 3 | Return: 49.88916443532163
+Episode: 4 | Return: 62.667086419175945
+Episode: 5 | Return: 47.63613475672701
+Episode: 6 | Return: 47.21546995719125
+Episode: 7 | Return: 47.72075004328185
+Episode: 8 | Return: 49.15286096569641
+Episode: 9 | Return: 47.38042052281988
