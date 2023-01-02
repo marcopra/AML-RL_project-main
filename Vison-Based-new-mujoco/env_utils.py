@@ -64,9 +64,9 @@ def make_env(domain, render_mode=None):
     return env
 
 
-def my_make_env(stack_frames=True, scale=False):
+def my_make_env(stack_frames=True, scale=False, domain = "source"):
     """Configure the atari environment."""
-    env = PixelObservationWrapper(make_env(domain="source", render_mode='rgb_array'))
+    env = PixelObservationWrapper(make_env(domain=domain, render_mode='rgb_array'))
     # assert 'NoFrameskip' in env.spec.id
 
     env = WarpFrame(env)

@@ -14,10 +14,11 @@ torch.autograd.set_detect_anomaly(True)
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--model', default="models_saved/best_model.pkl", type=str, help='Model path')
+    parser.add_argument('--model', default="models_saved/model10000.pkl", type=str, help='Model path')
     parser.add_argument('--device', default='cuda', type=str, help='network device [cpu, cuda]')
     parser.add_argument('--render', default=False, action='store_true', help='Render the simulator')
     parser.add_argument('--episodes', default=25, type=int, help='Number of test episodes')
+    parser.add_argument('--mode', default="stacked_frames", type=str, help='Mode of testing [single, stacked_frames]')
 
     return parser.parse_args()
 
@@ -26,17 +27,28 @@ args = parse_args()
 
 def main():
 
+    MODE = args.mode
 	# env = gym.make('CustomHopper-source-v0')
-    env = PixelObservationWrapper(make_env(domain="source", render_mode='rgb_array'))
+    if MODE == "stacked_frames":
+        env = my_make_env()
+    elif MODE == "single":
+        env = PixelObservationWrapper(make_env(domain="source", render_mode='rgb_array'))
+        
+    else:
+        assert False, f"Da mettere descrizione"
 
     # print('Action space:', env.action_space)
     # print('State space:', env.observation_space)
     # print('Dynamics parameters:', env.get_parameters())
 	
 
-    
     s, _ = env.reset()
-    state_dim = obs_processing(s['pixels']).shape
+    if MODE == "stacked_frames":
+        state_dim = s.shape
+    elif MODE == "single":
+        state_dim = obs_processing(s['pixels']).shape
+        
+    
     action_dim = env.action_space.shape[0]
     
     policy = Policy(state_dim, action_dim).to(device=args.device)
@@ -51,7 +63,12 @@ def main():
         state, _ = env.reset()
         while not done:
 
-            action = policy.get_action(obs_processing(state['pixels']))
+            if MODE == "stacked_frames":
+                action = policy.get_action(state)
+            elif MODE == "single":
+                action = policy.get_action(obs_processing(state['pixels']))
+        
+            
             state, reward, done, _  = env.step(action=action)
             env.render()
 
