@@ -127,5 +127,13 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+Vision-Based-new-mujoco/models_saved/**
+Vision-Based-new-mujoco/actor_critic_backup/**
+Vision-Based-new-mujoco/plot/**
+Vision-Based-new-mujoco/History/**
+Vision-Based-new-mujoco/actor_critic_backup/**
 Vison-Based-new-mujoco/.DS_Store
 Vison-Based-new-mujoco/.DS_Store
+

@@ -44,7 +44,7 @@ def main():
     H1=400   #neurons of 1st layers TODO: Deprecated
     H2=300   #neurons of 2nd layers TODO: Deprecated
 
-    MAX_EPISODES=30000 #number of episodes of the training
+    MAX_EPISODES=80000 #number of episodes of the training
     MAX_STEPS=500    #max steps to finish an episode. An episode breaks early if some break conditions are met (like too much
                     #amplitude of the joints angles or if a failure occurs). In the case of pendulum there is no break 
                     #condition, hence no environment reset,  so we just put 1 step per episode. 
@@ -55,7 +55,7 @@ def main():
                         #weighted by this decay. In more complex tasks we need the exploration to not vanish so we set the decay
                         #to zero. TODO: set to 0
 
-    PRINT_EVERY = 2500 #Print info and plots about average reward every PRINT_EVERY
+    PRINT_EVERY = 5000 #Print info and plots about average reward every PRINT_EVERY
     BACKUP_EVERY = 999 #Backup of Critic, Target_Critic, Actor and Target_Actor every BACKUP_EVERY episodes
     POINT_DISTANCE = 50 # Distance of points for plot is of POINT_DISTANCE episodes 
 
@@ -67,7 +67,7 @@ def main():
 
     CONTINUE_TRAINING = True # Continue training from Backup
 
-    NOISE = False # Noise Flag
+    NOISE = True # Noise Flag
     PERCENTAGE_FOR_NOISE = 0.5 # Exploitation-Exploration balancing 
 
     DOMAIN_TEST_ENV = "source" # TODO: temporanea
@@ -206,13 +206,18 @@ def main():
             # Training Mode for Actor Network (TODO DA RIVEDERE SE NECESSARIO)
             # actor.train()
  
-            if NOISE and random.random > PERCENTAGE_FOR_NOISE:
+            if NOISE and random.random() > PERCENTAGE_FOR_NOISE:
 
                 # Noise to add to actions (TODO: vedere risultati)
                 a += noise()*max(0, epsilon)
 
                 # # Make sure that the action is valid
                 a = np.clip(a, -1., 1.)
+
+                epsilon-=epsilon_decay
+
+                if epsilon <=0:
+                    NOISE = False
 
             # Performing of the action
             s2, reward, terminal, info = env.step(a)
@@ -232,7 +237,6 @@ def main():
                 r_batch = torch.FloatTensor(r_batch).unsqueeze(1).to(device)
                 t_batch = torch.FloatTensor(np.float32(t_batch)).unsqueeze(1).to(device)
                 s2_batch = torch.FloatTensor(s2_batch).to(device)
-
 
                 
                # ---------------------------- update critic ---------------------------- #

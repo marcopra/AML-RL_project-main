@@ -64,16 +64,16 @@ def make_env(domain, render_mode=None):
     return env
 
 
-def my_make_env(stack_frames=True, scale=False, domain = "source"):
-    """Configure the atari environment."""
+def my_make_env(stack_frames = 4, scale=False, domain = "source"):
+    """Configure the environment."""
     env = PixelObservationWrapper(make_env(domain=domain, render_mode='rgb_array'))
     # assert 'NoFrameskip' in env.spec.id
 
     env = WarpFrame(env)
     if scale:
         env = ScaledFloatFrame(env)
-    if stack_frames:
-        env = FrameStack(env, 4)
+    if stack_frames > 1:
+        env = FrameStack(env, stack_frames)
 
     env = ImageToPyTorch(env)
     return env

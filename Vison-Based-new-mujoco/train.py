@@ -50,12 +50,12 @@ def main():
                     #condition, hence no environment reset,  so we just put 1 step per episode. 
     buffer_start = 400 #initial warmup without training
     epsilon = 1
-    epsilon_decay = 1./100000 #this is ok for a simple task like inverted pendulum, but maybe this would be set to zero for more
+    epsilon_decay = 1./10000 #this is ok for a simple task like inverted pendulum, but maybe this would be set to zero for more
                         #complex tasks like Hopper; epsilon is a decay for the exploration and noise applied to the action is 
                         #weighted by this decay. In more complex tasks we need the exploration to not vanish so we set the decay
                         #to zero. TODO: set to 0
 
-    PRINT_EVERY = 2500 #Print info and plots about average reward every PRINT_EVERY
+    PRINT_EVERY = 5000 #Print info and plots about average reward every PRINT_EVERY
     BACKUP_EVERY = 999 #Backup of Critic, Target_Critic, Actor and Target_Actor every BACKUP_EVERY episodes
     POINT_DISTANCE = 50 # Distance of points for plot is of POINT_DISTANCE episodes 
 
@@ -67,7 +67,7 @@ def main():
 
     CONTINUE_TRAINING = False # Continue training from Backup
 
-    NOISE = False # Noise Flag
+    NOISE = True # Noise Flag
     PERCENTAGE_FOR_NOISE = 0.5 # Exploitation-Exploration balancing 
 
     DOMAIN_TEST_ENV = "source" # TODO: temporanea
@@ -221,13 +221,18 @@ def main():
             # Training Mode for Actor Network (TODO DA RIVEDERE SE NECESSARIO)
             # actor.train()
  
-            if NOISE and random.random > PERCENTAGE_FOR_NOISE:
+            if NOISE and random.random() > PERCENTAGE_FOR_NOISE:
 
                 # Noise to add to actions (TODO: vedere risultati)
                 a += noise()*max(0, epsilon)
 
                 # # Make sure that the action is valid
                 a = np.clip(a, -1., 1.)
+
+                epsilon-=epsilon_decay
+                
+                if epsilon <=0:
+                    NOISE = False
 
             # Performing of the action
             s2, reward, terminal, info = env.step(a)

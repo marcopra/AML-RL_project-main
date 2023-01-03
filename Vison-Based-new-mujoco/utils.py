@@ -67,6 +67,11 @@ def subplot(R, P, Q, S, show = False):
     ax[1, 0].plot(list(p[1]), list(p[0]), 'b') #row=1, col=0
     ax[0, 1].plot(list(q[1]), list(q[0]), 'g') #row=0, col=1
     ax[1, 1].plot(list(s[1]), list(s[0]), 'k') #row=1, col=1
+    if min(p[0]) < -150:
+        ax[0, 0].set_ylim([-10, 500])
+        ax[1, 0].set_ylim([-130, 10])
+    ax[0, 1].set_ylim([0, 1.0])
+
     ax[0, 0].title.set_text('Reward')
     ax[1, 0].title.set_text('Policy loss')
     ax[0, 1].title.set_text('Q loss')
