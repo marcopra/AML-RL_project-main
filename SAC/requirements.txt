@@ -1,0 +1,4 @@
+env==0.1.0
+gym
+stable_baselines3
+torch==1.13.1
