@@ -19,22 +19,24 @@ import random
 from copy import copy, deepcopy
 from collections import deque
 import numpy as np
+import wandb
 print("Using torch version: {}".format(torch.__version__))
 
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--debug', default=True, type=bool, help='Activate to work and plot locally')
+    ##parser.add_argument('--debug', default=False, type=bool, help='Activate to work and plot locally')
+    parser.add_argument('--debug', default=False, action='store_true', help='if active, the work is locall without the use of wandb')
     parser.add_argument('--backup_every', default=999, type=int, help='Backup every N episodes')
-    parser.add_argument('--print_every', default=5000, type=int, help='Print plots every N episodes')
-    parser.add_argument('--point_distance', '-pd', default=50, type=int, help='Distance between points for plots')
+    parser.add_argument('--print_every', default=100, type=int, help='Print plots every N episodes')
+    parser.add_argument('--point_distance', '-pd', default=10, type=int, help='Distance between points for plots')
     parser.add_argument('--from_checkpoint', '-ckpt', default=False, type=bool, help='Activate to start training from checkpoint')
     parser.add_argument('--stop_critic', default=None, type=int, help='When (Episode) to stop the Critic Network Training, if None -> training no stop')
 
 
     parser.add_argument('--buffer_size', default= 1000000, type=int, help='Max size of the Replay Buffer')
-    parser.add_argument('--batch_size', '-bs', default= 128, type=int, help='Max size of the Replay Buffer')
-    parser.add_argument('--buffer_start', default=400, type=int, help='Initial warmup of replay buffer without training')
+    parser.add_argument('--batch_size', '-bs', default= 32, type=int, help='Max size of the Replay Buffer')
+    parser.add_argument('--buffer_start', default=100, type=int, help='Initial warmup of replay buffer without training')
 
     parser.add_argument('--max_episodes', default=80000, type=int, help='Max N of episodes')
     parser.add_argument('--max_steps', default=2000, type=int, help='Max N of steps in one episode')
@@ -141,7 +143,19 @@ def config():
     TAU=args.tau  
     LRA=args.lra    
     LRC=args.lrc  
+    
+    # Wandb initialization
+    
+    wandb.init(project="test-project", entity="aml-rl_project")
+    
+    wandb.config.epochs = 'max_episodes' 
 
+    wandb.config.update(args)
+    
+   
+    
+     
+    
     # TODO: inseriregeneral path e creazione di directory
     # serve ./plot, ./actor_critic_backup, ./models_saved
     
@@ -246,6 +260,7 @@ def main():
             with redirect_stdout(f):
                 if (episode+1) % 100 == 0:
                     print(episode+1)
+                    
 
         # Environment Reset
         s, _ = env.reset()
@@ -366,6 +381,11 @@ def main():
                 
                 plot_policy.append([policy_loss.cpu().data, episode+1])
                 
+                
+                ## non so se vanno messi qui
+                wandb.log(plot_reward)
+                wandb.finish()
+                
         except:
             pass
 
@@ -386,6 +406,7 @@ def main():
         # Plot Section
         if (episode % PRINT_EVERY) == (PRINT_EVERY-1):    # print every print_every episodes
             torch.save(actor.state_dict(), f'models_saved/model{episode + 1}.pkl') #Save the actor model for future testing
+            
             
             # Testing
             for episode in range(10):
@@ -434,6 +455,9 @@ def main():
                         with redirect_stdout(f):
                             print(f"Episode: {episode} | Return: {episode_reward}")
             
+            
+            
+
     
         if (episode % BACKUP_EVERY) == 0:
             print("-------Backup Saved-------")

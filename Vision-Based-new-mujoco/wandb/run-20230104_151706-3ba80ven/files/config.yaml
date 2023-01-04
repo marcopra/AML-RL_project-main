@@ -1,0 +1,104 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.13.7
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    python_version: 3.9.15
+    start_time: 1672841826.211751
+    t:
+      1:
+      - 1
+      - 55
+      2:
+      - 1
+      - 55
+      3:
+      - 19
+      - 23
+      4: 3.9.15
+      5: 0.13.7
+      8:
+      - 3
+      - 5
+backbone_actor:
+  desc: null
+  value: ddpg
+backbone_critic:
+  desc: null
+  value: ddpg
+backup_every:
+  desc: null
+  value: 999
+batch_size:
+  desc: null
+  value: 32
+buffer_size:
+  desc: null
+  value: 1000000
+buffer_start:
+  desc: null
+  value: 100
+debug:
+  desc: null
+  value: false
+domain_randomization:
+  desc: null
+  value: false
+domain_test:
+  desc: null
+  value: source
+epochs:
+  desc: null
+  value: max_episodes
+epsilon:
+  desc: null
+  value: 1
+from_checkpoint:
+  desc: null
+  value: false
+gamma:
+  desc: null
+  value: 0.99
+lra:
+  desc: null
+  value: 0.0001
+lrc:
+  desc: null
+  value: 0.001
+max_episodes:
+  desc: null
+  value: 80000
+max_steps:
+  desc: null
+  value: 2000
+noise:
+  desc: null
+  value: true
+noise_decay:
+  desc: null
+  value: 0.0001
+noise_prob:
+  desc: null
+  value: 0.5
+point_distance:
+  desc: null
+  value: 10
+print_every:
+  desc: null
+  value: 100
+scaled_frames:
+  desc: null
+  value: false
+stack_frames:
+  desc: null
+  value: 1
+stop_critic:
+  desc: null
+  value: null
+tau:
+  desc: null
+  value: 0.001

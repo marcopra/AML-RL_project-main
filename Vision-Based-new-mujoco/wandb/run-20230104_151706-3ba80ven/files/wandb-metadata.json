@@ -1,0 +1,44 @@
+{
+    "os": "Windows-10-10.0.19044-SP0",
+    "python": "3.9.15",
+    "heartbeatAt": "2023-01-04T14:17:08.361679",
+    "startedAt": "2023-01-04T14:17:06.165372",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "c:\\Users\\fabio\\OneDrive\\Desktop\\Esami\\AML-RL_project-main\\Vision-Based-new-mujoco\\train_official.py",
+    "codePath": "train_official.py",
+    "host": "Fabiolina",
+    "username": "fabio",
+    "executable": "C:\\Users\\fabio\\anaconda3\\envs\\venv\\python.exe",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 1792.0,
+        "min": 0.0,
+        "max": 1992.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 1792.0,
+            "min": 0.0,
+            "max": 1992.0
+        }
+    ],
+    "disk": {
+        "total": 237.42218399047852,
+        "used": 156.08286666870117
+    },
+    "gpu": "NVIDIA GeForce GTX 1050 with Max-Q Design",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce GTX 1050 with Max-Q Design",
+            "memory_total": 4294967296
+        }
+    ],
+    "memory": {
+        "total": 7.8548431396484375
+    }
+}
