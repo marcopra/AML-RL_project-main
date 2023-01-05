@@ -13,7 +13,7 @@ from stable_baselines3 import SAC,PPO
 
 def parse_args():
 	parser = argparse.ArgumentParser()
-	parser.add_argument('--n-episodes', default=100, type=int, help='Number of training episodes')
+	parser.add_argument('--time_steps', '-ts', default=200000, type=int, help='Number of training episodes')
 	parser.add_argument('--print-every', default=20000, type=int, help='Print info every <> episodes')
 	parser.add_argument('--device', default='cpu', type=str, help='network device [cpu, cuda]')
 	parser.add_argument('--domain', default='source', type=str, help='Choose train domain')
@@ -23,6 +23,7 @@ def parse_args():
 	parser.add_argument('--algorithm', default='sac', type=str, help='choose the algorithm [ppo, sac]')
 	
 	
+	
 	return parser.parse_args()
 
 args = parse_args()
@@ -30,11 +31,17 @@ args = parse_args()
 def main():
 
 	# # env = gym.make('CustomHopper-target-v0')
-	# env = my_make_env(PixelObservation=args.pixel_obs, stack_frames=args.n_frames, scale=args.scaled_frames, domain=args.domain)
-	env = PixelObservationWrapper(gym.make('CustomHopper-source-v0'))
-	   
-	# env = env['pixels']
+	env = my_make_env(PixelObservation=args.pixel_obs, stack_frames=args.n_frames, scale=args.scaled_frames, domain=args.domain)
+	# print("1: ", type(env))
+	# env = PixelObservationWrapper(gym.make('CustomHopper-source-v0'))
+	# print(env.observation_space)
+	# print("1: ", type(env.observation_space))
+	# print(type(env.observation_space['pixels']))
+	# print(env.observation_space.keys())
 
+
+	 
+	# env = env['pixels']
 
 	print('Action space:', env.action_space)
 	print('State space:', env.observation_space)
@@ -50,18 +57,18 @@ def main():
 	"""
 	if args.algorithm == 'sac':
 		if args.pixel_obs:
-			model = SAC("MultiInputPolicy", env, verbose=1)
+			model = SAC("MlpPolicy", env, verbose=1)
 		else:
-			model = SAC("MultiInputPolicy", env, verbose=1)
+			model = SAC("MlpPolicy", env, verbose=1)
 	elif args.algorithm == 'ppo':
 		if args.pixel_obs:
-			model = PPO("MlpPolicy", env, verbose=1)
+			model = PPO("MultiInputPolicy", env, verbose=1)
 		else:
 			model = PPO("MlpPolicy", env, verbose=1)
 
 	# model = PPO("MlpPolicy", env, verbose=1)
-	model.learn(total_timesteps=200000, log_interval=10)
-	model.save(f"{args.algorithm}_{args.domain}_{'image' if args.pixel_obs else 'normal'}")
+	model.learn(total_timesteps=args.time_steps, log_interval=10)
+	model.save(f"{args.algorithm}_{args.domain}_{'image' if args.pixel_obs else 'normal'}_t{args.time_steps}_{'scaled' if args.scaled_frames else ''}")
 	
 
 	
