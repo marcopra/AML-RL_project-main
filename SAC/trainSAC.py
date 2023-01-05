@@ -11,18 +11,26 @@ from env.custom_hopper import *
 
 from stable_baselines3 import SAC,PPO
 
+from CNN import policy_kwargs
+
+# RUN TODO:
+# ts = 200k fixed (all following 200k steps)
+# 1. --n_frames 1 (dr = True attivare a mano) See custom_hopper row 100
+# 2. --n_f 1 -sf
+# 3. --n_f 4 
+# 4. --n_f 4 -sf
+
+
 def parse_args():
 	parser = argparse.ArgumentParser()
-	parser.add_argument('--time_steps', '-ts', default=200000, type=int, help='Number of training episodes')
-	parser.add_argument('--print-every', default=20000, type=int, help='Print info every <> episodes')
-	parser.add_argument('--device', default='cpu', type=str, help='network device [cpu, cuda]')
+	parser.add_argument('--time_steps', '-ts', default=20, type=int, help='Number of training episodes')
+	parser.add_argument('--print-every', default=2, type=int, help='Print info every <> episodes')
+	parser.add_argument('--device', default='cuda:0', type=str, help='network device [cpu, cuda]')
 	parser.add_argument('--domain', default='source', type=str, help='Choose train domain')
 	parser.add_argument('--pixel_obs', default=True, type=bool, help='Activate pixel observation')
-	parser.add_argument('--n_frames', default=4, type=int, help='Number of stacked frames')
-	parser.add_argument('--scaled_frames', default=False, type=bool, help='Activate to use scaled frames')
+	parser.add_argument('--n_frames','-nf' , default=4, type=int, help='Number of stacked frames')
+	parser.add_argument('--scaled_frames', '-sf', action='store_true', default=False, help='Activate to use scaled frames')
 	parser.add_argument('--algorithm', default='sac', type=str, help='choose the algorithm [ppo, sac]')
-	
-	
 	
 	return parser.parse_args()
 
@@ -38,7 +46,6 @@ def main():
 	# print("1: ", type(env.observation_space))
 	# print(type(env.observation_space['pixels']))
 	# print(env.observation_space.keys())
-
 
 	 
 	# env = env['pixels']
@@ -57,18 +64,26 @@ def main():
 	"""
 	if args.algorithm == 'sac':
 		if args.pixel_obs:
-			model = SAC("MlpPolicy", env, verbose=1)
+			# PPO("CnnPolicy", "BreakoutNoFrameskip-v4", policy_kwargs=policy_kwargs, verbose=1)
+			model = SAC("CnnPolicy", 
+						env = env, 
+						policy_kwargs=policy_kwargs, 
+						verbose=1,
+						device=args.device)
 		else:
-			model = SAC("MlpPolicy", env, verbose=1)
+			model = SAC("MlpPolicy", env, verbose=1,
+						device=args.device)
 	elif args.algorithm == 'ppo':
 		if args.pixel_obs:
-			model = PPO("MultiInputPolicy", env, verbose=1)
+			model = PPO("CnnPolicy", env = env, policy_kwargs=policy_kwargs, verbose=1,
+						device=args.device)
 		else:
-			model = PPO("MlpPolicy", env, verbose=1)
+			model = PPO("MlpPolicy", env, verbose=1,
+						device=args.device)
 
 	# model = PPO("MlpPolicy", env, verbose=1)
-	model.learn(total_timesteps=args.time_steps, log_interval=10)
-	model.save(f"{args.algorithm}_{args.domain}_{'image' if args.pixel_obs else 'normal'}_t{args.time_steps}_{'scaled' if args.scaled_frames else ''}")
+	model.learn(total_timesteps=args.time_steps, log_interval=500)
+	model.save(f"alg-{args.algorithm}_dom-{args.domain}_img-{args.pixel_obs}_ts-{args.time_steps}_nf-{args.n_frames}_scaled-{args.scaled_frames}")
 	
 
 	

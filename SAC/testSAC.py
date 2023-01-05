@@ -7,18 +7,33 @@ import os
 import numpy as np
 from env.custom_hopper import *
 from stable_baselines3 import SAC
+from CNN import *
 
-def main():
+def test_on(domain , model_path):
 
-	env = gym.make('CustomHopper-source-v0')
+	#env = gym.make('CustomHopper-source-v0')
 	# env = gym.make('CustomHopper-target-v0')
+
+	src_model = model_path
+	env_params = src_model.removesuffix('.zip').split('_')
+
+	env_args: dict = {}
+
+	for param in env_params:
+		key, val = param.split('-')
+		env_args[key] = val
+
+	env = env = my_make_env(PixelObservation= bool(env_args['img']), 
+							stack_frames= int(env_args['nf']), 
+							scale= bool(env_args['scaled']),
+							domain= domain)
 
 	print('Action space:', env.action_space)
 	print('State space:', env.observation_space)
 	print('Dynamics parameters:', env.get_parameters())
 	
 
-	model = SAC.load("SAC_source_model_no_dr")
+	model = SAC.load(src_model)
 
 
 	episodes = 50
@@ -34,7 +49,7 @@ def main():
 		while not done:
 			action, _states = model.predict(obs, deterministic=True)
 			obs, reward, done, info = env.step(action)
-			env.render()
+			#env.render()
 
 			episode_reward += reward
 		
@@ -46,6 +61,20 @@ def main():
 	print(f"AvgReward: {np.mean(all_rewards)} and devSTD: {np.std(all_rewards)}")
 	
 
-
 if __name__ == '__main__':
-	main()
+	
+	source = 'CustomHopper-source-v0'
+	target = 'CustomHopper-target-v0'
+	src_model = "alg-sac_dom-source_img-True_ts-20_nf-4_scaled-False.zip"
+
+	print("Testing: ", src_model.removesuffix('.zip'))
+
+	print("\n########################################################################## \
+			\t\t\t\t\t\t\t\t\t\t ON SOURCE\n\
+###########################################################################")
+	test_on('source', src_model)
+
+	print("\n########################################################################### \
+			\t\t\t\t\t\t\t\t\t\t ON TARGET\n\
+############################################################################")
+	test_on('target', src_model)
