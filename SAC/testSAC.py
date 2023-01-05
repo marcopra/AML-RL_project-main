@@ -21,7 +21,15 @@ def test_on(domain , model_path):
 
 	for param in env_params:
 		key, val = param.split('-')
-		env_args[key] = val
+		if val == 'False':
+			env_args[key] = False
+		elif val == 'True':
+			env_args[key] = True
+		else:
+			env_args[key] = val
+
+
+		print(key, "-", bool(val))
 
 	env = env = my_make_env(PixelObservation= bool(env_args['img']), 
 							stack_frames= int(env_args['nf']), 
@@ -65,7 +73,7 @@ if __name__ == '__main__':
 	
 	source = 'CustomHopper-source-v0'
 	target = 'CustomHopper-target-v0'
-	src_model = "alg-sac_dom-source_img-True_ts-20_nf-4_scaled-False.zip"
+	src_model = "alg-sac_dom-source_img-False_ts-20_nf-4_scaled-False.zip"
 
 	print("Testing: ", src_model.removesuffix('.zip'))
 
