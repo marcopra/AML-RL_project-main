@@ -385,7 +385,9 @@ def main():
         
                 
                 
-        except:
+        except Exception as e:
+            print("plot con errori:")
+            print(e)
             pass
 
         # Average Run reward -> run corresponds to `PRINT_EVERY` episodes
@@ -426,7 +428,12 @@ def main():
             
             # Plot
             subplot(plot_reward, plot_policy, plot_q, plot_steps)
-
+            
+            ## wandb grafici 
+            
+            
+            table = wandb.Table(data=plot_reward, columns = ["x", "y"])
+            wandb.log({"my_custom_plot_id" : wandb.plot.line(table, "x", "y",title="Custom Y vs X Line Plot"),"epoch":'max_episodes'})
             with open('out.txt', 'a') as f:
                 with redirect_stdout(f):
                     print('[%6d episode, %8d total steps] average reward for past {} iterations: %.3f'.format(PRINT_EVERY) %
