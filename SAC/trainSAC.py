@@ -13,9 +13,10 @@ from stable_baselines3 import SAC,PPO
 
 from CNN import policy_kwargs
 
-# RUN TODO:
+# RUN TODO with DR:
 # ts = 200k fixed (all following 200k steps)
-# 1. --n_frames 1 (dr = True attivare a mano) See custom_hopper row 100
+#(dr = True attivare a mano) See custom_hopper row 100
+# 1. --n_frames 1 
 # 2. --n_f 1 -sf
 # 3. --n_f 4 
 # 4. --n_f 4 -sf
@@ -23,8 +24,8 @@ from CNN import policy_kwargs
 
 def parse_args():
 	parser = argparse.ArgumentParser()
-	parser.add_argument('--time_steps', '-ts', default=20, type=int, help='Number of training episodes')
-	parser.add_argument('--print-every', default=2, type=int, help='Print info every <> episodes')
+	parser.add_argument('--time_steps', '-ts', default=200_000, type=int, help='Number of training episodes')
+	parser.add_argument('--print-every', default=500, type=int, help='Print info every <> episodes')
 	parser.add_argument('--device', default='cuda:0', type=str, help='network device [cpu, cuda]')
 	parser.add_argument('--domain', default='source', type=str, help='Choose train domain')
 	parser.add_argument('--pixel_obs', default=True, type=bool, help='Activate pixel observation')
