@@ -97,9 +97,11 @@ class CustomHopper(MujocoEnv, utils.EzPickle):
         """Reset the environment to a random initial state"""
         qpos = self.init_qpos + self.np_random.uniform(low=-.005, high=.005, size=self.model.nq)
         qvel = self.init_qvel + self.np_random.uniform(low=-.005, high=.005, size=self.model.nv)
-        # self.set_random_parameters()
 
-        print(self.get_parameters())
+        # DOMAIN RANDOMIZATION!
+        self.set_random_parameters()
+
+        # print(self.get_parameters())
         self.set_state(qpos, qvel)
         return self._get_obs()
 
@@ -120,13 +122,11 @@ def my_make_env(PixelObservation = True, stack_frames = 4, scale=False, domain =
         else:
             env = PixelObservationWrapper(gym.make('CustomHopper-target-v0'))
 
-        print("2: ", type(env))
         
 
         # assert 'NoFrameskip' in env.spec.id
 
         env = WarpFrame(env)
-        print("3: ", type(env))
 
         if scale:
             env = ScaledFloatFrame(env)
@@ -176,8 +176,8 @@ class WarpFrame(gym.ObservationWrapper):
         if type(frame) != np.ndarray:
             frame = frame['pixels']
             
-        # frame = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
-        # frame = cv2.resize(frame, (self.width, self.height), interpolation=cv2.INTER_AREA)
+        frame = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
+        frame = cv2.resize(frame, (self.width, self.height), interpolation=cv2.INTER_AREA)
         return frame[:, :, None]
 
 
