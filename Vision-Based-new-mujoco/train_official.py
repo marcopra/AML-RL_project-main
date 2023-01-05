@@ -382,9 +382,8 @@ def main():
                 plot_policy.append([policy_loss.cpu().data, episode+1])
                 
                 
-                ## non so se vanno messi qui
-                wandb.log(plot_reward)
-                wandb.finish()
+        
+                
                 
         except:
             pass

@@ -3537,3 +3537,1789 @@ Episode: 8 | Return: 0.6304221583576195
 Episode: 9 | Return: 0.6110148655609837
 [    10 episode,    13649 total steps] average reward for past 100 iterations: 0.679
 Last best model saved with reward: 3.39, at episode 2652.
+100
+Episode: 0 | Return: 0.2852650965408649
+Episode: 1 | Return: 0.3026945196808988
+Episode: 2 | Return: 0.30563883449608015
+Episode: 3 | Return: 0.32329617756246903
+Episode: 4 | Return: 0.3267761315402123
+Episode: 5 | Return: 0.288169568908305
+Episode: 6 | Return: 0.3248852058780706
+Episode: 7 | Return: 0.3037867321064479
+Episode: 8 | Return: 0.30749478673310865
+Episode: 9 | Return: 0.31404039601117656
+100
+Episode: 0 | Return: 6.178624516801119
+Episode: 1 | Return: 6.2417171154346285
+Episode: 2 | Return: 6.201637237754472
+Episode: 3 | Return: 6.180692253011285
+Episode: 4 | Return: 6.222452118202109
+Episode: 5 | Return: 6.118876573124914
+Episode: 6 | Return: 6.199463612216224
+Episode: 7 | Return: 6.300228005903717
+Episode: 8 | Return: 6.222511531665667
+Episode: 9 | Return: 6.24817760657575
+[    10 episode,      450 total steps] average reward for past 100 iterations: 8.518
+Last best model saved with reward: 17.33, at episode 14.
+200
+Episode: 0 | Return: 6.110298294994844
+Episode: 1 | Return: 6.135109259156575
+Episode: 2 | Return: 6.12003243456472
+Episode: 3 | Return: 6.014442582589325
+Episode: 4 | Return: 6.159124568533189
+Episode: 5 | Return: 6.009936373209736
+Episode: 6 | Return: 6.008072354519316
+Episode: 7 | Return: 5.981408862551561
+Episode: 8 | Return: 6.003613862886819
+Episode: 9 | Return: 5.976241449548995
+[    10 episode,      750 total steps] average reward for past 100 iterations: 6.113
+Last best model saved with reward: 17.33, at episode 14.
+300
+Episode: 0 | Return: 4.8202820345850395
+Episode: 1 | Return: 4.915817309829299
+Episode: 2 | Return: 4.855918607617771
+Episode: 3 | Return: 4.916191760522114
+Episode: 4 | Return: 4.8484682584790155
+Episode: 5 | Return: 4.893367563096227
+Episode: 6 | Return: 4.854620203865856
+Episode: 7 | Return: 4.844863617033538
+Episode: 8 | Return: 4.827550467038682
+Episode: 9 | Return: 4.869471684086631
+[    10 episode,     1050 total steps] average reward for past 100 iterations: 5.866
+Last best model saved with reward: 17.33, at episode 14.
+400
+Episode: 0 | Return: -3.8605940408587314
+Episode: 1 | Return: -3.8894818238030147
+Episode: 2 | Return: -4.126850685562295
+Episode: 3 | Return: -3.9873959834917927
+Episode: 4 | Return: -4.026926357978277
+Episode: 5 | Return: -4.028857171174403
+Episode: 6 | Return: -4.043207656505217
+Episode: 7 | Return: -3.867591493894644
+Episode: 8 | Return: -4.108549719746914
+Episode: 9 | Return: -3.934720581405588
+[    10 episode,     1350 total steps] average reward for past 100 iterations: 4.291
+Last best model saved with reward: 17.33, at episode 14.
+500
+Episode: 0 | Return: -3.293415526200666
+Episode: 1 | Return: -3.2766749964691715
+Episode: 2 | Return: -3.0837468946863242
+Episode: 3 | Return: -3.1208440094541974
+Episode: 4 | Return: -3.3989124079114146
+Episode: 5 | Return: -3.330881515589007
+Episode: 6 | Return: -3.187129459866652
+Episode: 7 | Return: -3.4074982175887243
+Episode: 8 | Return: -3.177295261170184
+Episode: 9 | Return: -3.3401285443657707
+[    10 episode,     1650 total steps] average reward for past 100 iterations: 0.459
+Last best model saved with reward: 17.33, at episode 14.
+600
+Episode: 0 | Return: 5.020948563568376
+Episode: 1 | Return: 5.068870334114884
+Episode: 2 | Return: 4.974879461002113
+Episode: 3 | Return: 4.976174650955837
+Episode: 4 | Return: 4.991010113553382
+Episode: 5 | Return: 4.952635015138881
+Episode: 6 | Return: 5.023542550050042
+Episode: 7 | Return: 5.081089073830363
+Episode: 8 | Return: 5.068902368400019
+Episode: 9 | Return: 4.933218680499698
+[    10 episode,     1950 total steps] average reward for past 100 iterations: 4.027
+Last best model saved with reward: 17.33, at episode 14.
+700
+Episode: 0 | Return: 6.016508935350773
+Episode: 1 | Return: 6.199268193918394
+Episode: 2 | Return: 6.072766593358292
+Episode: 3 | Return: 6.194834392422399
+Episode: 4 | Return: 6.001061552181007
+Episode: 5 | Return: 6.170683522770863
+Episode: 6 | Return: 6.15056827935852
+Episode: 7 | Return: 6.096599307711518
+Episode: 8 | Return: 6.162942359113882
+Episode: 9 | Return: 6.098654062521883
+[    10 episode,     2250 total steps] average reward for past 100 iterations: 5.979
+Last best model saved with reward: 17.33, at episode 14.
+800
+Episode: 0 | Return: 11.673937291609887
+Episode: 1 | Return: 11.61719128402473
+Episode: 2 | Return: 11.672593601872315
+Episode: 3 | Return: 11.62459497071916
+Episode: 4 | Return: 11.613863345252138
+Episode: 5 | Return: 11.63781648264652
+Episode: 6 | Return: 11.691757956972356
+Episode: 7 | Return: 8.973533287676277
+Episode: 8 | Return: 11.508746593703778
+Episode: 9 | Return: 11.524145546354932
+[    10 episode,     2605 total steps] average reward for past 100 iterations: 7.015
+Last best model saved with reward: 17.33, at episode 14.
+900
+Episode: 0 | Return: 0.8862821998912808
+Episode: 1 | Return: 0.8881175238391785
+Episode: 2 | Return: 0.8778345861954345
+Episode: 3 | Return: 0.9067668676524369
+Episode: 4 | Return: 0.9137277525982511
+Episode: 5 | Return: 0.891970331108372
+Episode: 6 | Return: 0.8791665457529232
+Episode: 7 | Return: 0.8931817778412998
+Episode: 8 | Return: 0.8977296229562866
+Episode: 9 | Return: 0.8821572616022924
+[    10 episode,     3140 total steps] average reward for past 100 iterations: 4.859
+Last best model saved with reward: 33.34, at episode 824.
+1000
+Episode: 0 | Return: -1.0165156940935711
+Episode: 1 | Return: -1.0923363449887282
+Episode: 2 | Return: -1.0828707122594694
+Episode: 3 | Return: -0.9078609514108025
+Episode: 4 | Return: -1.0633144007999815
+Episode: 5 | Return: -0.9967699645572434
+Episode: 6 | Return: -0.9718979771736208
+Episode: 7 | Return: -1.0212143330219938
+Episode: 8 | Return: -1.0219120777629955
+Episode: 9 | Return: -0.9772667146851234
+[    10 episode,     3341 total steps] average reward for past 100 iterations: 0.051
+Last best model saved with reward: 33.34, at episode 824.
+1100
+Episode: 0 | Return: -0.6749226860154867
+Episode: 1 | Return: -0.5485256409900713
+Episode: 2 | Return: -0.5954041715937841
+Episode: 3 | Return: -0.7559482239232194
+Episode: 4 | Return: -0.7953532645038334
+Episode: 5 | Return: -0.786676035388083
+Episode: 6 | Return: -0.7320826427367343
+Episode: 7 | Return: -0.6339002647355715
+Episode: 8 | Return: -0.8288335571826942
+Episode: 9 | Return: -0.7633495772192521
+[    10 episode,     3468 total steps] average reward for past 100 iterations: -0.602
+Last best model saved with reward: 33.34, at episode 824.
+1200
+Episode: 0 | Return: -1.5723113821388968
+Episode: 1 | Return: -1.3925158015198795
+Episode: 2 | Return: -1.3261644361425207
+Episode: 3 | Return: -1.5355785505502195
+Episode: 4 | Return: -1.343144423902179
+Episode: 5 | Return: -1.5831493835900985
+Episode: 6 | Return: -1.641764986026673
+Episode: 7 | Return: -1.5804722533187874
+Episode: 8 | Return: -1.2787988840587565
+Episode: 9 | Return: -1.5133398719915736
+[    10 episode,     3568 total steps] average reward for past 100 iterations: -1.001
+Last best model saved with reward: 33.34, at episode 824.
+1300
+Episode: 0 | Return: -1.749771412442629
+Episode: 1 | Return: -1.7368533634904308
+Episode: 2 | Return: -1.7612003494381618
+Episode: 3 | Return: -1.7257738063338557
+Episode: 4 | Return: -1.743451486543655
+Episode: 5 | Return: -1.7536437124725586
+Episode: 6 | Return: -1.7474518421299712
+Episode: 7 | Return: -1.7606729784954183
+Episode: 8 | Return: -1.7233377730784014
+Episode: 9 | Return: -1.7493283738802299
+[    10 episode,     3668 total steps] average reward for past 100 iterations: -1.676
+Last best model saved with reward: 33.34, at episode 824.
+1400
+Episode: 0 | Return: -1.7444625998147403
+Episode: 1 | Return: -1.753512682959242
+Episode: 2 | Return: -1.7541480582792508
+Episode: 3 | Return: -1.7487586472491234
+Episode: 4 | Return: -1.7582354208025932
+Episode: 5 | Return: -1.7664428025806407
+Episode: 6 | Return: -1.7771143187834195
+Episode: 7 | Return: -1.750530897874752
+Episode: 8 | Return: -1.7450184310432573
+Episode: 9 | Return: -1.771726003568787
+[    10 episode,     3768 total steps] average reward for past 100 iterations: -1.747
+Last best model saved with reward: 33.34, at episode 824.
+1500
+Episode: 0 | Return: -1.7762764066349213
+Episode: 1 | Return: -1.7447988514109756
+Episode: 2 | Return: -1.7557903826878827
+Episode: 3 | Return: -1.7540275831357266
+Episode: 4 | Return: -1.7485463351442654
+Episode: 5 | Return: -1.7579292003872113
+Episode: 6 | Return: -1.7472954792003856
+Episode: 7 | Return: -1.7486181920975903
+Episode: 8 | Return: -1.7470568545064455
+Episode: 9 | Return: -1.741349819452749
+[    10 episode,     3868 total steps] average reward for past 100 iterations: -1.752
+Last best model saved with reward: 33.34, at episode 824.
+1600
+Episode: 0 | Return: -1.800962705513681
+Episode: 1 | Return: -1.7755023650855366
+Episode: 2 | Return: -1.7934181701388043
+Episode: 3 | Return: -1.7827293814832563
+Episode: 4 | Return: -1.8037199110034838
+Episode: 5 | Return: -1.7999254218763272
+Episode: 6 | Return: -1.783319682524064
+Episode: 7 | Return: -1.7671634307786805
+Episode: 8 | Return: -1.7534019319025076
+Episode: 9 | Return: -1.785108585296106
+[    10 episode,     3968 total steps] average reward for past 100 iterations: -1.761
+Last best model saved with reward: 33.34, at episode 824.
+1700
+Episode: 0 | Return: -1.8236668745380826
+Episode: 1 | Return: -1.8551346187055056
+Episode: 2 | Return: -1.8491779057551552
+Episode: 3 | Return: -1.80703426672781
+Episode: 4 | Return: -1.838925020137033
+Episode: 5 | Return: -1.7975819340888606
+Episode: 6 | Return: -1.8495134989802826
+Episode: 7 | Return: -1.8178564744219616
+Episode: 8 | Return: -1.8361382381695495
+Episode: 9 | Return: -1.840306378918729
+[    10 episode,     4068 total steps] average reward for past 100 iterations: -1.774
+Last best model saved with reward: 33.34, at episode 824.
+1800
+Episode: 0 | Return: -1.9838059438874323
+Episode: 1 | Return: -1.9487170761571508
+Episode: 2 | Return: -1.9379498842235217
+Episode: 3 | Return: -1.9636944950536146
+Episode: 4 | Return: -1.906538133471995
+Episode: 5 | Return: -1.9748688871826858
+Episode: 6 | Return: -1.933648659568612
+Episode: 7 | Return: -1.9269896902413615
+Episode: 8 | Return: -1.917193381399645
+Episode: 9 | Return: -1.9678234677576738
+[    10 episode,     4168 total steps] average reward for past 100 iterations: -1.810
+Last best model saved with reward: 33.34, at episode 824.
+1900
+Episode: 0 | Return: -2.1156708205127233
+Episode: 1 | Return: -2.162062889426684
+Episode: 2 | Return: -2.1068753151388835
+Episode: 3 | Return: -2.1697869075035774
+Episode: 4 | Return: -2.1750131437666615
+Episode: 5 | Return: -2.088761568973206
+Episode: 6 | Return: -2.1801455148508486
+Episode: 7 | Return: -2.1614286319284464
+Episode: 8 | Return: -2.09984587090505
+Episode: 9 | Return: -2.1870999681432752
+[    10 episode,     4268 total steps] average reward for past 100 iterations: -1.890
+Last best model saved with reward: 33.34, at episode 824.
+2000
+Episode: 0 | Return: -2.571714630795655
+Episode: 1 | Return: -2.3916606131464695
+Episode: 2 | Return: -2.4552448598101497
+Episode: 3 | Return: -2.4861083737071445
+Episode: 4 | Return: -2.5206291681542305
+Episode: 5 | Return: -2.471019183266732
+Episode: 6 | Return: -2.5207066301329695
+Episode: 7 | Return: -2.4654618873113496
+Episode: 8 | Return: -2.557750938708186
+Episode: 9 | Return: -2.5768371975161397
+[    10 episode,     4368 total steps] average reward for past 100 iterations: -2.060
+Last best model saved with reward: 33.34, at episode 824.
+2100
+Episode: 0 | Return: -3.0346489040663993
+Episode: 1 | Return: -3.203691094528171
+Episode: 2 | Return: -2.9553428357276315
+Episode: 3 | Return: -2.9599594096769044
+Episode: 4 | Return: -3.1397429319112184
+Episode: 5 | Return: -3.0750855034788804
+Episode: 6 | Return: -3.0638632579138316
+Episode: 7 | Return: -3.1629344255213248
+Episode: 8 | Return: -2.945905720107527
+Episode: 9 | Return: -3.0013461238865036
+[    10 episode,     4468 total steps] average reward for past 100 iterations: -2.261
+Last best model saved with reward: 33.34, at episode 824.
+2200
+Episode: 0 | Return: -3.837337209462925
+Episode: 1 | Return: -3.9390332662329914
+Episode: 2 | Return: -4.065843802177206
+Episode: 3 | Return: -4.092003314969716
+Episode: 4 | Return: -4.1523550408710905
+Episode: 5 | Return: -3.7673387502228435
+Episode: 6 | Return: -3.791499152810039
+Episode: 7 | Return: -3.983985921601953
+Episode: 8 | Return: -3.902180847011926
+Episode: 9 | Return: -3.8379152591260346
+[    10 episode,     4568 total steps] average reward for past 100 iterations: -2.646
+Last best model saved with reward: 33.34, at episode 824.
+2300
+Episode: 0 | Return: -4.874088111006604
+Episode: 1 | Return: -4.845240800132601
+Episode: 2 | Return: -4.772348181502752
+Episode: 3 | Return: -5.2679721791520935
+Episode: 4 | Return: -5.218168504161661
+Episode: 5 | Return: -5.2711585817580655
+Episode: 6 | Return: -5.38892158857119
+Episode: 7 | Return: -4.767499885360261
+Episode: 8 | Return: -5.3875079324153905
+Episode: 9 | Return: -5.211173915154793
+[    10 episode,     4668 total steps] average reward for past 100 iterations: -3.389
+Last best model saved with reward: 33.34, at episode 824.
+2400
+Episode: 0 | Return: -5.488261211444053
+Episode: 1 | Return: -5.377805353652651
+Episode: 2 | Return: -5.148730439812221
+Episode: 3 | Return: -5.319377958922459
+Episode: 4 | Return: -5.724527693267235
+Episode: 5 | Return: -5.382700725800017
+Episode: 6 | Return: -5.540170022343756
+Episode: 7 | Return: -5.352958567280528
+Episode: 8 | Return: -5.089298754573038
+Episode: 9 | Return: -5.553935416598657
+[    10 episode,     4768 total steps] average reward for past 100 iterations: -3.902
+Last best model saved with reward: 33.34, at episode 824.
+2500
+Episode: 0 | Return: -5.048126004332673
+Episode: 1 | Return: -4.513566891715351
+Episode: 2 | Return: -5.045134781403654
+Episode: 3 | Return: -4.387347721957222
+Episode: 4 | Return: -4.632171835215797
+Episode: 5 | Return: -4.503331267757116
+Episode: 6 | Return: -4.7482411412585375
+Episode: 7 | Return: -5.062913146472239
+Episode: 8 | Return: -4.847856454827111
+Episode: 9 | Return: -4.384835635107297
+[    10 episode,     4868 total steps] average reward for past 100 iterations: -3.238
+Last best model saved with reward: 33.34, at episode 824.
+2600
+Episode: 0 | Return: -3.157744090925675
+Episode: 1 | Return: -3.500301306663572
+Episode: 2 | Return: -3.202440569979375
+Episode: 3 | Return: -3.1105746783716954
+Episode: 4 | Return: -3.3757817067431626
+Episode: 5 | Return: -3.4039647679928255
+Episode: 6 | Return: -3.455673074614185
+Episode: 7 | Return: -3.0982298681662854
+Episode: 8 | Return: -3.448370444317937
+Episode: 9 | Return: -3.3977033668029337
+[    10 episode,     4968 total steps] average reward for past 100 iterations: -2.768
+Last best model saved with reward: 33.34, at episode 824.
+2700
+Episode: 0 | Return: -2.5603142611851526
+Episode: 1 | Return: -2.701816436926203
+Episode: 2 | Return: -2.636390046202382
+Episode: 3 | Return: -2.4756123076710654
+Episode: 4 | Return: -2.703692170013036
+Episode: 5 | Return: -2.4502918491497154
+Episode: 6 | Return: -2.4480989790594285
+Episode: 7 | Return: -2.4839972878537306
+Episode: 8 | Return: -2.570256430552746
+Episode: 9 | Return: -2.5563829526634865
+[    10 episode,     5068 total steps] average reward for past 100 iterations: -2.432
+Last best model saved with reward: 33.34, at episode 824.
+2800
+Episode: 0 | Return: -2.1055993401139106
+Episode: 1 | Return: -2.109844748046506
+Episode: 2 | Return: -2.088620649269716
+Episode: 3 | Return: -2.0721632719953478
+Episode: 4 | Return: -2.0828589576410854
+Episode: 5 | Return: -2.1425332722916104
+Episode: 6 | Return: -2.1952180106525203
+Episode: 7 | Return: -2.2228540261534064
+Episode: 8 | Return: -2.115741854190563
+Episode: 9 | Return: -2.2023988844428266
+[    10 episode,     5168 total steps] average reward for past 100 iterations: -2.000
+Last best model saved with reward: 33.34, at episode 824.
+2900
+Episode: 0 | Return: -1.8805985197962627
+Episode: 1 | Return: -1.9156452138430788
+Episode: 2 | Return: -1.8783850140012308
+Episode: 3 | Return: -1.957542073038651
+Episode: 4 | Return: -1.8833715506520676
+Episode: 5 | Return: -1.9311533777046381
+Episode: 6 | Return: -1.9425053210588121
+Episode: 7 | Return: -1.9201899297663538
+Episode: 8 | Return: -1.8747096800273004
+Episode: 9 | Return: -1.9286594037417235
+[    10 episode,     5268 total steps] average reward for past 100 iterations: -1.908
+Last best model saved with reward: 33.34, at episode 824.
+3000
+Episode: 0 | Return: -1.8068794521703002
+Episode: 1 | Return: -1.8567228546515147
+Episode: 2 | Return: -1.8201846913285686
+Episode: 3 | Return: -1.8314849530998178
+Episode: 4 | Return: -1.8250690968157257
+Episode: 5 | Return: -1.8535842721152744
+Episode: 6 | Return: -1.8250936598208585
+Episode: 7 | Return: -1.8001823379749622
+Episode: 8 | Return: -1.807156627613014
+Episode: 9 | Return: -1.803817545786051
+[    10 episode,     5368 total steps] average reward for past 100 iterations: -1.801
+Last best model saved with reward: 33.34, at episode 824.
+3100
+Episode: 0 | Return: -1.7631018787611707
+Episode: 1 | Return: -1.7656288322481155
+Episode: 2 | Return: -1.7625754092038497
+Episode: 3 | Return: -1.7624988117194644
+Episode: 4 | Return: -1.7593980665340052
+Episode: 5 | Return: -1.8063816171478744
+Episode: 6 | Return: -1.7632156012088271
+Episode: 7 | Return: -1.7707025757549333
+Episode: 8 | Return: -1.7946669116684784
+Episode: 9 | Return: -1.8027087201336467
+[    10 episode,     5468 total steps] average reward for past 100 iterations: -1.776
+Last best model saved with reward: 33.34, at episode 824.
+3200
+Episode: 0 | Return: -1.7680961501759587
+Episode: 1 | Return: -1.7812227970557275
+Episode: 2 | Return: -1.767086819015239
+Episode: 3 | Return: -1.7583745027535216
+Episode: 4 | Return: -1.7783760594555482
+Episode: 5 | Return: -1.7875025315932827
+Episode: 6 | Return: -1.7719528424623041
+Episode: 7 | Return: -1.7521004211383442
+Episode: 8 | Return: -1.773549049695081
+Episode: 9 | Return: -1.7408069709105651
+[    10 episode,     5568 total steps] average reward for past 100 iterations: -1.755
+Last best model saved with reward: 33.34, at episode 824.
+3300
+Episode: 0 | Return: -1.7296022112810552
+Episode: 1 | Return: -1.7665675750977556
+Episode: 2 | Return: -1.7685615182542709
+Episode: 3 | Return: -1.7563622742154812
+Episode: 4 | Return: -1.763056053868292
+Episode: 5 | Return: -1.750026743185808
+Episode: 6 | Return: -1.774458657001887
+Episode: 7 | Return: -1.7676506178639504
+Episode: 8 | Return: -1.7334870700188183
+Episode: 9 | Return: -1.74628534250126
+[    10 episode,     5668 total steps] average reward for past 100 iterations: -1.749
+Last best model saved with reward: 33.34, at episode 824.
+3400
+Episode: 0 | Return: -1.7442846209129406
+Episode: 1 | Return: -1.5318437733013455
+Episode: 2 | Return: -1.7287949463609777
+Episode: 3 | Return: -1.5297255744129696
+Episode: 4 | Return: -1.587222722231792
+Episode: 5 | Return: -1.7640158959322596
+Episode: 6 | Return: -1.7649714757060053
+Episode: 7 | Return: -1.7551124544179089
+Episode: 8 | Return: -1.55867472446103
+Episode: 9 | Return: -1.521296527467242
+[    10 episode,     5768 total steps] average reward for past 100 iterations: -1.742
+Last best model saved with reward: 33.34, at episode 824.
+3500
+Episode: 0 | Return: -0.7073720730163718
+Episode: 1 | Return: -0.5916242242961454
+Episode: 2 | Return: -0.44601721058914856
+Episode: 3 | Return: -0.6830105073564776
+Episode: 4 | Return: -0.49366990114098136
+Episode: 5 | Return: -0.4481982180943594
+Episode: 6 | Return: -0.6036886735000937
+Episode: 7 | Return: -0.44230201355501025
+Episode: 8 | Return: -0.4338197739998329
+Episode: 9 | Return: -0.6259441484745697
+[    10 episode,     5868 total steps] average reward for past 100 iterations: -1.213
+Last best model saved with reward: 33.34, at episode 824.
+3600
+Episode: 0 | Return: 0.5753480101671227
+Episode: 1 | Return: -0.16993883629096007
+Episode: 2 | Return: 0.19221181736977333
+Episode: 3 | Return: 0.3306068966801675
+Episode: 4 | Return: 0.6100382608122513
+Episode: 5 | Return: 0.43698288573147004
+Episode: 6 | Return: 0.5941305263716381
+Episode: 7 | Return: -0.1888017656049008
+Episode: 8 | Return: 0.051650893184179036
+Episode: 9 | Return: 0.43803462102975477
+[    10 episode,     6024 total steps] average reward for past 100 iterations: -0.742
+Last best model saved with reward: 33.34, at episode 824.
+3700
+Episode: 0 | Return: 8.182976076934569
+Episode: 1 | Return: 7.5353462587909625
+Episode: 2 | Return: 8.455550674348453
+Episode: 3 | Return: 7.555374765899325
+Episode: 4 | Return: 8.75943599149637
+Episode: 5 | Return: 8.230700868449043
+Episode: 6 | Return: 7.459456720393272
+Episode: 7 | Return: 8.43143794913473
+Episode: 8 | Return: 7.602560511356037
+Episode: 9 | Return: 7.4778528055665
+[    10 episode,     6348 total steps] average reward for past 100 iterations: 2.113
+Last best model saved with reward: 33.34, at episode 824.
+3800
+Episode: 0 | Return: 8.590821852118875
+Episode: 1 | Return: 8.29257386069525
+Episode: 2 | Return: 8.518812329680227
+Episode: 3 | Return: 8.596307484662539
+Episode: 4 | Return: 8.569372612641057
+Episode: 5 | Return: 8.322306110014347
+Episode: 6 | Return: 8.441280009640057
+Episode: 7 | Return: 8.505180606941064
+Episode: 8 | Return: 8.700934795437687
+Episode: 9 | Return: 8.398544351086558
+[    10 episode,     6788 total steps] average reward for past 100 iterations: 8.680
+Last best model saved with reward: 33.34, at episode 824.
+3900
+Episode: 0 | Return: 5.824560275530962
+Episode: 1 | Return: 5.961858393542176
+Episode: 2 | Return: 5.861126373909061
+Episode: 3 | Return: 5.765796916479341
+Episode: 4 | Return: 5.717981728041176
+Episode: 5 | Return: 5.8357723042432035
+Episode: 6 | Return: 5.880544842158693
+Episode: 7 | Return: 5.895711426324045
+Episode: 8 | Return: 5.774752048373388
+Episode: 9 | Return: 5.785373642559296
+[    10 episode,     7104 total steps] average reward for past 100 iterations: 6.376
+Last best model saved with reward: 33.34, at episode 824.
+100
+Episode: 0 | Return: 7.361876560490108
+Episode: 1 | Return: 7.37605765827043
+Episode: 2 | Return: 7.368661735845017
+Episode: 3 | Return: 7.393038625526668
+Episode: 4 | Return: 7.4056511244773615
+Episode: 5 | Return: 7.4093775894403695
+Episode: 6 | Return: 7.4332252409053705
+Episode: 7 | Return: 7.426857103211379
+Episode: 8 | Return: 7.439251102937783
+Episode: 9 | Return: 7.442086385312807
+[    10 episode,      375 total steps] average reward for past 100 iterations: 2.745
+Last best model saved with reward: 31.25, at episode 71.
+200
+Episode: 0 | Return: 6.1997024236010585
+Episode: 1 | Return: 6.131828486727869
+Episode: 2 | Return: 6.1057305426033786
+Episode: 3 | Return: 6.173709210400174
+Episode: 4 | Return: 6.099876945076961
+Episode: 5 | Return: 6.1763610772648825
+Episode: 6 | Return: 6.00322420500657
+Episode: 7 | Return: 6.038818622955525
+Episode: 8 | Return: 6.187831318761118
+Episode: 9 | Return: 6.024499157706593
+[    10 episode,      703 total steps] average reward for past 100 iterations: 6.552
+Last best model saved with reward: 31.25, at episode 71.
+300
+Episode: 0 | Return: 5.711625625615969
+Episode: 1 | Return: 5.714135190827609
+Episode: 2 | Return: 5.684993210338063
+Episode: 3 | Return: 5.574197729079145
+Episode: 4 | Return: 5.61128659213804
+Episode: 5 | Return: 5.650906828362035
+Episode: 6 | Return: 5.651438613744082
+Episode: 7 | Return: 5.6428258130930224
+Episode: 8 | Return: 5.558303228001407
+Episode: 9 | Return: 5.630766908054479
+[    10 episode,     1003 total steps] average reward for past 100 iterations: 6.051
+Last best model saved with reward: 31.25, at episode 71.
+400
+Episode: 0 | Return: 2.388798127218493
+Episode: 1 | Return: 2.3497756174202835
+Episode: 2 | Return: 2.3184964973314615
+Episode: 3 | Return: 2.321385934496548
+Episode: 4 | Return: 2.344429410028544
+Episode: 5 | Return: 2.3480569467116643
+Episode: 6 | Return: 2.2979024367294256
+Episode: 7 | Return: 2.3352491724951556
+Episode: 8 | Return: 2.3050868032828644
+Episode: 9 | Return: 2.3423250936067754
+[    10 episode,     1303 total steps] average reward for past 100 iterations: 5.369
+Last best model saved with reward: 31.25, at episode 71.
+500
+Episode: 0 | Return: -14.53109265443398
+Episode: 1 | Return: -14.57542439526371
+Episode: 2 | Return: -14.607793821486519
+Episode: 3 | Return: -14.425702725868844
+Episode: 4 | Return: -14.472425944406588
+Episode: 5 | Return: -14.581250003156587
+Episode: 6 | Return: -14.59547593749548
+Episode: 7 | Return: -14.446328383895244
+Episode: 8 | Return: -14.499936375653139
+Episode: 9 | Return: -14.291705428325653
+[    10 episode,     1603 total steps] average reward for past 100 iterations: 0.903
+Last best model saved with reward: 31.25, at episode 71.
+600
+Episode: 0 | Return: -52.98304759164037
+Episode: 1 | Return: -53.14901360659384
+Episode: 2 | Return: -52.74853084824074
+Episode: 3 | Return: -53.08586565589437
+Episode: 4 | Return: -53.01471104052426
+Episode: 5 | Return: -52.45635491572593
+Episode: 6 | Return: -52.33890003981322
+Episode: 7 | Return: -52.547202465462334
+Episode: 8 | Return: -53.18041337673345
+Episode: 9 | Return: -53.198866833059924
+[    10 episode,     1903 total steps] average reward for past 100 iterations: -16.418
+Last best model saved with reward: 31.25, at episode 71.
+700
+Episode: 0 | Return: -18.00443123915719
+Episode: 1 | Return: -17.792832729473957
+Episode: 2 | Return: -17.891091796508977
+Episode: 3 | Return: -17.82447862040265
+Episode: 4 | Return: -17.89933730249278
+Episode: 5 | Return: -17.920520905545985
+Episode: 6 | Return: -18.035972630908415
+Episode: 7 | Return: -17.8796877890195
+Episode: 8 | Return: -17.917330797848166
+Episode: 9 | Return: -17.898296404859266
+[    10 episode,     2203 total steps] average reward for past 100 iterations: -14.786
+Last best model saved with reward: 31.25, at episode 71.
+800
+Episode: 0 | Return: 3.8928459960731536
+Episode: 1 | Return: 3.808522252980831
+Episode: 2 | Return: 3.821202207293384
+Episode: 3 | Return: 3.6938059234340304
+Episode: 4 | Return: 3.701269311078714
+Episode: 5 | Return: 3.7873540433645743
+Episode: 6 | Return: 3.812248697800888
+Episode: 7 | Return: 3.821101440964287
+Episode: 8 | Return: 3.6476847650159163
+Episode: 9 | Return: 3.773539239344011
+[    10 episode,     2503 total steps] average reward for past 100 iterations: 1.398
+Last best model saved with reward: 31.25, at episode 71.
+900
+Episode: 0 | Return: 5.820200561086036
+Episode: 1 | Return: 5.846803080964796
+Episode: 2 | Return: 5.849402878003605
+Episode: 3 | Return: 5.935604115494753
+Episode: 4 | Return: 5.765084469077886
+Episode: 5 | Return: 5.777223721270342
+Episode: 6 | Return: 5.90720039259296
+Episode: 7 | Return: 5.870681850463622
+Episode: 8 | Return: 5.801322157000873
+Episode: 9 | Return: 5.915856309263948
+[    10 episode,     2803 total steps] average reward for past 100 iterations: 5.592
+Last best model saved with reward: 31.25, at episode 71.
+1000
+Episode: 0 | Return: 6.01039315494747
+Episode: 1 | Return: 6.043142524916732
+Episode: 2 | Return: 6.0998877244228495
+Episode: 3 | Return: 6.09645085559716
+Episode: 4 | Return: 6.160338086091437
+Episode: 5 | Return: 5.979777829994038
+Episode: 6 | Return: 6.133418656809878
+Episode: 7 | Return: 6.005218929963722
+Episode: 8 | Return: 5.982684186183782
+Episode: 9 | Return: 6.073181767760474
+[    10 episode,     3103 total steps] average reward for past 100 iterations: 6.061
+Last best model saved with reward: 31.25, at episode 71.
+1100
+Episode: 0 | Return: 6.167542706088533
+Episode: 1 | Return: 6.187422677188003
+Episode: 2 | Return: 6.058308528503083
+Episode: 3 | Return: 6.189085825885925
+Episode: 4 | Return: 6.038506570888064
+Episode: 5 | Return: 6.147923077877065
+Episode: 6 | Return: 6.178654062644541
+Episode: 7 | Return: 6.07886129539051
+Episode: 8 | Return: 6.058392238607184
+Episode: 9 | Return: 6.106273860988982
+[    10 episode,     3403 total steps] average reward for past 100 iterations: 6.123
+Last best model saved with reward: 31.25, at episode 71.
+1200
+Episode: 0 | Return: 7.807506083172351
+Episode: 1 | Return: 7.820790450361961
+Episode: 2 | Return: 7.8182013564704675
+Episode: 3 | Return: 7.869753499266716
+Episode: 4 | Return: 7.833714067704539
+Episode: 5 | Return: 7.847518289404189
+Episode: 6 | Return: 7.833818683797622
+Episode: 7 | Return: 7.827496451522784
+Episode: 8 | Return: 7.802711359221824
+Episode: 9 | Return: 7.873601672063902
+[    10 episode,     3720 total steps] average reward for past 100 iterations: 6.367
+Last best model saved with reward: 31.25, at episode 71.
+1300
+Episode: 0 | Return: 5.995100360225153
+Episode: 1 | Return: 6.00073663726109
+Episode: 2 | Return: 6.000692470363493
+Episode: 3 | Return: 6.006502906611531
+Episode: 4 | Return: 6.010750672148874
+Episode: 5 | Return: 5.983817023486935
+Episode: 6 | Return: 5.985575466131807
+Episode: 7 | Return: 5.9866430197104465
+Episode: 8 | Return: 5.950434718674419
+Episode: 9 | Return: 6.006800096299218
+[    10 episode,     4086 total steps] average reward for past 100 iterations: 7.162
+Last best model saved with reward: 31.25, at episode 71.
+1400
+Episode: 0 | Return: 6.032969553434656
+Episode: 1 | Return: 6.248284488410929
+Episode: 2 | Return: 5.964342772188693
+Episode: 3 | Return: 6.117428962969454
+Episode: 4 | Return: 6.1066872790897015
+Episode: 5 | Return: 6.186299035772906
+Episode: 6 | Return: 6.111418730080825
+Episode: 7 | Return: 6.068614768401634
+Episode: 8 | Return: 6.0557188548773
+Episode: 9 | Return: 6.043252758918841
+[    10 episode,     4386 total steps] average reward for past 100 iterations: 6.091
+Last best model saved with reward: 31.25, at episode 71.
+1500
+Episode: 0 | Return: 6.224857779229975
+Episode: 1 | Return: 5.941929397499981
+Episode: 2 | Return: 6.040423829377314
+Episode: 3 | Return: 6.246238170476345
+Episode: 4 | Return: 6.156377040604767
+Episode: 5 | Return: 6.047406363476974
+Episode: 6 | Return: 6.107558987081363
+Episode: 7 | Return: 6.074596820154625
+Episode: 8 | Return: 6.116525589890648
+Episode: 9 | Return: 6.058252906893938
+[    10 episode,     4686 total steps] average reward for past 100 iterations: 6.129
+Last best model saved with reward: 31.25, at episode 71.
+1600
+Episode: 0 | Return: 6.156560712083422
+Episode: 1 | Return: 6.043463389150753
+Episode: 2 | Return: 6.000794336537833
+Episode: 3 | Return: 6.088703676264771
+Episode: 4 | Return: 5.957431674967449
+Episode: 5 | Return: 5.983757194556047
+Episode: 6 | Return: 6.012183291987185
+Episode: 7 | Return: 6.0109102358105115
+Episode: 8 | Return: 6.105714107710419
+Episode: 9 | Return: 6.073246416244692
+[    10 episode,     4986 total steps] average reward for past 100 iterations: 6.107
+Last best model saved with reward: 31.25, at episode 71.
+1700
+Episode: 0 | Return: 5.943323718927518
+Episode: 1 | Return: 6.10452591925503
+Episode: 2 | Return: 6.019973599888944
+Episode: 3 | Return: 6.025149941166841
+Episode: 4 | Return: 6.102688319158473
+Episode: 5 | Return: 6.059866028999945
+Episode: 6 | Return: 6.0842946188228995
+Episode: 7 | Return: 6.164417824998221
+Episode: 8 | Return: 6.081431577088923
+Episode: 9 | Return: 6.062077397906267
+[    10 episode,     5286 total steps] average reward for past 100 iterations: 6.085
+Last best model saved with reward: 31.25, at episode 71.
+1800
+Episode: 0 | Return: 6.11141950496864
+Episode: 1 | Return: 5.927694411160902
+Episode: 2 | Return: 5.983227968336406
+Episode: 3 | Return: 5.975956539208355
+Episode: 4 | Return: 6.000662965459015
+Episode: 5 | Return: 6.170974864467171
+Episode: 6 | Return: 5.9689087211434035
+Episode: 7 | Return: 6.049378190868371
+Episode: 8 | Return: 5.923460932360001
+Episode: 9 | Return: 6.010298897109612
+[    10 episode,     5586 total steps] average reward for past 100 iterations: 6.073
+Last best model saved with reward: 31.25, at episode 71.
+1900
+Episode: 0 | Return: 6.145071867697485
+Episode: 1 | Return: 5.949332731745195
+Episode: 2 | Return: 5.980943618126275
+Episode: 3 | Return: 6.08300137170497
+Episode: 4 | Return: 6.02183777218643
+Episode: 5 | Return: 6.032231965584934
+Episode: 6 | Return: 6.008607226229579
+Episode: 7 | Return: 5.980615759414683
+Episode: 8 | Return: 5.9527573311964215
+Episode: 9 | Return: 6.075623739197758
+[    10 episode,     5886 total steps] average reward for past 100 iterations: 6.085
+Last best model saved with reward: 31.25, at episode 71.
+2000
+Episode: 0 | Return: 4.650593677336993
+Episode: 1 | Return: 4.638475932366568
+Episode: 2 | Return: 3.117598008003185
+Episode: 3 | Return: 2.95584104024206
+Episode: 4 | Return: 3.0608890578826378
+Episode: 5 | Return: 3.014118512060703
+Episode: 6 | Return: 2.9522027824975634
+Episode: 7 | Return: 3.006046659975264
+Episode: 8 | Return: 4.603296767957155
+Episode: 9 | Return: 3.0348390734446156
+[    10 episode,     6216 total steps] average reward for past 100 iterations: 6.401
+Last best model saved with reward: 31.25, at episode 71.
+2100
+Episode: 0 | Return: 0.9672733377251858
+Episode: 1 | Return: 0.9665208484580394
+Episode: 2 | Return: 0.9578931531635635
+Episode: 3 | Return: 0.9503602844048834
+Episode: 4 | Return: 0.932954451220997
+Episode: 5 | Return: 0.979592930019796
+Episode: 6 | Return: 0.9588483468092109
+Episode: 7 | Return: 0.9265467612925391
+Episode: 8 | Return: 0.9768807650057372
+Episode: 9 | Return: 0.9530157935698579
+[    10 episode,     6393 total steps] average reward for past 100 iterations: 2.246
+Last best model saved with reward: 31.25, at episode 71.
+2200
+Episode: 0 | Return: 0.7685584781795921
+Episode: 1 | Return: 0.8080288471673469
+Episode: 2 | Return: 0.8276772956822387
+Episode: 3 | Return: 0.8455288361162367
+Episode: 4 | Return: 0.8196799446526565
+Episode: 5 | Return: 0.7994038886530342
+Episode: 6 | Return: 0.8082204950191508
+Episode: 7 | Return: 0.8453072265621756
+Episode: 8 | Return: 0.824838883999138
+Episode: 9 | Return: 0.7951022804777894
+[    10 episode,     6493 total steps] average reward for past 100 iterations: 0.888
+Last best model saved with reward: 31.25, at episode 71.
+2300
+Episode: 0 | Return: 0.8155596345025383
+Episode: 1 | Return: 0.7676186722701581
+Episode: 2 | Return: 0.8003799658815097
+Episode: 3 | Return: 0.806532890488462
+Episode: 4 | Return: 0.8364972022340941
+Episode: 5 | Return: 0.847538968751143
+Episode: 6 | Return: 0.7276737139298471
+Episode: 7 | Return: 0.7743640900834367
+Episode: 8 | Return: 0.7619641188598821
+Episode: 9 | Return: 0.7981395510936629
+[    10 episode,     6593 total steps] average reward for past 100 iterations: 0.813
+Last best model saved with reward: 31.25, at episode 71.
+2400
+Episode: 0 | Return: 0.7632548776096166
+Episode: 1 | Return: 0.7906341561789798
+Episode: 2 | Return: 0.7549497501362225
+Episode: 3 | Return: 0.8091330646953908
+Episode: 4 | Return: 0.6965483767439226
+Episode: 5 | Return: 0.7616596242138253
+Episode: 6 | Return: 0.8146783518220331
+Episode: 7 | Return: 0.7234796286383426
+Episode: 8 | Return: 0.7250196047389151
+Episode: 9 | Return: 0.715674831155842
+[    10 episode,     6693 total steps] average reward for past 100 iterations: 0.798
+Last best model saved with reward: 31.25, at episode 71.
+2500
+Episode: 0 | Return: 0.8346254669538626
+Episode: 1 | Return: 0.8182659690667763
+Episode: 2 | Return: 0.710271843948513
+Episode: 3 | Return: 0.7031147599195304
+Episode: 4 | Return: 0.7445515591265013
+Episode: 5 | Return: 0.7417311963352525
+Episode: 6 | Return: 0.6868704482770216
+Episode: 7 | Return: 0.7734778842421611
+Episode: 8 | Return: 0.7526892449119624
+Episode: 9 | Return: 0.7127785676647602
+[    10 episode,     6793 total steps] average reward for past 100 iterations: 0.799
+Last best model saved with reward: 31.25, at episode 71.
+2600
+Episode: 0 | Return: 0.6607442581279523
+Episode: 1 | Return: 0.8000152520489169
+Episode: 2 | Return: 0.7069898502219152
+Episode: 3 | Return: 0.7586308476567244
+Episode: 4 | Return: 0.7611569626947222
+Episode: 5 | Return: 0.7732184829087415
+Episode: 6 | Return: 0.7433745536199495
+Episode: 7 | Return: 0.8055514316418458
+Episode: 8 | Return: 0.7158586840025454
+Episode: 9 | Return: 0.7912226079617233
+[    10 episode,     6893 total steps] average reward for past 100 iterations: 0.787
+Last best model saved with reward: 31.25, at episode 71.
+2700
+Episode: 0 | Return: 0.6632995997627908
+Episode: 1 | Return: 0.6490038372115278
+Episode: 2 | Return: 0.7876970488083134
+Episode: 3 | Return: 0.7440667664891538
+Episode: 4 | Return: 0.7688626009865062
+Episode: 5 | Return: 0.6537894619578919
+Episode: 6 | Return: 0.7463625031406407
+Episode: 7 | Return: 0.674612151546637
+Episode: 8 | Return: 0.7184374205612232
+Episode: 9 | Return: 0.7786380025947324
+[    10 episode,     6993 total steps] average reward for past 100 iterations: 0.784
+Last best model saved with reward: 31.25, at episode 71.
+2800
+Episode: 0 | Return: 0.6452626309077092
+Episode: 1 | Return: 0.69105811954933
+Episode: 2 | Return: 0.7046918455713064
+Episode: 3 | Return: 0.7441061338147545
+Episode: 4 | Return: 0.698448932667077
+Episode: 5 | Return: 0.6908054476520971
+Episode: 6 | Return: 0.6748643339802124
+Episode: 7 | Return: 0.6721194827368254
+Episode: 8 | Return: 0.706844394426912
+Episode: 9 | Return: 0.6201164928569594
+[    10 episode,     7093 total steps] average reward for past 100 iterations: 0.763
+Last best model saved with reward: 31.25, at episode 71.
+2900
+Episode: 0 | Return: 0.7408236679321258
+Episode: 1 | Return: 0.7489897459205075
+Episode: 2 | Return: 0.6914282833646825
+Episode: 3 | Return: 0.6505526900731455
+Episode: 4 | Return: 0.6871702009534136
+Episode: 5 | Return: 0.6434652331995749
+Episode: 6 | Return: 0.7198774654243439
+Episode: 7 | Return: 0.6848641911690647
+Episode: 8 | Return: 0.6551323052266838
+Episode: 9 | Return: 0.6651895925804938
+[    10 episode,     7193 total steps] average reward for past 100 iterations: 0.759
+Last best model saved with reward: 31.25, at episode 71.
+3000
+Episode: 0 | Return: 0.6066914317912141
+Episode: 1 | Return: 0.7190442508274946
+Episode: 2 | Return: 0.7131379073549556
+Episode: 3 | Return: 0.5815968743379019
+Episode: 4 | Return: 0.6043176935123891
+Episode: 5 | Return: 0.5937856411510091
+Episode: 6 | Return: 0.6212626072399436
+Episode: 7 | Return: 0.6228406929267435
+Episode: 8 | Return: 0.6306593893075335
+Episode: 9 | Return: 0.716973682659158
+[    10 episode,     7293 total steps] average reward for past 100 iterations: 0.749
+Last best model saved with reward: 31.25, at episode 71.
+3100
+Episode: 0 | Return: 0.6086500243745654
+Episode: 1 | Return: 0.6623196998715009
+Episode: 2 | Return: 0.593513070812423
+Episode: 3 | Return: 0.5683010432634614
+Episode: 4 | Return: 0.5776185020072122
+Episode: 5 | Return: 0.5799763396697659
+Episode: 6 | Return: 0.6936031753363082
+Episode: 7 | Return: 0.690832838683831
+Episode: 8 | Return: 0.5317684616317115
+Episode: 9 | Return: 0.6825719647456447
+[    10 episode,     7393 total steps] average reward for past 100 iterations: 0.752
+Last best model saved with reward: 31.25, at episode 71.
+3200
+Episode: 0 | Return: 0.5363704579113051
+Episode: 1 | Return: 0.6201906132260492
+Episode: 2 | Return: 0.7130561062887532
+Episode: 3 | Return: 0.7116965729327671
+Episode: 4 | Return: 0.7189223224187514
+Episode: 5 | Return: 0.610735264517554
+Episode: 6 | Return: 0.6751306399785502
+Episode: 7 | Return: 0.6600065732470395
+Episode: 8 | Return: 0.5944936497925599
+Episode: 9 | Return: 0.6704277806085256
+[    10 episode,     7493 total steps] average reward for past 100 iterations: 0.707
+Last best model saved with reward: 31.25, at episode 71.
+3300
+Episode: 0 | Return: 0.6958256130179228
+Episode: 1 | Return: 0.7193853447914291
+Episode: 2 | Return: 0.6592843455299616
+Episode: 3 | Return: 0.5782251839165334
+Episode: 4 | Return: 0.5983698488045532
+Episode: 5 | Return: 0.6753961646988365
+Episode: 6 | Return: 0.5928614111026258
+Episode: 7 | Return: 0.5307633526157643
+Episode: 8 | Return: 0.5715020273564688
+Episode: 9 | Return: 0.6850426151753511
+[    10 episode,     7593 total steps] average reward for past 100 iterations: 0.726
+Last best model saved with reward: 31.25, at episode 71.
+3400
+Episode: 0 | Return: 0.5211064955437716
+Episode: 1 | Return: 0.5472815510235977
+Episode: 2 | Return: 0.534458527896774
+Episode: 3 | Return: 0.6907805336192208
+Episode: 4 | Return: 0.6061330594970051
+Episode: 5 | Return: 0.5568148141975755
+Episode: 6 | Return: 0.5893079247838574
+Episode: 7 | Return: 0.7126972861597789
+Episode: 8 | Return: 0.6109242502280564
+Episode: 9 | Return: 0.6726162565616733
+[    10 episode,     7693 total steps] average reward for past 100 iterations: 0.715
+Last best model saved with reward: 31.25, at episode 71.
+3500
+Episode: 0 | Return: 0.4885580855547293
+Episode: 1 | Return: 0.6570775013148771
+Episode: 2 | Return: 0.5858744230378288
+Episode: 3 | Return: 0.5703241089794467
+Episode: 4 | Return: 0.5299618957419343
+Episode: 5 | Return: 0.5542335830995856
+Episode: 6 | Return: 0.5137650604329715
+Episode: 7 | Return: 0.5169804796626939
+Episode: 8 | Return: 0.5707607088206474
+Episode: 9 | Return: 0.4925341595100931
+[    10 episode,     7793 total steps] average reward for past 100 iterations: 0.709
+Last best model saved with reward: 31.25, at episode 71.
+3600
+Episode: 0 | Return: 0.5401837545348271
+Episode: 1 | Return: 0.5028891642393015
+Episode: 2 | Return: 0.6328862210471489
+Episode: 3 | Return: 0.5346443898565545
+Episode: 4 | Return: 0.47099922726548793
+Episode: 5 | Return: 0.4746950231426555
+Episode: 6 | Return: 0.48428371465817394
+Episode: 7 | Return: 0.647252940014502
+Episode: 8 | Return: 0.6487315060387346
+Episode: 9 | Return: 0.5566072048297798
+[    10 episode,     7893 total steps] average reward for past 100 iterations: 0.710
+Last best model saved with reward: 31.25, at episode 71.
+3700
+Episode: 0 | Return: 0.6283841409118939
+Episode: 1 | Return: 0.5037262047163307
+Episode: 2 | Return: 0.45549893489671456
+Episode: 3 | Return: 0.6204131859491951
+Episode: 4 | Return: 0.48523907547461165
+Episode: 5 | Return: 0.5704950672643263
+Episode: 6 | Return: 0.5120209928168356
+Episode: 7 | Return: 0.5681150688883484
+Episode: 8 | Return: 0.6114900944239443
+Episode: 9 | Return: 0.4546314466005458
+[    10 episode,     7993 total steps] average reward for past 100 iterations: 0.690
+Last best model saved with reward: 31.25, at episode 71.
+3800
+Episode: 0 | Return: 0.4766795141373678
+Episode: 1 | Return: 0.5050409497974173
+Episode: 2 | Return: 0.582502588932209
+Episode: 3 | Return: 0.5009771234551348
+Episode: 4 | Return: 0.4571681888547045
+Episode: 5 | Return: 0.5933882559738987
+Episode: 6 | Return: 0.44540254359506676
+Episode: 7 | Return: 0.5723132808983593
+Episode: 8 | Return: 0.4332184653921871
+Episode: 9 | Return: 0.613908586153086
+[    10 episode,     8093 total steps] average reward for past 100 iterations: 0.669
+Last best model saved with reward: 31.25, at episode 71.
+3900
+Episode: 0 | Return: 0.5624378641727664
+Episode: 1 | Return: 0.4732536955293243
+Episode: 2 | Return: 0.4602751364274525
+Episode: 3 | Return: 0.49954488885653076
+Episode: 4 | Return: 0.5339947057888892
+Episode: 5 | Return: 0.5474340096235373
+Episode: 6 | Return: 0.5012511225573064
+Episode: 7 | Return: 0.4624781079423598
+Episode: 8 | Return: 0.5190841493426998
+Episode: 9 | Return: 0.5876401391690595
+[    10 episode,     8193 total steps] average reward for past 100 iterations: 0.671
+Last best model saved with reward: 31.25, at episode 71.
+4000
+Episode: 0 | Return: 0.5645132300287965
+Episode: 1 | Return: 0.572109972083634
+Episode: 2 | Return: 0.6568785551627914
+Episode: 3 | Return: 0.5270244947594087
+Episode: 4 | Return: 0.5562759634635872
+Episode: 5 | Return: 0.49966225765148187
+Episode: 6 | Return: 0.6387722595193243
+Episode: 7 | Return: 0.6313620255363794
+Episode: 8 | Return: 0.5811802360717813
+Episode: 9 | Return: 0.6148402009972537
+[    10 episode,     8293 total steps] average reward for past 100 iterations: 0.684
+Last best model saved with reward: 31.25, at episode 71.
+4100
+Episode: 0 | Return: 0.6792246791332901
+Episode: 1 | Return: 0.5632812741437203
+Episode: 2 | Return: 0.5166135302475676
+Episode: 3 | Return: 0.5062810674748712
+Episode: 4 | Return: 0.4983795633303706
+Episode: 5 | Return: 0.6286161005813539
+Episode: 6 | Return: 0.6728215552731365
+Episode: 7 | Return: 0.4940781862320703
+Episode: 8 | Return: 0.6733020548677368
+Episode: 9 | Return: 0.5257560016012206
+[    10 episode,     8393 total steps] average reward for past 100 iterations: 0.680
+Last best model saved with reward: 31.25, at episode 71.
+4200
+Episode: 0 | Return: 0.5696552355195292
+Episode: 1 | Return: 0.6478103657989276
+Episode: 2 | Return: 0.6451927285797745
+Episode: 3 | Return: 0.6934066313540851
+Episode: 4 | Return: 0.5410503539904026
+Episode: 5 | Return: 0.5741627894785009
+Episode: 6 | Return: 0.56620326165315
+Episode: 7 | Return: 0.7106557305397831
+Episode: 8 | Return: 0.6783240349526551
+Episode: 9 | Return: 0.6325320162113398
+[    10 episode,     8493 total steps] average reward for past 100 iterations: 0.707
+Last best model saved with reward: 31.25, at episode 71.
+4300
+Episode: 0 | Return: 0.5541324411344015
+Episode: 1 | Return: 0.7345163210685139
+Episode: 2 | Return: 0.6078458140032215
+Episode: 3 | Return: 0.6052315190550746
+Episode: 4 | Return: 0.5568001404938361
+Episode: 5 | Return: 0.5732572907199363
+Episode: 6 | Return: 0.6645175818303062
+Episode: 7 | Return: 0.7323657482323981
+Episode: 8 | Return: 0.6375416842279451
+Episode: 9 | Return: 0.5381858583167566
+[    10 episode,     8593 total steps] average reward for past 100 iterations: 0.728
+Last best model saved with reward: 31.25, at episode 71.
+4400
+Episode: 0 | Return: 0.6728955266310634
+Episode: 1 | Return: 0.7781069225793379
+Episode: 2 | Return: 0.6553698147238392
+Episode: 3 | Return: 0.5892148953903299
+Episode: 4 | Return: 0.6037456108763569
+Episode: 5 | Return: 0.6456854130833851
+Episode: 6 | Return: 0.6582959780349935
+Episode: 7 | Return: 0.6983714543620673
+Episode: 8 | Return: 0.591833028317813
+Episode: 9 | Return: 0.6334631532366621
+[    10 episode,     8693 total steps] average reward for past 100 iterations: 0.747
+Last best model saved with reward: 31.25, at episode 71.
+4500
+Episode: 0 | Return: 0.691233080367062
+Episode: 1 | Return: 0.6167510356710569
+Episode: 2 | Return: 0.7063909355622637
+Episode: 3 | Return: 0.7447823961459468
+Episode: 4 | Return: 0.6556277981873272
+Episode: 5 | Return: 0.7241190896050893
+Episode: 6 | Return: 0.695567200628847
+Episode: 7 | Return: 0.6291084250647551
+Episode: 8 | Return: 0.6100572539144882
+Episode: 9 | Return: 0.6261885791805064
+[    10 episode,     8793 total steps] average reward for past 100 iterations: 0.765
+Last best model saved with reward: 31.25, at episode 71.
+4600
+Episode: 0 | Return: 0.6513916753995158
+Episode: 1 | Return: 0.7571472808302637
+Episode: 2 | Return: 0.7134641649476425
+Episode: 3 | Return: 0.7658520547026695
+Episode: 4 | Return: 0.6455233053239033
+Episode: 5 | Return: 0.7321134662800215
+Episode: 6 | Return: 0.7307265116863252
+Episode: 7 | Return: 0.7813909306257745
+Episode: 8 | Return: 0.7652955407445202
+Episode: 9 | Return: 0.6921225200670067
+100
+Episode: 0 | Return: -1.022549135280054
+Episode: 1 | Return: -1.1584834616912165
+Episode: 2 | Return: -1.1438103008846607
+Episode: 3 | Return: -1.2683967405202952
+Episode: 4 | Return: -1.066841304877107
+Episode: 5 | Return: -1.2700279121215838
+Episode: 6 | Return: -1.3572200427176644
+Episode: 7 | Return: -1.3391789544578034
+Episode: 8 | Return: -1.2874143614663707
+Episode: 9 | Return: -1.3711976075711516
+100
+Episode: 0 | Return: 6.683603597364519
+Episode: 1 | Return: 6.674481680028556
+Episode: 2 | Return: 6.758310018751803
+Episode: 3 | Return: 6.700820821702034
+Episode: 4 | Return: 6.717882679519029
+Episode: 5 | Return: 6.720098432291662
+Episode: 6 | Return: 6.763269132766448
+Episode: 7 | Return: 6.7647624677649105
+Episode: 8 | Return: 6.728939607316249
+Episode: 9 | Return: 6.691430285140134
+[    10 episode,      362 total steps] average reward for past 100 iterations: 2.194
+Last best model saved with reward: 11.86, at episode 12.
+200
+Episode: 0 | Return: 6.149905649548691
+Episode: 1 | Return: 6.089442019651475
+Episode: 2 | Return: 6.072702108975499
+Episode: 3 | Return: 6.232197581899254
+Episode: 4 | Return: 6.063197255746488
+Episode: 5 | Return: 6.258674710542595
+Episode: 6 | Return: 6.123165439006235
+Episode: 7 | Return: 6.196224170627559
+Episode: 8 | Return: 6.049735456036542
+Episode: 9 | Return: 6.033592048571444
+[    10 episode,      731 total steps] average reward for past 100 iterations: 7.425
+Last best model saved with reward: 25.38, at episode 110.
+300
+Episode: 0 | Return: 0.9482296622646372
+Episode: 1 | Return: 0.9447728884256099
+Episode: 2 | Return: 0.9351235771366257
+Episode: 3 | Return: 0.9578966477836609
+Episode: 4 | Return: 0.9458918243138188
+Episode: 5 | Return: 0.9606870181643662
+Episode: 6 | Return: 0.9385913153904025
+Episode: 7 | Return: 0.9460342282865895
+Episode: 8 | Return: 0.960662245099135
+Episode: 9 | Return: 0.9437300911056121
+[    10 episode,     1006 total steps] average reward for past 100 iterations: 4.986
+Last best model saved with reward: 25.38, at episode 110.
+400
+Episode: 0 | Return: 0.7124871697412175
+Episode: 1 | Return: 0.6586173319847121
+Episode: 2 | Return: 0.6631692835790176
+Episode: 3 | Return: 0.6521407328539985
+Episode: 4 | Return: 0.663216980235683
+Episode: 5 | Return: 0.7281061176299903
+Episode: 6 | Return: 0.7030236382723358
+Episode: 7 | Return: 0.7057651772822777
+Episode: 8 | Return: 0.7385182577922786
+Episode: 9 | Return: 0.7101433623202041
+[    10 episode,     1106 total steps] average reward for past 100 iterations: 0.828
+Last best model saved with reward: 25.38, at episode 110.
+500
+Episode: 0 | Return: 0.5588082961728216
+Episode: 1 | Return: 0.543992219701399
+Episode: 2 | Return: 0.5668439431955887
+Episode: 3 | Return: 0.5553121073345457
+Episode: 4 | Return: 0.5600287759823032
+Episode: 5 | Return: 0.5631496863785996
+Episode: 6 | Return: 0.563894852457881
+Episode: 7 | Return: 0.5645319153796184
+Episode: 8 | Return: 0.5260390407341233
+Episode: 9 | Return: 0.546122320314011
+[    10 episode,     1206 total steps] average reward for past 100 iterations: 0.732
+Last best model saved with reward: 25.38, at episode 110.
+600
+Episode: 0 | Return: 0.28239739363588023
+Episode: 1 | Return: 0.28159325872023633
+Episode: 2 | Return: 0.26765966502288996
+Episode: 3 | Return: 0.25746030694232824
+Episode: 4 | Return: 0.2680852984391293
+Episode: 5 | Return: 0.2665857221604443
+Episode: 6 | Return: 0.28010700617858275
+Episode: 7 | Return: 0.2879102676642479
+Episode: 8 | Return: 0.2871894001933596
+Episode: 9 | Return: 0.27736728987653714
+[    10 episode,     1306 total steps] average reward for past 100 iterations: 0.602
+Last best model saved with reward: 25.38, at episode 110.
+700
+Episode: 0 | Return: -0.22384046634636934
+Episode: 1 | Return: -0.26877991006504476
+Episode: 2 | Return: -0.24061716841709768
+Episode: 3 | Return: -0.23976092654477532
+Episode: 4 | Return: -0.30890177488889226
+Episode: 5 | Return: -0.2338390930744062
+Episode: 6 | Return: -0.26454843171114306
+Episode: 7 | Return: -0.3050854040452978
+Episode: 8 | Return: -0.2789033796168726
+Episode: 9 | Return: -0.2787740946622934
+[    10 episode,     1406 total steps] average reward for past 100 iterations: 0.427
+Last best model saved with reward: 25.38, at episode 110.
+800
+Episode: 0 | Return: -1.1155405089167956
+Episode: 1 | Return: -1.0289043180045043
+Episode: 2 | Return: -1.169486109532594
+Episode: 3 | Return: -1.1920684875080272
+Episode: 4 | Return: -1.050811521237291
+Episode: 5 | Return: -1.3031326498630253
+Episode: 6 | Return: -1.1512162352435182
+Episode: 7 | Return: -1.0381481883018435
+Episode: 8 | Return: -1.0428114148973218
+Episode: 9 | Return: -1.25394121082732
+[    10 episode,     1506 total steps] average reward for past 100 iterations: 0.113
+Last best model saved with reward: 25.38, at episode 110.
+900
+Episode: 0 | Return: -17.10542608060094
+Episode: 1 | Return: -17.28134516364613
+Episode: 2 | Return: -16.649184678687703
+Episode: 3 | Return: -16.990378332587852
+Episode: 4 | Return: -16.198521458854827
+Episode: 5 | Return: -17.245640753943718
+Episode: 6 | Return: -17.14852627816441
+Episode: 7 | Return: -16.666763121919583
+Episode: 8 | Return: -16.976292216692073
+Episode: 9 | Return: -16.66500143088465
+[    10 episode,     1737 total steps] average reward for past 100 iterations: -0.651
+Last best model saved with reward: 25.38, at episode 110.
+1000
+Episode: 0 | Return: -13.937547376020222
+Episode: 1 | Return: -13.198530173614063
+Episode: 2 | Return: -13.552615527767909
+Episode: 3 | Return: -13.080820680648381
+Episode: 4 | Return: -13.282549756533259
+Episode: 5 | Return: -13.359809460256628
+Episode: 6 | Return: -13.631628047351008
+Episode: 7 | Return: -13.222447367687757
+Episode: 8 | Return: -13.574069753205663
+Episode: 9 | Return: -13.528152395434644
+[    10 episode,     2037 total steps] average reward for past 100 iterations: -6.120
+Last best model saved with reward: 25.38, at episode 110.
+1100
+Episode: 0 | Return: 3.106534766401973
+Episode: 1 | Return: 3.1100409763091146
+Episode: 2 | Return: 3.1513987418101594
+Episode: 3 | Return: 3.0835891061353804
+Episode: 4 | Return: 3.1900003751539368
+Episode: 5 | Return: 3.0775933898466894
+Episode: 6 | Return: 3.11691699403113
+Episode: 7 | Return: 3.1053396419001005
+Episode: 8 | Return: 3.121468654612179
+Episode: 9 | Return: 3.112474360828198
+[    10 episode,     2337 total steps] average reward for past 100 iterations: 1.325
+Last best model saved with reward: 25.38, at episode 110.
+1200
+Episode: 0 | Return: 6.103437510702413
+Episode: 1 | Return: 5.958607091337666
+Episode: 2 | Return: 6.079131051551954
+Episode: 3 | Return: 6.069794077666039
+Episode: 4 | Return: 5.946534115667558
+Episode: 5 | Return: 5.930979941588921
+Episode: 6 | Return: 5.865250390701377
+Episode: 7 | Return: 6.02079388570103
+Episode: 8 | Return: 6.055101700783267
+Episode: 9 | Return: 6.071681021490081
+[    10 episode,     2637 total steps] average reward for past 100 iterations: 5.663
+Last best model saved with reward: 25.38, at episode 110.
+1300
+Episode: 0 | Return: 5.992450974716966
+Episode: 1 | Return: 6.172116408484378
+Episode: 2 | Return: 6.036635498997397
+Episode: 3 | Return: 6.0774242565326695
+Episode: 4 | Return: 6.168435757380783
+Episode: 5 | Return: 6.058390568307913
+Episode: 6 | Return: 6.02378509686479
+Episode: 7 | Return: 6.113487774161113
+Episode: 8 | Return: 5.995286425927591
+Episode: 9 | Return: 6.212980319986096
+[    10 episode,     2937 total steps] average reward for past 100 iterations: 6.099
+Last best model saved with reward: 25.38, at episode 110.
+1400
+Episode: 0 | Return: 4.3999927907294625
+Episode: 1 | Return: 4.498240252765293
+Episode: 2 | Return: 4.51374488826938
+Episode: 3 | Return: 4.485033791485128
+Episode: 4 | Return: 4.533557647778846
+Episode: 5 | Return: 4.53637515669209
+Episode: 6 | Return: 4.547230683128308
+Episode: 7 | Return: 4.559353808871498
+Episode: 8 | Return: 4.522942978981305
+Episode: 9 | Return: 4.464676995142527
+[    10 episode,     3375 total steps] average reward for past 100 iterations: 7.945
+Last best model saved with reward: 25.38, at episode 110.
+1500
+Episode: 0 | Return: 2.4629398310196318
+Episode: 1 | Return: 2.4036049524252774
+Episode: 2 | Return: 2.4814568092524096
+Episode: 3 | Return: 2.405636281257518
+Episode: 4 | Return: 2.427499774598922
+Episode: 5 | Return: 2.489922982455676
+Episode: 6 | Return: 2.462387832380053
+Episode: 7 | Return: 2.436688925742291
+Episode: 8 | Return: 2.456697465595711
+Episode: 9 | Return: 2.451804164111348
+[    10 episode,     3673 total steps] average reward for past 100 iterations: 3.560
+Last best model saved with reward: 25.38, at episode 110.
+1600
+Episode: 0 | Return: 0.39727666889720076
+Episode: 1 | Return: 0.3319284091720155
+Episode: 2 | Return: 0.36991729526194855
+Episode: 3 | Return: 0.41177317768515925
+Episode: 4 | Return: 0.41589962473965053
+Episode: 5 | Return: 0.3908725655917302
+Episode: 6 | Return: 0.36715607505492226
+Episode: 7 | Return: 0.40362890383558647
+Episode: 8 | Return: 0.38982776227987465
+Episode: 9 | Return: 0.4276588935008764
+[    10 episode,     3891 total steps] average reward for past 100 iterations: 1.100
+Last best model saved with reward: 25.38, at episode 110.
+1700
+Episode: 0 | Return: -1.3513562151735063
+Episode: 1 | Return: -1.3596542407818888
+Episode: 2 | Return: -1.4760310677299537
+Episode: 3 | Return: -1.5185396241912972
+Episode: 4 | Return: -1.507774484825123
+Episode: 5 | Return: -1.4367267723565287
+Episode: 6 | Return: -1.3747626670657682
+Episode: 7 | Return: -1.3303906165151753
+Episode: 8 | Return: -1.513695889345153
+Episode: 9 | Return: -1.441871965992223
+[    10 episode,     4091 total steps] average reward for past 100 iterations: -0.438
+Last best model saved with reward: 25.38, at episode 110.
+1800
+Episode: 0 | Return: -0.9753589829555575
+Episode: 1 | Return: -0.7631709517633406
+Episode: 2 | Return: -0.9015070003283148
+Episode: 3 | Return: -0.8132042149336821
+Episode: 4 | Return: -0.8464966006221168
+Episode: 5 | Return: -0.7888175529116234
+Episode: 6 | Return: -0.7652206348694057
+Episode: 7 | Return: -0.7881443549620344
+Episode: 8 | Return: -0.8970955324913684
+Episode: 9 | Return: -0.7494089569805028
+[    10 episode,     4211 total steps] average reward for past 100 iterations: -0.750
+Last best model saved with reward: 25.38, at episode 110.
+1900
+Episode: 0 | Return: -1.5019422687867197
+Episode: 1 | Return: -1.67107873067551
+Episode: 2 | Return: -1.667475778606355
+Episode: 3 | Return: -1.4898763022016888
+Episode: 4 | Return: -1.535691178947519
+Episode: 5 | Return: -1.648149718598531
+Episode: 6 | Return: -1.4775107817712547
+Episode: 7 | Return: -1.4860736380887156
+Episode: 8 | Return: -1.672272285191445
+Episode: 9 | Return: -1.6620549205238415
+[    10 episode,     4311 total steps] average reward for past 100 iterations: -1.173
+Last best model saved with reward: 25.38, at episode 110.
+2000
+Episode: 0 | Return: -1.7428109392850528
+Episode: 1 | Return: -1.723972886062502
+Episode: 2 | Return: -1.6812642293479518
+Episode: 3 | Return: -1.7516671823944931
+Episode: 4 | Return: -1.6957657868675222
+Episode: 5 | Return: -1.686976107471099
+Episode: 6 | Return: -1.7234215450220065
+Episode: 7 | Return: -1.7040969261746213
+Episode: 8 | Return: -1.7119218325595438
+Episode: 9 | Return: -1.6850089541864248
+[    10 episode,     4411 total steps] average reward for past 100 iterations: -1.668
+Last best model saved with reward: 25.38, at episode 110.
+2100
+Episode: 0 | Return: -1.766975196472944
+Episode: 1 | Return: -1.7321692552613537
+Episode: 2 | Return: -1.7446606816802008
+Episode: 3 | Return: -1.752884166634768
+Episode: 4 | Return: -1.7752964930598765
+Episode: 5 | Return: -1.7486974508662274
+Episode: 6 | Return: -1.7695695899723392
+Episode: 7 | Return: -1.731634689861769
+Episode: 8 | Return: -1.7076621230859816
+Episode: 9 | Return: -1.7534214264898718
+[    10 episode,     4511 total steps] average reward for past 100 iterations: -1.730
+Last best model saved with reward: 25.38, at episode 110.
+2200
+Episode: 0 | Return: -1.7438389415521616
+Episode: 1 | Return: -1.7476513243383167
+Episode: 2 | Return: -1.7543496077705776
+Episode: 3 | Return: -1.781932188837428
+Episode: 4 | Return: -1.7392990449211747
+Episode: 5 | Return: -1.7738442303228312
+Episode: 6 | Return: -1.760386739210828
+Episode: 7 | Return: -1.7777104606633394
+Episode: 8 | Return: -1.7756853714446552
+Episode: 9 | Return: -1.7660601139892456
+[    10 episode,     4611 total steps] average reward for past 100 iterations: -1.746
+Last best model saved with reward: 25.38, at episode 110.
+2300
+Episode: 0 | Return: -1.7444602189420975
+Episode: 1 | Return: -1.7477776747810316
+Episode: 2 | Return: -1.73184877196722
+Episode: 3 | Return: -1.7123768699216488
+Episode: 4 | Return: -1.724562332161079
+Episode: 5 | Return: -1.7022124162159802
+Episode: 6 | Return: -1.7108580319416729
+Episode: 7 | Return: -1.732155657428346
+Episode: 8 | Return: -1.689344564469231
+Episode: 9 | Return: -1.748647111096005
+[    10 episode,     4711 total steps] average reward for past 100 iterations: -1.740
+Last best model saved with reward: 25.38, at episode 110.
+2400
+Episode: 0 | Return: -1.6085634806295261
+Episode: 1 | Return: -1.5854684424828522
+Episode: 2 | Return: -1.5815687704972825
+Episode: 3 | Return: -1.5839640848730858
+Episode: 4 | Return: -1.6314913604295338
+Episode: 5 | Return: -1.610890968154628
+Episode: 6 | Return: -1.5679332625621518
+Episode: 7 | Return: -1.5704726290248219
+Episode: 8 | Return: -1.629867046648104
+Episode: 9 | Return: -1.6174753733811684
+[    10 episode,     4811 total steps] average reward for past 100 iterations: -1.657
+Last best model saved with reward: 25.38, at episode 110.
+2500
+Episode: 0 | Return: -1.3833550396218106
+Episode: 1 | Return: -1.3617010010216533
+Episode: 2 | Return: -1.3321085311310612
+Episode: 3 | Return: -1.335654452787433
+Episode: 4 | Return: -1.331009991945398
+Episode: 5 | Return: -1.3466594073064793
+Episode: 6 | Return: -1.3393921192294707
+Episode: 7 | Return: -1.3603945389215453
+Episode: 8 | Return: -1.3927426057174659
+Episode: 9 | Return: -1.350625064874027
+[    10 episode,     4911 total steps] average reward for past 100 iterations: -1.473
+Last best model saved with reward: 25.38, at episode 110.
+2600
+Episode: 0 | Return: -3.936950342676275
+Episode: 1 | Return: -3.949081956446955
+Episode: 2 | Return: -4.031924131319643
+Episode: 3 | Return: -3.9805135671721144
+Episode: 4 | Return: -3.9939318685651566
+Episode: 5 | Return: -3.9904395335999743
+Episode: 6 | Return: -3.9478705301752033
+Episode: 7 | Return: -3.9501735833162552
+Episode: 8 | Return: -3.9680162794101217
+Episode: 9 | Return: -3.948362014680802
+[    10 episode,     5089 total steps] average reward for past 100 iterations: -3.241
+Last best model saved with reward: 25.38, at episode 110.
+2700
+Episode: 0 | Return: -4.2462505496197585
+Episode: 1 | Return: -4.258410863884128
+Episode: 2 | Return: -4.171831522303214
+Episode: 3 | Return: -4.178952202734671
+Episode: 4 | Return: -4.208210029780284
+Episode: 5 | Return: -4.195480822631314
+Episode: 6 | Return: -4.17393766864854
+Episode: 7 | Return: -4.1981988012342395
+Episode: 8 | Return: -4.201310520670974
+Episode: 9 | Return: -4.199631635979307
+[    10 episode,     5289 total steps] average reward for past 100 iterations: -3.893
+Last best model saved with reward: 25.38, at episode 110.
+2800
+Episode: 0 | Return: -4.07030505949178
+Episode: 1 | Return: -4.096388429052969
+Episode: 2 | Return: -4.1082562763285475
+Episode: 3 | Return: -4.135004153384222
+Episode: 4 | Return: -4.098142166460037
+Episode: 5 | Return: -4.084563853389758
+Episode: 6 | Return: -4.1529871964118
+Episode: 7 | Return: -4.106550912607106
+Episode: 8 | Return: -4.093057149848511
+Episode: 9 | Return: -4.063426303865215
+[    10 episode,     5489 total steps] average reward for past 100 iterations: -3.928
+Last best model saved with reward: 25.38, at episode 110.
+2900
+Episode: 0 | Return: -3.8337747930724677
+Episode: 1 | Return: -3.8186018004049513
+Episode: 2 | Return: -3.85969295898229
+Episode: 3 | Return: -3.8098847810962813
+Episode: 4 | Return: -3.7823222501417453
+Episode: 5 | Return: -3.8212244908334787
+Episode: 6 | Return: -3.884755698098803
+Episode: 7 | Return: -3.8412175490463043
+Episode: 8 | Return: -3.8392739567018648
+Episode: 9 | Return: -3.847474603949596
+[    10 episode,     5689 total steps] average reward for past 100 iterations: -3.821
+Last best model saved with reward: 25.38, at episode 110.
+3000
+Episode: 0 | Return: -3.7485113262674536
+Episode: 1 | Return: -3.753177526760283
+Episode: 2 | Return: -3.7347717028547835
+Episode: 3 | Return: -3.7212376819009574
+Episode: 4 | Return: -3.7224643406690534
+Episode: 5 | Return: -3.7107198349542685
+Episode: 6 | Return: -3.727540051618136
+Episode: 7 | Return: -3.732293784322186
+Episode: 8 | Return: -3.711569922530291
+Episode: 9 | Return: -3.7739658202002744
+[    10 episode,     5889 total steps] average reward for past 100 iterations: -3.724
+Last best model saved with reward: 25.38, at episode 110.
+3100
+Episode: 0 | Return: -3.1172571231995194
+Episode: 1 | Return: -3.176652858619595
+Episode: 2 | Return: -3.1145247136892857
+Episode: 3 | Return: -2.9841286351374112
+Episode: 4 | Return: -2.9621307591595567
+Episode: 5 | Return: -3.0090347026105646
+Episode: 6 | Return: -3.005221030501661
+Episode: 7 | Return: -2.976385678239754
+Episode: 8 | Return: -2.962730814153322
+Episode: 9 | Return: -2.9943848001195357
+[    10 episode,     6089 total steps] average reward for past 100 iterations: -3.611
+Last best model saved with reward: 25.38, at episode 110.
+3200
+Episode: 0 | Return: -1.7160400896039125
+Episode: 1 | Return: -1.7739607514377451
+Episode: 2 | Return: -1.8926661890633394
+Episode: 3 | Return: -1.7588739696237001
+Episode: 4 | Return: -1.5363170265804567
+Episode: 5 | Return: -1.9713923148159618
+Episode: 6 | Return: -1.359088370481394
+Episode: 7 | Return: -1.4802711580832983
+Episode: 8 | Return: -1.8970028801999115
+Episode: 9 | Return: -1.4668333022328004
+[    10 episode,     6289 total steps] average reward for past 100 iterations: -2.431
+Last best model saved with reward: 25.38, at episode 110.
+3300
+Episode: 0 | Return: -0.4817998539032126
+Episode: 1 | Return: -0.3858987577298877
+Episode: 2 | Return: -0.24948539250795676
+Episode: 3 | Return: -0.2025976439797157
+Episode: 4 | Return: -0.29536742172795827
+Episode: 5 | Return: -0.2675619954530314
+Episode: 6 | Return: -0.3077393302680651
+Episode: 7 | Return: -0.3157479327175179
+Episode: 8 | Return: -0.3551310814420675
+Episode: 9 | Return: -0.3468266456470619
+[    10 episode,     6489 total steps] average reward for past 100 iterations: -0.859
+Last best model saved with reward: 25.38, at episode 110.
+3400
+Episode: 0 | Return: 2.448916447291168
+Episode: 1 | Return: 2.063859562144939
+Episode: 2 | Return: 2.2767773506955127
+Episode: 3 | Return: 2.4101638890384627
+Episode: 4 | Return: 2.4812018289298208
+Episode: 5 | Return: 2.4176076089315104
+Episode: 6 | Return: 2.4083448886337315
+Episode: 7 | Return: 2.122972187442596
+Episode: 8 | Return: 1.9343144801994854
+Episode: 9 | Return: 2.341545053541403
+[    10 episode,     6707 total steps] average reward for past 100 iterations: 1.026
+Last best model saved with reward: 25.38, at episode 110.
+3500
+Episode: 0 | Return: 7.966330144216285
+Episode: 1 | Return: 7.789805192903725
+Episode: 2 | Return: 7.802429405160717
+Episode: 3 | Return: 7.820795092451997
+Episode: 4 | Return: 7.775853381697082
+Episode: 5 | Return: 7.981014723235595
+Episode: 6 | Return: 7.975968035423268
+Episode: 7 | Return: 7.785103011172757
+Episode: 8 | Return: 7.7785690698273555
+Episode: 9 | Return: 7.764517524514776
+[    10 episode,     7179 total steps] average reward for past 100 iterations: 5.965
+Last best model saved with reward: 25.38, at episode 110.
+3600
+Episode: 0 | Return: 0.7107503468172975
+Episode: 1 | Return: 0.8353814300199751
+Episode: 2 | Return: 1.3803749388796185
+Episode: 3 | Return: 1.422637488001433
+Episode: 4 | Return: 1.345921335718499
+Episode: 5 | Return: 1.316217505347479
+Episode: 6 | Return: 1.4038463566539632
+Episode: 7 | Return: 0.8874363919461241
+Episode: 8 | Return: 1.318470058511979
+Episode: 9 | Return: 1.1244262954011779
+[    10 episode,     7683 total steps] average reward for past 100 iterations: 7.515
+Last best model saved with reward: 25.38, at episode 110.
+3700
+Episode: 0 | Return: -5.258502061253073
+Episode: 1 | Return: -5.353410309585826
+Episode: 2 | Return: -5.20568834613921
+Episode: 3 | Return: -5.170400880375548
+Episode: 4 | Return: -5.368844656843644
+Episode: 5 | Return: -5.176779779894379
+Episode: 6 | Return: -5.188500055366642
+Episode: 7 | Return: -5.233992217240685
+Episode: 8 | Return: -5.2655671363162035
+Episode: 9 | Return: -5.25887331408534
+[    10 episode,     7963 total steps] average reward for past 100 iterations: -1.663
+Last best model saved with reward: 25.38, at episode 110.
+3800
+Episode: 0 | Return: -10.866264104565822
+Episode: 1 | Return: -10.69871438299005
+Episode: 2 | Return: -10.574246761571777
+Episode: 3 | Return: -10.828125445615537
+Episode: 4 | Return: -10.694329026525615
+Episode: 5 | Return: -10.98580766775196
+Episode: 6 | Return: -10.427342746739665
+Episode: 7 | Return: -10.660648939506551
+Episode: 8 | Return: -10.728480514215097
+Episode: 9 | Return: -11.06964139930197
+[    10 episode,     8163 total steps] average reward for past 100 iterations: -5.233
+Last best model saved with reward: 25.38, at episode 110.
+3900
+Episode: 0 | Return: -14.298507106911044
+Episode: 1 | Return: -14.40378156394553
+Episode: 2 | Return: -14.566051557420199
+Episode: 3 | Return: -14.38191135283376
+Episode: 4 | Return: -13.762894462941393
+Episode: 5 | Return: -13.962277439147961
+Episode: 6 | Return: -13.931806020036257
+Episode: 7 | Return: -14.157047583982404
+Episode: 8 | Return: -13.934754766828872
+Episode: 9 | Return: -14.158194033534759
+[    10 episode,     8363 total steps] average reward for past 100 iterations: -8.256
+Last best model saved with reward: 25.38, at episode 110.
+4000
+Episode: 0 | Return: -11.434619964161943
+Episode: 1 | Return: -13.143818653511861
+Episode: 2 | Return: -11.255937561274779
+Episode: 3 | Return: -12.621591732185063
+Episode: 4 | Return: -11.578235966204005
+Episode: 5 | Return: -10.898307778643757
+Episode: 6 | Return: -10.995480804983071
+Episode: 7 | Return: -10.860624209346472
+Episode: 8 | Return: -11.582588788187806
+Episode: 9 | Return: -12.099099548694351
+[    10 episode,     8563 total steps] average reward for past 100 iterations: -8.492
+Last best model saved with reward: 25.38, at episode 110.
+4100
+Episode: 0 | Return: -5.288429041786912
+Episode: 1 | Return: -5.5043447374262975
+Episode: 2 | Return: -5.918591286294067
+Episode: 3 | Return: -5.310216705751592
+Episode: 4 | Return: -5.736557799331004
+Episode: 5 | Return: -5.5416169390429975
+Episode: 6 | Return: -5.248437957819905
+Episode: 7 | Return: -6.557521526751886
+Episode: 8 | Return: -6.428865237310907
+Episode: 9 | Return: -5.5265738162316715
+[    10 episode,     8763 total steps] average reward for past 100 iterations: -4.844
+Last best model saved with reward: 25.38, at episode 110.
+4200
+Episode: 0 | Return: -2.1603601106009274
+Episode: 1 | Return: -2.134818641128869
+Episode: 2 | Return: -2.2469530268328923
+Episode: 3 | Return: -2.1724926175161894
+Episode: 4 | Return: -2.143869918050296
+Episode: 5 | Return: -2.2821944392414872
+Episode: 6 | Return: -2.1191810671618847
+Episode: 7 | Return: -2.1062652144839387
+Episode: 8 | Return: -2.1312524331752396
+Episode: 9 | Return: -2.1334225101305875
+[    10 episode,     8963 total steps] average reward for past 100 iterations: -2.098
+Last best model saved with reward: 25.38, at episode 110.
+4300
+Episode: 0 | Return: 3.3234633190074176
+Episode: 1 | Return: 3.766018997124908
+Episode: 2 | Return: 3.3107324238238918
+Episode: 3 | Return: 2.768373827029285
+Episode: 4 | Return: 2.582628371313486
+Episode: 5 | Return: 2.7035432404086595
+Episode: 6 | Return: 2.8320171987410205
+Episode: 7 | Return: 3.444846864859763
+Episode: 8 | Return: 3.6414190326810525
+Episode: 9 | Return: 3.9623016327159233
+[    10 episode,     9247 total steps] average reward for past 100 iterations: 1.355
+Last best model saved with reward: 25.38, at episode 110.
+4400
+Episode: 0 | Return: 5.859504964969141
+Episode: 1 | Return: 7.9321009136072735
+Episode: 2 | Return: 5.835524834105144
+Episode: 3 | Return: 5.7908866870431
+Episode: 4 | Return: 7.760416622173947
+Episode: 5 | Return: 8.00734626251408
+Episode: 6 | Return: 5.803698635621714
+Episode: 7 | Return: 7.786682750936541
+Episode: 8 | Return: 7.872800769746608
+Episode: 9 | Return: 5.834215340603489
+[    10 episode,     9697 total steps] average reward for past 100 iterations: 6.138
+Last best model saved with reward: 25.38, at episode 110.
+4500
+Episode: 0 | Return: 6.138508862526047
+Episode: 1 | Return: 6.140719222736734
+Episode: 2 | Return: 6.1456802475358625
+Episode: 3 | Return: 6.12275905193504
+Episode: 4 | Return: 6.122226423273213
+Episode: 5 | Return: 6.130235171336764
+Episode: 6 | Return: 5.933010622298523
+Episode: 7 | Return: 6.116930903754499
+Episode: 8 | Return: 6.006301720176674
+Episode: 9 | Return: 5.96234491127429
+[    10 episode,     9997 total steps] average reward for past 100 iterations: 6.088
+Last best model saved with reward: 25.38, at episode 110.
+4600
+Episode: 0 | Return: 8.032802344837748
+Episode: 1 | Return: 8.189977645867135
+Episode: 2 | Return: 8.164542695354418
+Episode: 3 | Return: 8.042103589233406
+Episode: 4 | Return: 7.9803906279306664
+Episode: 5 | Return: 8.056514385063828
+Episode: 6 | Return: 8.133637349247433
+Episode: 7 | Return: 8.16565182761095
+Episode: 8 | Return: 5.934252817820631
+Episode: 9 | Return: 8.086251400483942
+[    10 episode,    10304 total steps] average reward for past 100 iterations: 6.228
+Last best model saved with reward: 25.38, at episode 110.
+4700
+Episode: 0 | Return: 0.6861050800975598
+Episode: 1 | Return: 0.6229369025554842
+Episode: 2 | Return: 0.6441613350268438
+Episode: 3 | Return: 0.6437338015094112
+Episode: 4 | Return: 0.6877068962582256
+Episode: 5 | Return: 0.5987494281990446
+Episode: 6 | Return: 0.7528948950464525
+Episode: 7 | Return: 0.6308078263173299
+Episode: 8 | Return: 0.6822075432834678
+Episode: 9 | Return: 0.6925332336786267
+[    10 episode,    10521 total steps] average reward for past 100 iterations: 3.195
+Last best model saved with reward: 25.38, at episode 110.
+4800
+Episode: 0 | Return: 0.6029739764747304
+Episode: 1 | Return: 0.7147568777006279
+Episode: 2 | Return: 0.6433046087054333
+Episode: 3 | Return: 0.7085804747618043
+Episode: 4 | Return: 0.5994305950133505
+Episode: 5 | Return: 0.5891493493637348
+Episode: 6 | Return: 0.6373243723375992
+Episode: 7 | Return: 0.5954758452507949
+Episode: 8 | Return: 0.6964604516545077
+Episode: 9 | Return: 0.7045037268096856
+[    10 episode,    10621 total steps] average reward for past 100 iterations: 0.752
+Last best model saved with reward: 25.38, at episode 110.
+4900
+Episode: 0 | Return: 0.6636789380318908
+Episode: 1 | Return: 0.5450982244260529
+Episode: 2 | Return: 0.5793210308499052
+Episode: 3 | Return: 0.4988363376123349
+Episode: 4 | Return: 0.5270157101036635
+Episode: 5 | Return: 0.6733218797306579
+Episode: 6 | Return: 0.6076609687028115
+Episode: 7 | Return: 0.639531979674999
+Episode: 8 | Return: 0.6382820992725157
+Episode: 9 | Return: 0.6518168761971497
+[    10 episode,    10721 total steps] average reward for past 100 iterations: 0.730
+Last best model saved with reward: 25.38, at episode 110.
+5000
+Episode: 0 | Return: 0.5451417380307306
+Episode: 1 | Return: 0.5207131037288929
+Episode: 2 | Return: 0.6144298186572406
+Episode: 3 | Return: 0.5156948878939431
+Episode: 4 | Return: 0.44426862586731514
+Episode: 5 | Return: 0.5501693538482839
+Episode: 6 | Return: 0.46765526865055196
+Episode: 7 | Return: 0.506268767136971
+Episode: 8 | Return: 0.5253730118655867
+Episode: 9 | Return: 0.585458681428412
+[    10 episode,    10821 total steps] average reward for past 100 iterations: 0.688
+Last best model saved with reward: 25.38, at episode 110.
+5100
+Episode: 0 | Return: 0.46367188802537485
+Episode: 1 | Return: 0.5094032907771016
+Episode: 2 | Return: 0.600393009681788
+Episode: 3 | Return: 0.6095102720976406
+Episode: 4 | Return: 0.4318376323611867
+Episode: 5 | Return: 0.5403954199969522
+Episode: 6 | Return: 0.5283411971393173
+Episode: 7 | Return: 0.4734041159986594
+Episode: 8 | Return: 0.5663716394334504
+Episode: 9 | Return: 0.6107397456548811
