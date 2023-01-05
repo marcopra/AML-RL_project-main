@@ -28,9 +28,6 @@ def test_on(domain , model_path):
 		else:
 			env_args[key] = val
 
-
-		print(key, "-", bool(val))
-
 	env = env = my_make_env(PixelObservation= bool(env_args['img']), 
 							stack_frames= int(env_args['nf']), 
 							scale= bool(env_args['scaled']),

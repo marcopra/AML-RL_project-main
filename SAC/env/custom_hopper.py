@@ -122,19 +122,23 @@ def my_make_env(PixelObservation = True, stack_frames = 4, scale=False, domain =
         else:
             env = PixelObservationWrapper(gym.make('CustomHopper-target-v0'))
 
+            print("1", env.observation_space)
+
         
 
         # assert 'NoFrameskip' in env.spec.id
 
         env = WarpFrame(env)
+        print("2", env.observation_space)
 
         if scale:
             env = ScaledFloatFrame(env)
         if stack_frames > 1:
             env = FrameStack(env, stack_frames)
-            print("3: ", type(env))
+            print("4", env.observation_space)
 
         env = ImageToPyTorch(env)
+        print("5", env.observation_space)
         
     else:
         if domain == 'source': 
@@ -276,7 +280,7 @@ class ImageToPyTorch(gym.ObservationWrapper):
     def __init__(self, env):
         super(ImageToPyTorch, self).__init__(env)
         old_shape = self.observation_space.shape
-        self.observation_space = gym.spaces.Box(low=0.0, high=1.0, shape=(old_shape[-1], old_shape[0], old_shape[1]),
+        self.observation_space = gym.spaces.Box(low=0.0, high=255.0, shape=(old_shape[-1], old_shape[0], old_shape[1]),
                                                 dtype=np.uint8)
 
     def observation(self, observation):
