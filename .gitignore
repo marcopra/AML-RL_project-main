@@ -140,3 +140,5 @@ Vision-Based-new-mujoco/.DS_Store
 WrongPlots/**
 
 .DS_Store
+SAC/sac_target_normal_t200000_.zip
+SAC/sac_source_normal_t20000.zip
