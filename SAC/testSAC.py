@@ -9,6 +9,9 @@ from env.custom_hopper import *
 from stable_baselines3 import SAC
 from CNN import *
 
+DEBUG = False
+
+
 def test_on(domain , model_path):
 
 	#env = gym.make('CustomHopper-source-v0')
@@ -32,11 +35,11 @@ def test_on(domain , model_path):
 							stack_frames= int(env_args['nf']), 
 							scale= bool(env_args['scaled']),
 							domain= domain)
-
-	print('Action space:', env.action_space)
-	print('State space:', env.observation_space)
-	print('Dynamics parameters:', env.get_parameters())
-	
+	if DEBUG:
+		print('Action space:', env.action_space)
+		print('State space:', env.observation_space)
+		print('Dynamics parameters:', env.get_parameters())
+		
 
 	model = SAC.load(src_model)
 
@@ -68,9 +71,7 @@ def test_on(domain , model_path):
 
 if __name__ == '__main__':
 	
-	source = 'CustomHopper-source-v0'
-	target = 'CustomHopper-target-v0'
-	src_model = "alg-sac_dom-source_img-False_ts-20_nf-4_scaled-False.zip"
+	src_model = "alg-sac_dom-source_img-True_ts-200000_nf-1_scaled-False.zip"
 
 	print("Testing: ", src_model.removesuffix('.zip'))
 
