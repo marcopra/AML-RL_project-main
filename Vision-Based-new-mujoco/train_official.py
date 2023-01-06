@@ -148,7 +148,7 @@ def config():
     
     wandb.init(project="test-project", entity="aml-rl_project")
     
-    wandb.config.epochs = 'max_episodes' 
+    
 
     wandb.config.update(args)
     
@@ -382,13 +382,10 @@ def main():
                 plot_policy.append([policy_loss.cpu().data, episode+1])
                 
                 
-        
                 
                 
-        except Exception as e:
-            print("plot con errori:")
-            print(e)
-            pass
+        except: 
+         pass
 
         # Average Run reward -> run corresponds to `PRINT_EVERY` episodes
         average_reward += ep_reward
@@ -431,9 +428,24 @@ def main():
             
             ## wandb grafici 
             
+            table1 = wandb.Table(data= plot_reward, columns = ["steps", "reward"])
+            line_plot_pr = wandb.plot.line(table1, x='steps', y='reward', title='Plot Reward')
+            wandb.log({'line_plot_pr': line_plot_pr})
             
-            table = wandb.Table(data=plot_reward, columns = ["x", "y"])
-            wandb.log({"my_custom_plot_id" : wandb.plot.line(table, "x", "y",title="Custom Y vs X Line Plot"),"epoch":'max_episodes'})
+            table2 = wandb.Table(data= plot_policy, columns = ["steps", "reward"])
+            line_plot_pp = wandb.plot.line(table2, x='steps', y='reward', title='Plot Policy')
+            wandb.log({'line_plot_pp': line_plot_pp})
+            
+            table3 = wandb.Table(data= plot_q, columns = ["steps", "reward"])
+            line_plot_q = wandb.plot.line(table3, x='steps', y='reward', title='Plot Q')
+            wandb.log({'line_plot_q': line_plot_q})
+            
+            table4 = wandb.Table(data= plot_steps, columns = ["steps", "reward"])
+            line_plot_s = wandb.plot.line(table4, x='steps', y='reward', title='Plot Steps')
+            wandb.log({'line_plot_steps': line_plot_s})
+            
+            
+           
             with open('out.txt', 'a') as f:
                 with redirect_stdout(f):
                     print('[%6d episode, %8d total steps] average reward for past {} iterations: %.3f'.format(PRINT_EVERY) %
