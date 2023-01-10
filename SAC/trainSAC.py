@@ -83,7 +83,7 @@ def main():
 						device=args.device)
 
 	# model = PPO("MlpPolicy", env, verbose=1)
-	model.load('alg-sac_dom-source_img-True_ts-200000_nf-1_scaled-False.zip')
+
 	model.learn(total_timesteps=args.time_steps, log_interval=500)
 	model.save(f"alg-{args.algorithm}_dom-{args.domain}_img-{args.pixel_obs}_ts-{2*args.time_steps}_nf-{args.n_frames}_scaled-{args.scaled_frames}")
 	
@@ -93,7 +93,7 @@ def main():
 	model.learn(total_timesteps=args.time_steps, log_interval=500)
 	model.save(f"alg-{args.algorithm}_dom-{args.domain}_img-{args.pixel_obs}_ts-{4*args.time_steps}_nf-{args.n_frames}_scaled-{args.scaled_frames}")
 	
-	model.learn(total_timesteps=args.time_steps, log_interval=500)
+	model.learn(total_timesteps=args.time_steps, log_interval=2000)
 	model.save(f"alg-{args.algorithm}_dom-{args.domain}_img-{args.pixel_obs}_ts-{5*args.time_steps}_nf-{args.n_frames}_scaled-{args.scaled_frames}")
 	
 
