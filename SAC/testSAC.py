@@ -9,6 +9,9 @@ from env.custom_hopper import *
 from stable_baselines3 import SAC
 from CNN import *
 
+from os import listdir
+from os.path import isfile, join
+
 DEBUG = False
 
 
@@ -17,7 +20,7 @@ def test_on(domain , model_path):
 	#env = gym.make('CustomHopper-source-v0')
 	# env = gym.make('CustomHopper-target-v0')
 
-	src_model = model_path
+	src_model = 'trains/' + model_path
 	env_params = src_model.removesuffix('.zip').split('_')
 
 	env_args: dict = {}
@@ -40,7 +43,7 @@ def test_on(domain , model_path):
 		print('State space:', env.observation_space)
 		print('Dynamics parameters:', env.get_parameters())
 		
-
+	print(src_model)
 	model = SAC.load(src_model)
 
 
@@ -61,7 +64,7 @@ def test_on(domain , model_path):
 
 			episode_reward += reward
 		
-		print(f"Episode: {episode} | Return: {episode_reward}")
+		#print(f"Episode: {episode} | Return: {episode_reward}")
 
 		all_rewards.append(episode_reward)
 
@@ -71,16 +74,25 @@ def test_on(domain , model_path):
 
 if __name__ == '__main__':
 	
-	src_model = "alg-sac_dom-source_img-True_ts-200000_nf-1_scaled-False.zip"
+	src_model = []
 
-	print("Testing: ", src_model.removesuffix('.zip'))
+	src_model = [f for f in listdir('trains/') if isfile(join('trains/', f))]
+	print(src_model)
+	#src_model.append("alg-sac_dom-source_img-True_ts-2000000_nf-1_scaled-True.zip")
+	# src_model.append("alg-sac_dom-source_img-True_ts-400000_nf-1_scaled-True.zip")
+	# src_model.append("alg-sac_dom-source_img-True_ts-600000_nf-1_scaled-True.zip")
+	# src_model.append("alg-sac_dom-source_img-True_ts-800000_nf-1_scaled-True.zip")
+	# src_model.append("alg-sac_dom-source_img-True_ts-1000000_nf-1_scaled-True.zip")
+	
+	for src_mod in src_model:
+		print("Testing: ", src_mod.removesuffix('.zip'))
 
-	print("\n########################################################################## \
-			\t\t\t\t\t\t\t\t\t\t ON SOURCE\n\
-###########################################################################")
-	test_on('source', src_model)
+		print("\n########################################################################## \
+				\t\t\t\t\t\t\t\t\t\t ON SOURCE\n\
+	###########################################################################")
+		test_on('source', src_mod)
 
-	print("\n########################################################################### \
-			\t\t\t\t\t\t\t\t\t\t ON TARGET\n\
-############################################################################")
-	test_on('target', src_model)
+		print("\n########################################################################### \
+				\t\t\t\t\t\t\t\t\t\t ON TARGET\n\
+	############################################################################")
+		test_on('target', src_mod)

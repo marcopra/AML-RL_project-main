@@ -144,3 +144,14 @@ SAC/alg-sac_dom-source_img-True_ts-20_nf-4_scaled-False.zip
 SAC/alg-sac_dom-source_img-True_ts-200000_nf-1_scaled-False.zip
 SAC/sac_target_normal_t200000_.zip
 SAC/sac_source_normal_t20000.zip
+SAC/test.txt
+SAC/train_session_template.sh
+SAC/trains/train_session_template.sh
+SAC/trains/non-stacked/alg-sac_dom-source_img-True_ts-200000_nf-1_scaled-False.zip
+SAC/trains/non-stacked/alg-sac_dom-source_img-True_ts-400000_nf-1_scaled-True.zip
+SAC/trains/non-stacked/alg-sac_dom-source_img-True_ts-600000_nf-1_scaled-True.zip
+SAC/trains/non-stacked/alg-sac_dom-source_img-True_ts-800000_nf-1_scaled-True.zip
+SAC/trains/non-stacked/alg-sac_dom-source_img-True_ts-1000000_nf-1_scaled-True.zip
+SAC/trains/non-stacked/alg-sac_dom-source_img-True_ts-2000000_nf-1_scaled-True.zip
+SAC/trains/stacked/alg-sac_dom-source_img-True_ts-400000_nf-4_scaled-True.zip
+SAC/trains/stacked/alg-sac_dom-source_img-True_ts-600000_nf-4_scaled-True.zip
