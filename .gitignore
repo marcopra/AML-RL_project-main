@@ -156,3 +156,4 @@ SAC/trains/non-stacked/alg-sac_dom-source_img-True_ts-2000000_nf-1_scaled-True.z
 SAC/trains/stacked/alg-sac_dom-source_img-True_ts-400000_nf-4_scaled-True.zip
 SAC/trains/stacked/alg-sac_dom-source_img-True_ts-600000_nf-4_scaled-True.zip
 SAC/train_session_template.sh
+SAC/trains/stacked/alg-sac_dom-source_img-True_ts-200000_nf-4_scaled-True.zip
