@@ -99,7 +99,7 @@ class CustomHopper(MujocoEnv, utils.EzPickle):
         qvel = self.init_qvel + self.np_random.uniform(low=-.005, high=.005, size=self.model.nv)
 
         # DOMAIN RANDOMIZATION!
-        self.set_random_parameters()
+        # self.set_random_parameters()
 
         # print(self.get_parameters())
         self.set_state(qpos, qvel)
@@ -122,23 +122,17 @@ def my_make_env(PixelObservation = True, stack_frames = 4, scale=False, domain =
         else:
             env = PixelObservationWrapper(gym.make('CustomHopper-target-v0'))
 
-            print("1", env.observation_space)
+        print("1")
+        env = WarpFrame(env)
+        print("2")
 
         
-
-        # assert 'NoFrameskip' in env.spec.id
-
-        env = WarpFrame(env)
-        print("2", env.observation_space)
-
         if scale:
             env = ScaledFloatFrame(env)
         if stack_frames > 1:
             env = FrameStack(env, stack_frames)
-            print("4", env.observation_space)
 
         env = ImageToPyTorch(env)
-        print("5", env.observation_space)
         
     else:
         if domain == 'source': 
@@ -152,10 +146,11 @@ class WarpFrame(gym.ObservationWrapper):
     def __init__(self, env):
         """Warp frames to 84x84 as done in the Nature paper and later work."""
         gym.ObservationWrapper.__init__(self, env)
-        self.width = 84
-        self.height = 84
+        self.width = 224
+        self.height = 224
+        self.channel = 3
         self.observation_space = gym.spaces.Box(low=0, high=255,
-                                            shape=(self.height, self.width, 1), dtype=np.uint8)
+                                            shape=(self.height, self.width, self.channel), dtype=np.uint8)
 
     def observation(self, frame):
         '''
@@ -179,10 +174,11 @@ class WarpFrame(gym.ObservationWrapper):
         '''
         if type(frame) != np.ndarray:
             frame = frame['pixels']
-            
-        frame = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
+
+        #frame = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
         frame = cv2.resize(frame, (self.width, self.height), interpolation=cv2.INTER_AREA)
-        return frame[:, :, None]
+
+        return frame
 
 
 class FrameStack(gym.Wrapper):
@@ -279,12 +275,23 @@ class ImageToPyTorch(gym.ObservationWrapper):
 
     def __init__(self, env):
         super(ImageToPyTorch, self).__init__(env)
+
+        # if type(self.observation_space) != np.ndarray:
+        #     print("ciao" , self.observation_space)
+        #     print("ciao2" , self.observation_space.shape)
+        #     old_shape = self.observation_space['pixels'].shape
+        # else:
+        #     old_shape = self.observation_space.shape
+            
         old_shape = self.observation_space.shape
         self.observation_space = gym.spaces.Box(low=0.0, high=255.0, shape=(old_shape[-1], old_shape[0], old_shape[1]),
                                                 dtype=np.uint8)
 
     def observation(self, observation):
-        return np.swapaxes(observation, 2, 0)
+        frame = np.swapaxes(observation, 2, 0)[None,:,:,:]
+        
+        return frame
+        # return np.swapaxes(observation, 2, 0)
 
 """
     Registered environments
