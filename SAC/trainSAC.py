@@ -38,7 +38,7 @@ def parse_args():
 args = parse_args()
 
 def main():
-
+	print("<###>    ", args.scaled_frames)
 	# # env = gym.make('CustomHopper-target-v0')
 	env = my_make_env(PixelObservation=args.pixel_obs, stack_frames=args.n_frames, scale=args.scaled_frames, domain=args.domain)
 	# print("1: ", type(env))
@@ -74,16 +74,18 @@ def main():
 		else:
 			model = SAC("MlpPolicy", env, verbose=1,
 						device=args.device)
-	elif args.algorithm == 'ppo':
-		if args.pixel_obs:
-			model = PPO("CnnPolicy", env = env, policy_kwargs=policy_kwargs, verbose=1,
-						device=args.device)
-		else:
-			model = PPO("MlpPolicy", env, verbose=1,
-						device=args.device)
+	# elif args.algorithm == 'ppo':
+	# 	if args.pixel_obs:
+	# 		model = PPO("CnnPolicy", env = env, policy_kwargs=policy_kwargs, verbose=1,
+	# 					device=args.device)
+	# 	else:
+	# 		model = PPO("MlpPolicy", env, verbose=1,
+	# 					device=args.device)
 
 	# model = PPO("MlpPolicy", env, verbose=1)
-
+	model.learn(total_timesteps=args.time_steps, log_interval=500)
+	model.save(f"alg-{args.algorithm}_dom-{args.domain}_img-{args.pixel_obs}_ts-{args.time_steps}_nf-{args.n_frames}_scaled-{args.scaled_frames}")
+	
 	model.learn(total_timesteps=args.time_steps, log_interval=500)
 	model.save(f"alg-{args.algorithm}_dom-{args.domain}_img-{args.pixel_obs}_ts-{2*args.time_steps}_nf-{args.n_frames}_scaled-{args.scaled_frames}")
 	

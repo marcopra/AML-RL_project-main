@@ -20,7 +20,7 @@ def test_on(domain , model_path):
 	#env = gym.make('CustomHopper-source-v0')
 	# env = gym.make('CustomHopper-target-v0')
 
-	src_model = 'trains/' + model_path
+	src_model = model_path
 	env_params = src_model.removesuffix('.zip').split('_')
 
 	env_args: dict = {}
@@ -43,7 +43,6 @@ def test_on(domain , model_path):
 		print('State space:', env.observation_space)
 		print('Dynamics parameters:', env.get_parameters())
 		
-	print(src_model)
 	model = SAC.load(src_model)
 
 
@@ -75,8 +74,8 @@ def test_on(domain , model_path):
 if __name__ == '__main__':
 	
 	src_model = []
-
-	src_model = [f for f in listdir('trains/') if isfile(join('trains/', f))]
+	path = 'trains/stacked/'
+	src_model = [f for f in listdir('trains/stacked/') if isfile(join('trains/stacked/', f))]
 	print(src_model)
 	#src_model.append("alg-sac_dom-source_img-True_ts-2000000_nf-1_scaled-True.zip")
 	# src_model.append("alg-sac_dom-source_img-True_ts-400000_nf-1_scaled-True.zip")
@@ -90,9 +89,9 @@ if __name__ == '__main__':
 		print("\n########################################################################## \
 				\t\t\t\t\t\t\t\t\t\t ON SOURCE\n\
 	###########################################################################")
-		test_on('source', src_mod)
+		test_on('source', path + src_mod)
 
 		print("\n########################################################################### \
 				\t\t\t\t\t\t\t\t\t\t ON TARGET\n\
 	############################################################################")
-		test_on('target', src_mod)
+		test_on('target', path + src_mod)
