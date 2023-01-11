@@ -157,3 +157,7 @@ SAC/trains/stacked/alg-sac_dom-source_img-True_ts-400000_nf-4_scaled-True.zip
 SAC/trains/stacked/alg-sac_dom-source_img-True_ts-600000_nf-4_scaled-True.zip
 SAC/train_session_template.sh
 SAC/trains/stacked/alg-sac_dom-source_img-True_ts-200000_nf-4_scaled-True.zip
+SAC/dog.jpeg
+SAC/Hopper_CNN/first_run_1/events.out.tfevents.1673451038.sam-MSI.17483.0
+SAC/Hopper_CNN/SAC_1/events.out.tfevents.1673451308.sam-MSI.17483.1
+SAC/Hopper_CNN/SAC_2/events.out.tfevents.1673451574.sam-MSI.17483.2

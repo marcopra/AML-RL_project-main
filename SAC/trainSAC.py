@@ -11,7 +11,7 @@ from env.custom_hopper import *
 
 from stable_baselines3 import SAC,PPO
 
-from CNN import policy_kwargs
+from alexnet import policy_kwargs
 
 # RUN TODO with DR:
 # ts = 200k fixed (all following 200k steps)
@@ -68,9 +68,14 @@ def main():
 			# PPO("CnnPolicy", "BreakoutNoFrameskip-v4", policy_kwargs=policy_kwargs, verbose=1)
 			model = SAC("CnnPolicy", 
 						env = env, 
+						buffer_size=5000,
+						batch_size=8,
+						#policy_kwargs=policy_kwargs,
 						policy_kwargs=policy_kwargs, 
 						verbose=1,
-						device=args.device)
+						device=args.device,
+						tensorboard_log="./Hopper_CNN/"
+						)
 		else:
 			model = SAC("MlpPolicy", env, verbose=1,
 						device=args.device)
@@ -83,16 +88,17 @@ def main():
 	# 					device=args.device)
 
 	# model = PPO("MlpPolicy", env, verbose=1)
-	model.learn(total_timesteps=args.time_steps, log_interval=500)
+	# tensorboard --logdir ./Hopper_CNN/
+	model.learn(total_timesteps=args.time_steps, log_interval=1, progress_bar=True, tb_log_name="first_run")
 	model.save(f"alg-{args.algorithm}_dom-{args.domain}_img-{args.pixel_obs}_ts-{args.time_steps}_nf-{args.n_frames}_scaled-{args.scaled_frames}")
 	
-	model.learn(total_timesteps=args.time_steps, log_interval=500)
+	model.learn(total_timesteps=args.time_steps, log_interval=500, progress_bar=True)
 	model.save(f"alg-{args.algorithm}_dom-{args.domain}_img-{args.pixel_obs}_ts-{2*args.time_steps}_nf-{args.n_frames}_scaled-{args.scaled_frames}")
 	
-	model.learn(total_timesteps=args.time_steps, log_interval=500)
+	model.learn(total_timesteps=args.time_steps, log_interval=500, progress_bar=True)
 	model.save(f"alg-{args.algorithm}_dom-{args.domain}_img-{args.pixel_obs}_ts-{3*args.time_steps}_nf-{args.n_frames}_scaled-{args.scaled_frames}")
 	
-	model.learn(total_timesteps=args.time_steps, log_interval=500)
+	model.learn(total_timesteps=args.time_steps, log_interval=500, progress_bar=True)
 	model.save(f"alg-{args.algorithm}_dom-{args.domain}_img-{args.pixel_obs}_ts-{4*args.time_steps}_nf-{args.n_frames}_scaled-{args.scaled_frames}")
 	
 	model.learn(total_timesteps=args.time_steps, log_interval=2000)

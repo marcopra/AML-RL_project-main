@@ -5,7 +5,6 @@ from gym import spaces
 from stable_baselines3 import PPO
 from stable_baselines3.common.torch_layers import BaseFeaturesExtractor
 
-
 class CustomCNN(BaseFeaturesExtractor):
     """
     :param observation_space: (gym.Space)
@@ -40,4 +39,12 @@ class CustomCNN(BaseFeaturesExtractor):
 policy_kwargs = dict(
     features_extractor_class=CustomCNN,
     features_extractor_kwargs=dict(features_dim=128),
+)
+
+import torch
+model_resnet = torch.hub.load('pytorch/vision:v0.10.0', 'resnet18', pretrained=True)
+
+policy_resnet = dict(
+    features_extractor_class=model_resnet
+    #features_extractor_kwargs=dict(features_dim=128),
 )
