@@ -23,8 +23,9 @@ class MyAlexNet(BaseFeaturesExtractor):
         # The image in the original paper states that width and height are 224 pixels, but
         # the dimensions after first convolution layer do not lead to 55 x 55.
         
-        #n_input_channels = observation_space.shape[0]
+        n_input_channels = observation_space.shape[0]
         self.net = alexnet(pretrained= True)
+        self.net.features[0] = nn.Conv2d(in_channels=n_input_channels, out_channels=64, kernel_size=11, stride=4)
         #self.net.net[0] = nn.Conv2d(in_channels=n_input_channels, out_channels=96, kernel_size=11, stride=4)  # (b x 96 x 55 x 55)
 
         self.net.classifier[6] = nn.Linear(in_features=4096, out_features=features_dim)

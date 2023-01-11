@@ -69,7 +69,7 @@ def main():
 			model = SAC("CnnPolicy", 
 						env = env, 
 						buffer_size=5000,
-						batch_size=8,
+						batch_size=1,
 						#policy_kwargs=policy_kwargs,
 						policy_kwargs=policy_kwargs, 
 						verbose=1,
@@ -88,20 +88,21 @@ def main():
 	# 					device=args.device)
 
 	# model = PPO("MlpPolicy", env, verbose=1)
+	
 	# tensorboard --logdir ./Hopper_CNN/
-	model.learn(total_timesteps=args.time_steps, log_interval=1, progress_bar=True, tb_log_name="first_run")
+	model.learn(total_timesteps=args.time_steps, log_interval=100, progress_bar=True, tb_log_name="0-100")
 	model.save(f"alg-{args.algorithm}_dom-{args.domain}_img-{args.pixel_obs}_ts-{args.time_steps}_nf-{args.n_frames}_scaled-{args.scaled_frames}")
 	
-	model.learn(total_timesteps=args.time_steps, log_interval=500, progress_bar=True)
+	model.learn(total_timesteps=args.time_steps, log_interval=100, progress_bar=True, tb_log_name="100-200")
 	model.save(f"alg-{args.algorithm}_dom-{args.domain}_img-{args.pixel_obs}_ts-{2*args.time_steps}_nf-{args.n_frames}_scaled-{args.scaled_frames}")
 	
-	model.learn(total_timesteps=args.time_steps, log_interval=500, progress_bar=True)
+	model.learn(total_timesteps=args.time_steps, log_interval=100, progress_bar=True, tb_log_name="200-300")
 	model.save(f"alg-{args.algorithm}_dom-{args.domain}_img-{args.pixel_obs}_ts-{3*args.time_steps}_nf-{args.n_frames}_scaled-{args.scaled_frames}")
 	
-	model.learn(total_timesteps=args.time_steps, log_interval=500, progress_bar=True)
+	model.learn(total_timesteps=args.time_steps, log_interval=100, progress_bar=True, tb_log_name="300-400")
 	model.save(f"alg-{args.algorithm}_dom-{args.domain}_img-{args.pixel_obs}_ts-{4*args.time_steps}_nf-{args.n_frames}_scaled-{args.scaled_frames}")
 	
-	model.learn(total_timesteps=args.time_steps, log_interval=2000)
+	model.learn(total_timesteps=args.time_steps, log_interval=100, tb_log_name="300-400")
 	model.save(f"alg-{args.algorithm}_dom-{args.domain}_img-{args.pixel_obs}_ts-{5*args.time_steps}_nf-{args.n_frames}_scaled-{args.scaled_frames}")
 	
 
