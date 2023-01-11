@@ -64,18 +64,37 @@ def make_env(domain, render_mode=None):
     return env
 
 
-def my_make_env(stack_frames = 4, scale=False, domain = "source"):
+
+def my_make_env(PixelObservation = True, pixels_only= True, stack_frames = 4, scale=False, domain = "source"):
     """Configure the environment."""
-    env = PixelObservationWrapper(make_env(domain=domain, render_mode='rgb_array'))
-    # assert 'NoFrameskip' in env.spec.id
+    assert domain in ['source', 'target'], f"Please choose a domain in ['source', 'target']. The domain {domain} is not valid!"
+    if PixelObservation:
+        if domain == 'source': 
+            env = PixelObservationWrapper(make_env(domain=domain, render_mode='rgb_array'), pixels_only= pixels_only)
+        else:
+            env = PixelObservationWrapper(make_env(domain=domain, render_mode='rgb_array'), pixels_only= pixels_only)
 
-    env = WarpFrame(env)
-    if scale:
-        env = ScaledFloatFrame(env)
-    if stack_frames > 1:
-        env = FrameStack(env, stack_frames)
+        
 
-    env = ImageToPyTorch(env)
+        # assert 'NoFrameskip' in env.spec.id
+
+        env = WarpFrame(env)
+    
+
+        if scale:
+            env = ScaledFloatFrame(env)
+        if stack_frames > 1:
+            env = FrameStack(env, stack_frames)
+            
+
+        env = ImageToPyTorch(env)
+        
+        
+    else:
+        if domain == 'source': 
+            make_env(domain="source", render_mode='human')
+        else:
+            make_env(domain="source", render_mode='human')
     return env
 
 
@@ -131,12 +150,13 @@ class FrameStack(gym.Wrapper):
         self.observation_space = gym.spaces.Box(low=0, high=255, shape=(shp[0], shp[1], shp[2] * k), dtype=np.uint8)
 
     def reset(self):
-        ob, _ = self.env.reset()
+        ob = self.env.reset()
         for _ in range(self.k):
             if type(ob) != np.ndarray:
                 self.frames.append(ob['pixels'])
             else:
                 self.frames.append(ob)
+
         return self._get_ob()
 
     def step(self, action):
@@ -146,6 +166,7 @@ class FrameStack(gym.Wrapper):
             self.frames.append(ob['pixels'])
         else:
             self.frames.append(ob)
+        
             
         return self._get_ob(), reward, done, info
 
@@ -165,6 +186,8 @@ class ScaledFloatFrame(gym.ObservationWrapper):
             return np.array(observation['pixels']).astype(np.float32) / 255.0
         else:
             return np.array(observation).astype(np.float32) / 255.0
+        # observation['pixels'] = np.array(observation['pixels']).astype(np.float32) / 255.0
+        # return observation
 
 
 class LazyFrames(object):
@@ -174,10 +197,11 @@ class LazyFrames(object):
         buffers.
         This object should only be converted to numpy array before being passed to the model.
         You'd not believe how complex the previous solution was."""
-        if type(frames[0]) != np.ndarray:
-            self._frames = [frame['pixels'] for frame in frames]
-        else:
-            self._frames = frames
+        # if type(frames[0]) != np.ndarray:
+        #     self._frames = [frame['pixels'] for frame in frames]
+        # else:
+        #     self._frames = frames
+        self._frames = frames
         self._out = None
 
     def _force(self):
@@ -206,8 +230,9 @@ class ImageToPyTorch(gym.ObservationWrapper):
     def __init__(self, env):
         super(ImageToPyTorch, self).__init__(env)
         old_shape = self.observation_space.shape
-        self.observation_space = gym.spaces.Box(low=0.0, high=1.0, shape=(old_shape[-1], old_shape[0], old_shape[1]),
+        self.observation_space = gym.spaces.Box(low=0.0, high=255.0, shape=(old_shape[-1], old_shape[0], old_shape[1]),
                                                 dtype=np.uint8)
 
     def observation(self, observation):
         return np.swapaxes(observation, 2, 0)
+
