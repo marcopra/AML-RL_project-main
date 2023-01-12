@@ -161,3 +161,5 @@ SAC/dog.jpeg
 SAC/Hopper_CNN/first_run_1/events.out.tfevents.1673451038.sam-MSI.17483.0
 SAC/Hopper_CNN/SAC_1/events.out.tfevents.1673451308.sam-MSI.17483.1
 SAC/Hopper_CNN/SAC_2/events.out.tfevents.1673451574.sam-MSI.17483.2
+SAC/Normal_Hopper_CNN1/**
+SAC/Normal_Hopper_CNN/**
