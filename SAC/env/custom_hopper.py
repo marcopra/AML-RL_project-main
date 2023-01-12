@@ -45,7 +45,6 @@ class CustomHopper(MujocoEnv, utils.EzPickle):
         """
         m1 = self.model.body_mass[1]
 
-
         #+/- 0.5
         m2 = np.random.uniform(3.42699082, 4.42699082)
         m3 = np.random.uniform(2.31433605,3.31433605)

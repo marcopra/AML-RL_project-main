@@ -161,4 +161,11 @@ SAC/dog.jpeg
 SAC/Hopper_CNN/first_run_1/events.out.tfevents.1673451038.sam-MSI.17483.0
 SAC/Hopper_CNN/SAC_1/events.out.tfevents.1673451308.sam-MSI.17483.1
 SAC/Hopper_CNN/SAC_2/events.out.tfevents.1673451574.sam-MSI.17483.2
+<<<<<<< HEAD
 SAC/alg-sac_dom-source_img-False_ts-200000_nf-4_scaled-False.zip
+=======
+
+SAC/Normal_Hopper_CNN/**
+
+SAC/old/**
+>>>>>>> 9a00c138fffc777fa99f7e85dbb6667bc083d430
