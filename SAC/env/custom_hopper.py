@@ -44,9 +44,11 @@ class CustomHopper(MujocoEnv, utils.EzPickle):
         TODO
         """
         m1 = self.model.body_mass[1]
-        m2 = np.random.uniform(1.5, 3)
-        m3 = np.random.uniform(2,3)
-        m4 = np.random.uniform(2,3)
+
+        #+/- 0.5
+        m2 = np.random.uniform(3.42699082, 4.42699082)
+        m3 = np.random.uniform(2.31433605,3.31433605)
+        m4 = np.random.uniform(4.5893801,5.5893801)
 
         masses = np.array([m1, m2, m3, m4])
 
@@ -99,7 +101,7 @@ class CustomHopper(MujocoEnv, utils.EzPickle):
         qvel = self.init_qvel + self.np_random.uniform(low=-.005, high=.005, size=self.model.nv)
 
         # DOMAIN RANDOMIZATION!
-        # self.set_random_parameters()
+        self.set_random_parameters()
 
         # print(self.get_parameters())
         self.set_state(qpos, qvel)
@@ -122,9 +124,9 @@ def my_make_env(PixelObservation = True, stack_frames = 4, scale=False, domain =
         else:
             env = PixelObservationWrapper(gym.make('CustomHopper-target-v0'))
 
-        print("1")
+        
         env = WarpFrame(env)
-        print("2")
+        
 
         
         if scale:
@@ -275,13 +277,6 @@ class ImageToPyTorch(gym.ObservationWrapper):
 
     def __init__(self, env):
         super(ImageToPyTorch, self).__init__(env)
-
-        # if type(self.observation_space) != np.ndarray:
-        #     print("ciao" , self.observation_space)
-        #     print("ciao2" , self.observation_space.shape)
-        #     old_shape = self.observation_space['pixels'].shape
-        # else:
-        #     old_shape = self.observation_space.shape
             
         old_shape = self.observation_space.shape
         self.observation_space = gym.spaces.Box(low=0.0, high=255.0, shape=(old_shape[-1], old_shape[0], old_shape[1]),
