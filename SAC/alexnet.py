@@ -1,5 +1,6 @@
 
 import torch as th
+import torchvision
 import torch.nn as nn
 from gym import spaces
 from torchvision.models import alexnet
@@ -7,64 +8,37 @@ from stable_baselines3.common.torch_layers import BaseFeaturesExtractor
 
 class MyAlexNet(BaseFeaturesExtractor):
     """
-    Neural network model consisting of layers propsed by AlexNet paper.
+    Neural network model used ad Feature Extractor in SAC
     """
     def __init__(self, 
     observation_space: spaces.Box, 
-    features_dim: int = 256):
-        """
-        Define and allocate layers for this neural net.
-        Args:
-            num_classes (int): number of classes to predict with this model
-        """
+    features_dim: int = 256
+    ):
 
         super().__init__(observation_space, features_dim)
-        # input size should be : (b x 3 x 227 x 227)
-        # The image in the original paper states that width and height are 224 pixels, but
-        # the dimensions after first convolution layer do not lead to 55 x 55.
-        
-        n_input_channels = observation_space.shape[0]
-        self.net = alexnet(pretrained= True)
-        self.net.features[0] = nn.Conv2d(in_channels=n_input_channels, out_channels=64, kernel_size=11, stride=4)
-        #self.net.net[0] = nn.Conv2d(in_channels=n_input_channels, out_channels=96, kernel_size=11, stride=4)  # (b x 96 x 55 x 55)
 
+        self.aug_trans = nn.Sequential(
+            nn.ReplicationPad2d(5),  # 84x84 --> 94x94
+            torchvision.transforms.RandomCrop(size=(84,84)) )   #Then crops it to 84x84 again
+
+        n_input_channels = observation_space.shape[0]
+        self.net = alexnet()
+        self.net.features[0] = nn.Conv2d(in_channels=n_input_channels, out_channels=64, kernel_size=11, stride=4)
+       
         self.net.classifier[6] = nn.Linear(in_features=4096, out_features=features_dim)
         self.net.classifier[5] = nn.Tanh()
         self.net.classifier[2] = nn.Tanh()
         
-        # self.net = nn.Sequential(
-        #     nn.Conv2d(in_channels=n_input_channels, out_channels=96, kernel_size=11, stride=4),  # (b x 96 x 55 x 55)
-        #     nn.ReLU(),
-        #     nn.LocalResponseNorm(size=5, alpha=0.0001, beta=0.75, k=2),  # section 3.3
-        #     nn.MaxPool2d(kernel_size=3, stride=2),  # (b x 96 x 27 x 27)
-        #     nn.Conv2d(96, 256, 5, padding=2),  # (b x 256 x 27 x 27)
-        #     nn.ReLU(),
-        #     nn.LocalResponseNorm(size=5, alpha=0.0001, beta=0.75, k=2),
-        #     nn.MaxPool2d(kernel_size=3, stride=2),  # (b x 256 x 13 x 13)
-        #     nn.Conv2d(256, 384, 3, padding=1),  # (b x 384 x 13 x 13)
-        #     nn.ReLU(),
-        #     nn.Conv2d(384, 384, 3, padding=1),  # (b x 384 x 13 x 13)
-        #     nn.ReLU(),
-        #     nn.Conv2d(384, 256, 3, padding=1),  # (b x 256 x 13 x 13)
-        #     nn.ReLU(),
-        #     nn.MaxPool2d(kernel_size=3, stride=2),  # (b x 256 x 6 x 6)
-        # )
-        # # classifier is just a name for linear layers
-        # self.classifier = nn.Sequential(
-        #     nn.Dropout(p=0.5, inplace=True),
-        #     nn.Linear(in_features=(256 * 6 * 6), out_features=4096),
-        #     nn.Tanh(),
-        #     nn.Dropout(p=0.5, inplace=True),
-        #     nn.Linear(in_features=4096, out_features=4096),
-        #     nn.Tanh(),
-        #     nn.Linear(in_features=4096, out_features=features_dim),
-        # )
-        #self.init_bias()  # initialize bias
-
+        
     def forward(self, observations: th.Tensor) -> th.Tensor:
-        return self.net(observations)
+        
+       
+        x = observations
+        # Data Augmentation (DA)
+        # x = self.aug_trans(x)
+        x = self.net(x)
+        return x
 
 policy_kwargs = dict(
     features_extractor_class=MyAlexNet,
-    features_extractor_kwargs=dict(features_dim=128),
-)
+    features_extractor_kwargs=dict(features_dim=128) )
