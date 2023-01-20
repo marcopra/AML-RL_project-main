@@ -61,21 +61,6 @@ def main():
 						verbose=1,
 						device=args.device,
 						tensorboard_log="./Normal_Hopper_CNN/")
-
-	elif args.algorithm == 'ppo':
-		if args.pixel_obs:
-			model = PPO("CnnPolicy", 
-						env = env, 
-						buffer_size=5000,
-						batch_size=8,
-						policy_kwargs=policy_kwargs, 
-						verbose=1,
-						device=args.device,
-						tensorboard_log="./PPO_Hopper_CNN/"
-						)
-		else:
-			model = PPO("MlpPolicy", env, verbose=1,
-						device=args.device)
 	
 	model.learn(total_timesteps=args.time_steps, log_interval=100, progress_bar=True, tb_log_name=f" Resnet-{args.time_steps}-test") 
 	model.save(f"alg-{args.algorithm}_dom-{args.domain}_img-{args.pixel_obs}_ts-{args.time_steps}_nf-{args.n_frames}_scaled-{args.scaled_frames}")
