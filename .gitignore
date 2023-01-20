@@ -161,6 +161,30 @@ SAC/dog.jpeg
 SAC/Hopper_CNN/first_run_1/events.out.tfevents.1673451038.sam-MSI.17483.0
 SAC/Hopper_CNN/SAC_1/events.out.tfevents.1673451308.sam-MSI.17483.1
 SAC/Hopper_CNN/SAC_2/events.out.tfevents.1673451574.sam-MSI.17483.2
+SAC/alg-sac_dom-source_img-True_ts-200_nf-1_scaled-False.zip
+SAC/Hopper_CNN/0-100_1/events.out.tfevents.1673453367.sam-MSI.21680.0
+SAC/Hopper_CNN/sac-vb-log-16-01-23.zip
+SAC/Hopper_CNN/sac-vb-logs-23-01-17.zip
+SAC/Hopper_CNN/sac-vb-resnet-pretrained-logs.zip
+SAC/Hopper_CNN/ Resnet-200000-test_1/events.out.tfevents.1674216808.sam-MSI.4202.0
+SAC/Hopper_CNN/ Resnet-300000-DA-DR-pretrained_1/events.out.tfevents.1673976635.sam-MSI.13039.0
+SAC/Hopper_CNN/ Resnet-300000-DA-pretrained_1/events.out.tfevents.1673990994.sam-MSI.16771.0
+SAC/Hopper_CNN/ Resnet-300000-DR-noise-pretrained_1/events.out.tfevents.1674079409.sam-MSI.4819.0
+SAC/Hopper_CNN/ Resnet-300000-Raw-pretrained_1/events.out.tfevents.1673960928.sam-MSI.10023.0
+SAC/Hopper_CNN/Resnet-300000-DA-Noise/DA_LR_DEFAULT_NOISE.txt
+SAC/Hopper_CNN/Resnet-300000-DA-Noise/events.out.tfevents.1673870119.sam-MSI.27612.0
+SAC/Hopper_CNN/Resnet-300k-DA-DR-real/events.out.tfevents.1673930639.sam-MSI.4913.0
+SAC/Hopper_CNN/Resnet-300k-DA_2/events.out.tfevents.1673836238.sam-MSI.47386.0
+SAC/trains/resnet/da-dr-todo/alg-sac_dom-source_img-True_ts-300000_nf-4_scaled-False.zip
+SAC/trains/resnet/dr-done/alg-sac_dom-source_img-True_ts-300000_nf-4_scaled-False.zip
+SAC/trains/resnet/dr-noise-pretrained/alg-sac_dom-source_img-True_ts-300000_nf-4_scaled-False.zip
+SAC/trains/resnet/noise-da/alg-sac_dom-source_img-True_ts-300000_nf-4_scaled-False.zip
+SAC/trains/resnet/raw-pretrained/alg-sac_dom-source_img-True_ts-300000_nf-4_scaled-False.zip
+SAC/trains/stacked/alexnet_No_dr_DA/alg-sac_dom-source_img-True_ts-300000_nf-4_scaled-False.zip
+SAC/trains/stacked/no-da_si_dr_alexnet/alg-sac_dom-source_img-True_ts-300000_nf-4_scaled-False.zip
+SAC/trains/stacked/no-dr_no-da_alexnet/alg-sac_dom-source_img-True_ts-100000_nf-4_scaled-False.zip
+SAC/trains/stacked/no-dr_no-da_alexnet/alg-sac_dom-source_img-True_ts-300000_nf-4_scaled-False.zip
+.gitignore
 <<<<<<< HEAD
 SAC/alg-sac_dom-source_img-False_ts-200000_nf-4_scaled-False.zip
 =======
@@ -169,3 +193,4 @@ SAC/Normal_Hopper_CNN/**
 
 SAC/old/**
 >>>>>>> 9a00c138fffc777fa99f7e85dbb6667bc083d430
+SAC/train_session_template.sh

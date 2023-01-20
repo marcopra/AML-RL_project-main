@@ -25,6 +25,8 @@ class CustomHopper(MujocoEnv, utils.EzPickle):
         MujocoEnv.__init__(self, 4)
         utils.EzPickle.__init__(self)
 
+        self.dr = True  #a flag used to enable print "if there is Domain Randomization"
+
         self.original_masses = np.copy(self.sim.model.body_mass[1:])    # Default link masses
 
         if domain == 'source':  # Source environment has an imprecise torso mass (1kg shift)
@@ -44,13 +46,13 @@ class CustomHopper(MujocoEnv, utils.EzPickle):
         TODO
         """
         m1 = self.model.body_mass[1]
-
-        #+/- 0.5
+         #+/- 0.5
         m2 = np.random.uniform(3.42699082, 4.42699082)
         m3 = np.random.uniform(2.31433605,3.31433605)
         m4 = np.random.uniform(4.5893801,5.5893801)
 
         masses = np.array([m1, m2, m3, m4])
+
 
         # print("Masses: ",masses)
 
@@ -125,8 +127,9 @@ def my_make_env(PixelObservation = True, stack_frames = 4, scale=False, domain =
             env = PixelObservationWrapper(gym.make('CustomHopper-target-v0'))
 
         
-        env = WarpFrame(env)
+
         
+        env = WarpFrame(env)
 
         
         if scale:
@@ -148,16 +151,14 @@ class WarpFrame(gym.ObservationWrapper):
     def __init__(self, env):
         """Warp frames to 84x84 as done in the Nature paper and later work."""
         gym.ObservationWrapper.__init__(self, env)
-        self.width = 224
-        self.height = 224
-        self.channel = 3
+        self.width = 84
+        self.height = 84
         self.observation_space = gym.spaces.Box(low=0, high=255,
-                                            shape=(self.height, self.width, self.channel), dtype=np.uint8)
+                                            shape=(self.height, self.width, 1), dtype=np.uint8)
 
     def observation(self, frame):
         '''
         This function retrieves a resized frame of shape (`width` x `heigt`), converted from _RGB_ to _GRAY Scale_
-
         Parameters
         -----------
         `frame`: ndarray
@@ -165,10 +166,8 @@ class WarpFrame(gym.ObservationWrapper):
         
         `width`: int
             Value representing the width of the image
-
         `height`: int
             Value representing the height of the image
-
         Returns
         ----------
         Resized frame: ndarray
@@ -176,11 +175,10 @@ class WarpFrame(gym.ObservationWrapper):
         '''
         if type(frame) != np.ndarray:
             frame = frame['pixels']
-
-        #frame = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
+            
+        frame = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
         frame = cv2.resize(frame, (self.width, self.height), interpolation=cv2.INTER_AREA)
-
-        return frame
+        return frame[:, :, None]
 
 
 class FrameStack(gym.Wrapper):
@@ -195,6 +193,7 @@ class FrameStack(gym.Wrapper):
         self.k = k
         self.frames = deque([], maxlen=k)
         shp = env.observation_space.shape
+
         self.observation_space = gym.spaces.Box(low=0, high=255, shape=(shp[0], shp[1], shp[2] * k), dtype=np.uint8)
 
     def reset(self):
@@ -245,10 +244,7 @@ class LazyFrames(object):
         buffers.
         This object should only be converted to numpy array before being passed to the model.
         You'd not believe how complex the previous solution was."""
-        # if type(frames[0]) != np.ndarray:
-        #     self._frames = [frame['pixels'] for frame in frames]
-        # else:
-        #     self._frames = frames
+
         self._frames = frames
         self._out = None
 
@@ -277,16 +273,15 @@ class ImageToPyTorch(gym.ObservationWrapper):
 
     def __init__(self, env):
         super(ImageToPyTorch, self).__init__(env)
+
             
         old_shape = self.observation_space.shape
         self.observation_space = gym.spaces.Box(low=0.0, high=255.0, shape=(old_shape[-1], old_shape[0], old_shape[1]),
                                                 dtype=np.uint8)
 
     def observation(self, observation):
-        frame = np.swapaxes(observation, 2, 0)[None,:,:,:]
-        
-        return frame
-        # return np.swapaxes(observation, 2, 0)
+    
+        return np.swapaxes(observation, 2, 0)
 
 """
     Registered environments
