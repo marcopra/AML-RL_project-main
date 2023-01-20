@@ -19,9 +19,9 @@ def parse_args():
 	parser = argparse.ArgumentParser()
 	parser.add_argument('--time_steps', '-ts', default=200_000, type=int, help='Number of training episodes')
 	parser.add_argument('--print-every', default=500, type=int, help='Print info every <> episodes')
-	parser.add_argument('--device', default='cuda:0', type=str, help='network device [cpu, cuda]')
+	parser.add_argument('--device', default='cpu', type=str, help='network device [cpu, cuda]')
 	parser.add_argument('--domain', default='source', type=str, help='Choose train domain')
-	parser.add_argument('--pixel_obs', default=True, type=bool, help='Activate pixel observation')
+	parser.add_argument('--pixel_obs', default=False, type=bool, help='Activate pixel observation')
 	parser.add_argument('--n_frames','-nf' , default=4, type=int, help='Number of stacked frames')
 	parser.add_argument('--scaled_frames', '-sf', action='store_true', default=False, help='Activate to use scaled frames')
 	parser.add_argument('--algorithm', default='sac', type=str, help='choose the algorithm [ppo, sac]')
@@ -55,7 +55,26 @@ def main():
 						tensorboard_log="./Hopper_CNN/"
 						)
 		else:
-			model = SAC("MlpPolicy", env, verbose=1,
+			model = SAC("MlpPolicy", 
+						env = env, 
+						buffer_size=5000,
+						verbose=1,
+						device=args.device,
+						tensorboard_log="./Normal_Hopper_CNN/")
+
+	elif args.algorithm == 'ppo':
+		if args.pixel_obs:
+			model = PPO("CnnPolicy", 
+						env = env, 
+						buffer_size=5000,
+						batch_size=8,
+						policy_kwargs=policy_kwargs, 
+						verbose=1,
+						device=args.device,
+						tensorboard_log="./PPO_Hopper_CNN/"
+						)
+		else:
+			model = PPO("MlpPolicy", env, verbose=1,
 						device=args.device)
 	
 	model.learn(total_timesteps=args.time_steps, log_interval=100, progress_bar=True, tb_log_name=f" Resnet-{args.time_steps}-test") 

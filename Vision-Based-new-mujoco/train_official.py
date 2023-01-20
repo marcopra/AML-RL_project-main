@@ -24,11 +24,13 @@ print("Using torch version: {}".format(torch.__version__))
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--debug', default=True, type=bool, help='Activate to work and plot locally')
+    parser.add_argument('--debug', default=True, action = 'store_true', help='Activate to work and plot locally')
+    parser.add_argument('--pixel_obs', default=True,  action = 'store_true', help='Activate to work with pixel observations')
+    parser.add_argument('--pixels_only', default=True,  action = 'store_true',help='Activate to have also the real observation')
     parser.add_argument('--backup_every', default=999, type=int, help='Backup every N episodes')
     parser.add_argument('--print_every', default=5000, type=int, help='Print plots every N episodes')
     parser.add_argument('--point_distance', '-pd', default=50, type=int, help='Distance between points for plots')
-    parser.add_argument('--from_checkpoint', '-ckpt', default=False, type=bool, help='Activate to start training from checkpoint')
+    parser.add_argument('--from_checkpoint', '-ckpt', default=False,  action = 'store_true',help='Activate to start training from checkpoint')
     parser.add_argument('--stop_critic', default=None, type=int, help='When (Episode) to stop the Critic Network Training, if None -> training no stop')
 
 
@@ -39,19 +41,19 @@ def parse_args():
     parser.add_argument('--max_episodes', default=80000, type=int, help='Max N of episodes')
     parser.add_argument('--max_steps', default=2000, type=int, help='Max N of steps in one episode')
 
-    parser.add_argument('--noise', default=True, type=bool, help='Noise for training')
+    parser.add_argument('--noise', default=True,  action = 'store_true',help='Noise for training')
     parser.add_argument('--epsilon', default=1, type=int, help='Starting value for noise')
     parser.add_argument('--noise_decay', default= 1./10000, type=int, help='Noise decay')
     parser.add_argument('--noise_prob', default=0.5, type=int, help='Probability of adding noise during training')
 
     parser.add_argument('--backbone_actor', default='ddpg', type=str, help='Backbone for Actor [ddpg, td3]')
     parser.add_argument('--backbone_critic', default='ddpg', type=str, help='Backbone for Actor [ddpg, td3]')
-    parser.add_argument('--domain_randomization', '-dr', default=False, type=bool, help='Add domain randomization during the training')
+    parser.add_argument('--domain_randomization', '-dr', default=False, action = 'store_true', help='Add domain randomization during the training')
 
     # TODO: da mettere a target
     parser.add_argument('--domain_test', default="source", type=str, help='choose the domain for testing [source, target]')
     parser.add_argument('--stack_frames', default=1, type=int, help='N of stacked frames, must be >= 1')
-    parser.add_argument('--scaled_frames', default=False, type=bool, help='Frames scaled between 0. and 1.')
+    parser.add_argument('--scaled_frames', default=False,  action = 'store_true',help='Frames scaled between 0. and 1.')
 
     parser.add_argument('--gamma', default=0.99, type=int, help='Gamma value for Critic Network Loss, must be between 0. and 1.')
     parser.add_argument('--tau', default=0.001, type=int, help='Constant for soft update of networks, must be between 0. and 1.')
@@ -66,6 +68,8 @@ args = parse_args()
 def config():
 
     global DEBUG # TODO not implemented
+    global PIXEL_OBS
+    global PIXELS_ONLY
     global BACKUP_EVERY #Backup of Critic, Target_Critic, Actor and Target_Actor every BACKUP_EVERY episodes
     global PRINT_EVERY  #Print info and plots about average reward every PRINT_EVERY
     global POINT_DISTANCE # Distance of points for plot is of POINT_DISTANCE episodes 
@@ -107,6 +111,8 @@ def config():
     #TODO inserire controlli
 
     DEBUG = args.debug 
+    PIXEL_OBS = args.pixel_obs
+    PIXELS_ONLY = args.pixels_only
     BACKUP_EVERY = args.backup_every 
     PRINT_EVERY = args.print_every 
     POINT_DISTANCE = args.point_distance 
@@ -154,8 +160,10 @@ def main():
     global epsilon
     global NOISE
     
-    env = my_make_env(stack_frames=STACK_FRAMES, scale=SCALED_FRAMES )
-    test_env = my_make_env(stack_frames=STACK_FRAMES, scale=SCALED_FRAMES, domain=DOMAIN_TEST_ENV)
+    # env = my_make_env(stack_frames=STACK_FRAMES, scale=SCALED_FRAMES )
+    env = my_make_env(PixelObservation = PIXEL_OBS, pixels_only=PIXELS_ONLY, stack_frames = STACK_FRAMES, scale=SCALED_FRAMES)
+    test_env = my_make_env(PixelObservation = PIXEL_OBS, pixels_only=PIXELS_ONLY, stack_frames = STACK_FRAMES, scale=SCALED_FRAMES, domain=DOMAIN_TEST_ENV)
+    
 
     print('State space:', env.observation_space)  # state-space
     print('Action space:', env.action_space)  # action-space

@@ -104,9 +104,6 @@ class CustomHopper(MujocoEnv, utils.EzPickle):
 
         # DOMAIN RANDOMIZATION!
         self.set_random_parameters()
-        if self.dr : 
-            print("\n\n\t\t DOMAIN RANDOMIZATION")
-            self.dr = False
 
         # print(self.get_parameters())
         self.set_state(qpos, qvel)
@@ -128,6 +125,8 @@ def my_make_env(PixelObservation = True, stack_frames = 4, scale=False, domain =
             env = PixelObservationWrapper(gym.make('CustomHopper-source-v0'))
         else:
             env = PixelObservationWrapper(gym.make('CustomHopper-target-v0'))
+
+        
 
         
         env = WarpFrame(env)

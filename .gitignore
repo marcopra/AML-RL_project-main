@@ -185,3 +185,12 @@ SAC/trains/stacked/no-da_si_dr_alexnet/alg-sac_dom-source_img-True_ts-300000_nf-
 SAC/trains/stacked/no-dr_no-da_alexnet/alg-sac_dom-source_img-True_ts-100000_nf-4_scaled-False.zip
 SAC/trains/stacked/no-dr_no-da_alexnet/alg-sac_dom-source_img-True_ts-300000_nf-4_scaled-False.zip
 .gitignore
+<<<<<<< HEAD
+SAC/alg-sac_dom-source_img-False_ts-200000_nf-4_scaled-False.zip
+=======
+
+SAC/Normal_Hopper_CNN/**
+
+SAC/old/**
+>>>>>>> 9a00c138fffc777fa99f7e85dbb6667bc083d430
+SAC/train_session_template.sh
