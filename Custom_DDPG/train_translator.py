@@ -1,3 +1,4 @@
+"""Raw Script - idea: use a translator network which map image -> state"""
 
 from env_utils import *
 from alexnet import MyAlexNet
@@ -5,22 +6,15 @@ import torch
 import gymnasium as gym
 from gymnasium.spaces import Box, Discrete
 from gymnasium.wrappers.pixel_observation import PixelObservationWrapper
-import argparse
+
 import os
 os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 from env_utils import *
-from Model.Actor import Policy
-from Model.Critic import StateValue
-from utils import OrnsteinUhlenbeckActionNoise, replayBuffer, subplot, obs_processing
-from contextlib import redirect_stdout
 
 from torch import nn 
 import torch.nn.functional as F 
 import torch.optim as opt 
 from tqdm import tqdm_notebook as tqdm
-import random
-from copy import copy, deepcopy
-from collections import deque
 import numpy as np
 print("Using torch version: {}".format(torch.__version__))
 cuda = torch.cuda.is_available() #check for CUDA
@@ -68,11 +62,8 @@ def main():
     print(env.observation_space['state'].shape[0])
     print(env.observation_space['pixels'])
 
-    print('State space:', env.observation_space)  # state-space
-    
+    print('State space:', env.observation_space)  # state-space    
     print('Action space:', env.action_space)  # action-space
-    # print('State space h:', env.action_space.high) # Upper-bound for action space
-    # print('State space l:', env.action_space.low) # Lowe-bound for action space
     print('Dynamics parameters:', env.get_parameters())  # masses of each link of the Hopper
 
     translator = MyAlexNet(env.observation_space['pixels'], env.observation_space['state'].shape[0])
