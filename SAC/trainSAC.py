@@ -26,7 +26,7 @@ except:
 
 def parse_args():
 	parser = argparse.ArgumentParser()
-	parser.add_argument('--time_steps', '-ts', default=200_000, type=int, help='Number of training episodes')
+	parser.add_argument('--time_steps', default=100000, type=int, help='Number of training episodes')
 	parser.add_argument('--print-every', default=500, type=int, help='Print info every <> episodes')
 	parser.add_argument('--device', default='cpu', type=str, help='network device [cpu, cuda]')
 	parser.add_argument('--domain', default='source', type=str, help='Choose train domain')
@@ -56,55 +56,23 @@ def main():
    
 		Training
 	"""
-	if args.algorithm == 'sac':
-		if args.pixel_obs:
-			model = SAC("CnnPolicy", 
-						env = env, 
-						buffer_size=5000,
-						batch_size=8,
-						policy_kwargs=policy_kwargs, 
-						verbose=1,
-						device=args.device,
-						tensorboard_log="./Hopper_CNN/"
-						)
-		else:
-			model = SAC("MlpPolicy", 
-						env = env, 
-						buffer_size=5000,
-						verbose=1,
-						device=args.device,
-						tensorboard_log="./Normal_Hopper_CNN/")
 
-	elif args.algorithm == 'ppo':
-		if args.pixel_obs:
-			model = PPO("CnnPolicy", 
-						env = env, 
-						buffer_size=5000,
-						batch_size=8,
-						policy_kwargs=policy_kwargs, 
-						verbose=1,
-						device=args.device,
-						tensorboard_log="./PPO_Hopper_CNN/"
-						)
-		else:
-			model = PPO("MlpPolicy", env, verbose=1,
-						device=args.device)
+	model = SAC("MlpPolicy", 
+				env = env, 
+				verbose = 1,
+				seed = 4,
+				device=args.device
+				)
+
 
 	# tensorboard --logdir ./Normal_Hopper_CNN/
-	model.learn(total_timesteps=args.time_steps, log_interval=100, progress_bar=True, tb_log_name=f"alg-{args.algorithm}_dom-{args.domain}_img-{args.pixel_obs}_ts-{args.time_steps}_nf-{args.n_frames}_scaled-{args.scaled_frames}")
-	model.save(f"alg-{args.algorithm}_dom-{args.domain}_img-{args.pixel_obs}_ts-{args.time_steps}_nf-{args.n_frames}_scaled-{args.scaled_frames}")
+	model.learn(total_timesteps=100000, log_interval=100)
+	model.save(path="alg-sac_dom-target_img-False_ts-100000_nf-4_scaled-False_dr-True_batchsize-default")
 	
-	model.learn(total_timesteps=args.time_steps, log_interval=100, progress_bar=True, tb_log_name=f"alg-{args.algorithm}_dom-{args.domain}_img-{args.pixel_obs}_ts-{2*args.time_steps}_nf-{args.n_frames}_scaled-{args.scaled_frames}")
-	model.save(f"alg-{args.algorithm}_dom-{args.domain}_img-{args.pixel_obs}_ts-{2*args.time_steps}_nf-{args.n_frames}_scaled-{args.scaled_frames}")
+
+	model.learn(total_timesteps=300000, log_interval=100)
+	model.save(f"alg-{args.algorithm}_dom-{args.domain}_img-{args.pixel_obs}_ts-{3*args.time_steps}_nf-{args.n_frames}_scaled-{args.scaled_frames}_DR-True_seed_q")
 	
-	model.learn(total_timesteps=args.time_steps, log_interval=100, progress_bar=True, tb_log_name=f"alg-{args.algorithm}_dom-{args.domain}_img-{args.pixel_obs}_ts-{3*args.time_steps}_nf-{args.n_frames}_scaled-{args.scaled_frames}")
-	model.save(f"alg-{args.algorithm}_dom-{args.domain}_img-{args.pixel_obs}_ts-{3*args.time_steps}_nf-{args.n_frames}_scaled-{args.scaled_frames}")
-	
-	model.learn(total_timesteps=args.time_steps, log_interval=100, progress_bar=True, tb_log_name=f"alg-{args.algorithm}_dom-{args.domain}_img-{args.pixel_obs}_ts-{4*args.time_steps}_nf-{args.n_frames}_scaled-{args.scaled_frames}")
-	model.save(f"alg-{args.algorithm}_dom-{args.domain}_img-{args.pixel_obs}_ts-{4*args.time_steps}_nf-{args.n_frames}_scaled-{args.scaled_frames}")
-	
-	model.learn(total_timesteps=args.time_steps, log_interval=100, progress_bar=True, tb_log_name=f"alg-{args.algorithm}_dom-{args.domain}_img-{args.pixel_obs}_ts-{5*args.time_steps}_nf-{args.n_frames}_scaled-{args.scaled_frames}")
-	model.save(f"alg-{args.algorithm}_dom-{args.domain}_img-{args.pixel_obs}_ts-{5*args.time_steps}_nf-{args.n_frames}_scaled-{args.scaled_frames}")
 	
 
 if __name__ == '__main__':

@@ -67,31 +67,39 @@ def test_on(domain , model_path):
 
 		all_rewards.append(episode_reward)
 
+	if domain == 'source':
+		print(f"* s-s {int(np.mean(all_rewards))}$\pm${int(np.std(all_rewards))}")
+	else:
+		print(f"* s-t:  {int(np.mean(all_rewards))}$\pm${int(np.std(all_rewards))}")
 
-	print(f"AvgReward: {np.mean(all_rewards)} and devSTD: {np.std(all_rewards)}")
 	
 
 if __name__ == '__main__':
 	
 	src_model = []
-	path = 'trains/stacked/'
-	src_model = [f for f in listdir('trains/stacked/') if isfile(join('trains/stacked/', f))]
-	print(src_model)
-	#src_model.append("alg-sac_dom-source_img-True_ts-2000000_nf-1_scaled-True.zip")
-	# src_model.append("alg-sac_dom-source_img-True_ts-400000_nf-1_scaled-True.zip")
-	# src_model.append("alg-sac_dom-source_img-True_ts-600000_nf-1_scaled-True.zip")
-	# src_model.append("alg-sac_dom-source_img-True_ts-800000_nf-1_scaled-True.zip")
-	# src_model.append("alg-sac_dom-source_img-True_ts-1000000_nf-1_scaled-True.zip")
+	# path = 'trains/stacked/'
+	# src_model = [f for f in listdir('trains/stacked/') if isfile(join('trains/stacked/', f))]
+	# print(src_model)
+	src_model.append("alg-sac_dom-source_img-False_ts-100000_nf-4_scaled-False_dr-False_batchsize-default.zip")
+	src_model.append("alg-sac_dom-target_img-False_ts-100000_nf-4_scaled-False_dr-False_batchsize-default.zip")
+
+	src_model.append("alg-sac_dom-source_img-False_ts-100000_nf-4_scaled-False_dr-True_batchsize-default.zip")
+
+	src_model.append("alg-sac_dom-source_img-False_ts-400000_nf-4_scaled-False_dr-False_batchsize-default.zip")
+	src_model.append("alg-sac_dom-target_img-False_ts-400000_nf-4_scaled-False_dr-False_batchsize-default.zip")
+
+	src_model.append("alg-sac_dom-source_img-False_ts-400000_nf-4_scaled-False_dr-True_batchsize-default.zip")
+	
 	
 	for src_mod in src_model:
-		print("Testing: ", src_mod.removesuffix('.zip'))
+		print("-----Testing: ", src_mod.removesuffix('.zip'), "-------------")
 
-		print("\n########################################################################## \
-				\t\t\t\t\t\t\t\t\t\t ON SOURCE\n\
-	###########################################################################")
-		test_on('source', path + src_mod)
+	# 	print("\n########################################################################## \
+	# 			\t\t\t\t\t\t\t\t\t\t ON SOURCE\n\
+	# ###########################################################################")
+		test_on('source', src_mod)
 
-		print("\n########################################################################### \
-				\t\t\t\t\t\t\t\t\t\t ON TARGET\n\
-	############################################################################")
-		test_on('target', path + src_mod)
+	# 	print("\n########################################################################### \
+	# 			\t\t\t\t\t\t\t\t\t\t ON TARGET\n\
+	# ############################################################################")
+		test_on('target', src_mod)

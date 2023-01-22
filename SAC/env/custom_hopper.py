@@ -101,7 +101,7 @@ class CustomHopper(MujocoEnv, utils.EzPickle):
         qvel = self.init_qvel + self.np_random.uniform(low=-.005, high=.005, size=self.model.nv)
 
         # DOMAIN RANDOMIZATION!
-        self.set_random_parameters()
+        # self.set_random_parameters()
 
         # print(self.get_parameters())
         self.set_state(qpos, qvel)
@@ -117,6 +117,7 @@ class CustomHopper(MujocoEnv, utils.EzPickle):
 
 def my_make_env(PixelObservation = True, stack_frames = 4, scale=False, domain = "source"):
     """Configure the environment."""
+    print("ciaooaoo",domain)
     assert domain in ['source', 'target'], f"Please choose a domain in ['source', 'target']. The domain {domain} is not valid!"
     if PixelObservation:
         if domain == 'source': 
