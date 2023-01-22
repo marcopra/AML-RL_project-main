@@ -129,14 +129,14 @@ dmypy.json
 .pyre/
 
 
-Vision-Based-new-mujoco/models_saved/**
-Vision-Based-new-mujoco/actor_critic_backup/**
-Vision-Based-new-mujoco/plot/**
-Vision-Based-new-mujoco/History/**
-Vision-Based-new-mujoco/History/**
-Vision-Based-new-mujoco/actor_critic_backup/**
-Vision-Based-new-mujoco/.DS_Store
-Vision-Based-new-mujoco/.DS_Store
+Custom_DDPG/models_saved/**
+Custom_DDPG/actor_critic_backup/**
+Custom_DDPG/plot/**
+Custom_DDPG/History/**
+Custom_DDPG/History/**
+Custom_DDPG/actor_critic_backup/**
+Custom_DDPG/.DS_Store
+Custom_DDPG/.DS_Store
 WrongPlots/**
 
 .DS_Store
@@ -184,13 +184,11 @@ SAC/trains/stacked/alexnet_No_dr_DA/alg-sac_dom-source_img-True_ts-300000_nf-4_s
 SAC/trains/stacked/no-da_si_dr_alexnet/alg-sac_dom-source_img-True_ts-300000_nf-4_scaled-False.zip
 SAC/trains/stacked/no-dr_no-da_alexnet/alg-sac_dom-source_img-True_ts-100000_nf-4_scaled-False.zip
 SAC/trains/stacked/no-dr_no-da_alexnet/alg-sac_dom-source_img-True_ts-300000_nf-4_scaled-False.zip
-.gitignore
-<<<<<<< HEAD
+
 SAC/alg-sac_dom-source_img-False_ts-200000_nf-4_scaled-False.zip
-=======
 
 SAC/Normal_Hopper_CNN/**
 
 SAC/old/**
->>>>>>> 9a00c138fffc777fa99f7e85dbb6667bc083d430
 SAC/train_session_template.sh
+materials.md
