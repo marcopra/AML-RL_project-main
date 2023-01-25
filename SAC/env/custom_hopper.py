@@ -48,13 +48,11 @@ class CustomHopper(MujocoEnv, utils.EzPickle):
         m1 = self.model.body_mass[1]
          #+/- 0.5
         m2 = np.random.uniform(3.42699082, 4.42699082)
-        m3 = np.random.uniform(2.31433605,3.31433605)
+        m3 = np.random.uniform(2.21433605,3.21433605)
         m4 = np.random.uniform(4.5893801,5.5893801)
 
         masses = np.array([m1, m2, m3, m4])
 
-
-        # print("Masses: ",masses)
 
         return masses
 
