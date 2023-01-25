@@ -34,7 +34,6 @@ def main():
 	args = parse_args()
 
 	env = my_make_env(PixelObservation=args.pixel_obs, stack_frames=args.n_frames, scale=args.scaled_frames, domain=args.domain)
-	env.render(mode="rgb_array", width=84, height=84)
 
 	print('Action space:', env.action_space)
 	print('State space:', env.observation_space)
