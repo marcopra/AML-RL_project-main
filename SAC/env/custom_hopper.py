@@ -119,7 +119,7 @@ class CustomHopper(MujocoEnv, utils.EzPickle):
 
 def my_make_env(PixelObservation = True, stack_frames = 4, scale=False, domain = "source"):
     """Configure the environment."""
-    print("ciaooaoo",domain)
+    
     assert domain in ['source', 'target'], f"Please choose a domain in ['source', 'target']. The domain {domain} is not valid!"
     if PixelObservation:
         if domain == 'source': 
