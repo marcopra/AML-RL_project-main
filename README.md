@@ -1,10 +1,11 @@
 # Final code for course project of Advanced Machine Learning (AML) 2022
 "Sim-to-Real transfer of Reinforcement Learning policies in robotics" exam project.
+Official paper with the description of the project [here](https://github.com/marcopra/RL-vision-based/blob/master/Learning%20from%20Pixels%20and%20Domain%20Randomization%20using%20SAC.pdf).
 
 ## Overview
 
 Here you can find two folders `SAC` and `Custom_DDPG`. The `SAC` folder contains the code for the main part of the report, while `Custom_DDPG`is an extra part we made for curiosity and to understand better the subject. 
-Official paper with the description of the project [here](https://github.com/marcopra/RL-vision-based/blob/master/Learning%20from%20Pixels%20and%20Domain%20Randomization%20using%20SAC.pdf)
+
 
 
 ## Getting started
